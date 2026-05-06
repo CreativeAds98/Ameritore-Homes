@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ameritore Homes – Projects</title>
+<link rel="icon" type="image/png" href="./assets/favicon.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #0d1117;
+  --bg-sidebar: #111519;
+  --bg-card: #161b22;
+  --bg-card2: #1a2030;
+  --accent-gold: #c8853a;
+  --accent-gold-light: #d9934a;
+  --text-white: #ffffff;
+  --text-light: #d0d5dd;
+  --text-muted: #8a9ab0;
+  --text-subtle: #5a6a7e;
+  --border: rgba(255,255,255,0.07);
+  --border-light: rgba(255,255,255,0.12);
+  --sidebar-w: 140px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed; top: 0; left: 0;
+  width: var(--sidebar-w); height: 100vh;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center;
+  z-index: 100; padding: 28px 0 32px;
+}
+.sidebar-logo { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 40px; text-decoration: none; }
+.logo-icon { width: 44px; height: 44px; }
+.logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 2px; color: #fff; display: block; text-align: center; }
+.logo-text .sub { font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--text-muted); display: block; margin-top: 2px; text-align: center; }
+.sidebar-nav { flex: 1; width: 100%; display: flex; flex-direction: column; gap: 2px; padding: 0 10px; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 8px; text-decoration: none; color: var(--text-muted); font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; transition: all 0.2s; }
+.nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.nav-item.active { background: rgba(200,133,58,0.15); color: var(--text-white); border: 1px solid rgba(200,133,58,0.2); }
+.nav-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.75; }
+.nav-item.active .nav-icon { opacity: 1; }
+.sidebar-bottom { text-align: center; padding: 0 10px; }
+.build-cta { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; line-height: 1.4; margin-bottom: 10px; }
+.sidebar-arrow { width: 32px; height: 32px; border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; margin: 0 auto; }
+.sidebar-arrow:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
+
+/* ── MAIN ── */
+.main { margin-left: var(--sidebar-w); }
+
+/* ── TOPBAR ── */
+.topbar { position: absolute; top: 0; right: 0; padding: 22px 32px; display: flex; align-items: center; gap: 12px; z-index: 50; }
+.client-portal-btn { display: flex; align-items: center; gap: 8px; background: rgba(13,17,23,0.6); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 24px; padding: 9px 20px; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+.client-portal-btn:hover { border-color: var(--accent-gold); color: #fff; }
+.menu-btn { width: 40px; height: 40px; background: rgba(13,17,23,0.6); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+.menu-btn:hover { border-color: var(--accent-gold); }
+
+/* ── HERO ── */
+.hero { position: relative; height: 560px; overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(13,17,23,0.88) 22%, rgba(13,17,23,0.4) 55%, rgba(13,17,23,0.1) 100%),
+    linear-gradient(to bottom, rgba(13,17,23,0) 50%, rgba(13,17,23,0.95) 100%),
+    url('./assets/background-1.png') center/cover no-repeat;
+}
+.hero-content { position: relative; z-index: 2; padding: 100px 0 0 48px; }
+.hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; animation: fadeUp 0.5s ease both; }
+.hero-eyebrow::before { content: '›'; color: var(--accent-gold); font-size: 16px; }
+.hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: 96px; font-weight: 800; line-height: 0.9; letter-spacing: -2px; text-transform: uppercase; color: #fff; animation: fadeUp 0.5s ease 0.1s both; margin-bottom: 32px; }
+
+/* ── TAB SWITCHER ── */
+.tab-row { display: flex; align-items: center; gap: 0; animation: fadeUp 0.5s ease 0.2s both; }
+.tab-btn { padding: 13px 36px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border: 1px solid transparent; border-radius: 30px; }
+.tab-btn.active { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
+.tab-btn.inactive { color: var(--text-muted); }
+.tab-btn.inactive:hover { color: var(--text-light); }
+
+/* ── HERO SIDE CARD ── */
+.hero-side-card { position: absolute; right: 32px; top: 50%; transform: translateY(-60%); background: rgba(13,17,23,0.75); backdrop-filter: blur(16px); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 26px; min-width: 230px; z-index: 10; animation: fadeUp 0.6s ease 0.25s both; }
+.side-card-title { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.side-card-list { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+.side-card-item { display: flex; align-items: center; gap: 10px; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+.side-icon { width: 17px; height: 17px; color: var(--accent-gold); flex-shrink: 0; }
+.side-stat { display: flex; align-items: flex-end; gap: 6px; margin-top: 14px; }
+.stat-number { font-family: 'Barlow Condensed', sans-serif; font-size: 50px; font-weight: 700; color: var(--accent-gold); line-height: 1; }
+.stat-plus { font-size: 26px; font-weight: 700; color: var(--accent-gold); line-height: 1.3; }
+.stat-label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; line-height: 1.3; margin-bottom: 4px; }
+
+/* ── PROJECT CARDS SECTION ── */
+.projects-section { background: var(--bg-dark); padding: 0 20px 0; position: relative; margin-top: -120px; z-index: 10; }
+
+.slider-wrapper { position: relative; display: flex; align-items: stretch; gap: 0; }
+
+.slider-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 34px; height: 34px; background: rgba(22,27,34,0.9); border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-light); font-size: 16px; transition: all 0.2s; flex-shrink: 0; }
+.slider-nav:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+.slider-nav.prev { left: -4px; }
+.slider-nav.next { right: 0px; }
+
+.cards-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex: 1; padding: 0 44px; }
+
+/* ── PROJECT CARD ── */
+.project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; cursor: pointer; display: flex; flex-direction: column; }
+.project-card:hover { transform: translateY(-3px); border-color: var(--border-light); }
+
+.card-img-wrap { position: relative; height: 200px; overflow: hidden; }
+.card-img-wrap img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: filter 0.3s, transform 0.3s; }
+.project-card:hover .card-img-wrap img { filter: brightness(1); transform: scale(1.03); }
+
+.card-num-badge { position: absolute; top: 12px; right: 12px; background: rgba(13,17,23,0.7); border: 1px solid var(--border-light); border-radius: 5px; padding: 3px 9px; font-size: 12px; font-weight: 700; color: var(--text-light); backdrop-filter: blur(4px); }
+
+.card-body { padding: 16px 16px 14px; flex: 1; display: flex; flex-direction: column; }
+
+.card-name { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; letter-spacing: 0.3px; }
+
+.card-status { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+.card-status .pct { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+
+.card-milestones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.milestone { display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center; }
+.milestone svg { width: 22px; height: 22px; color: var(--accent-gold); opacity: 0.8; }
+.milestone-label { font-size: 9px; font-weight: 600; letter-spacing: 0.8px; color: var(--text-muted); text-transform: none; line-height: 1.3; }
+
+.card-specs { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+.card-specs strong { color: var(--text-light); font-weight: 600; }
+.card-specs span { margin: 0 6px; color: var(--border-light); }
+
+.explore-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-light); border-radius: 5px; padding: 10px 18px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); cursor: pointer; transition: all 0.2s; width: 100%; margin-top: auto; }
+.explore-btn:hover { background: rgba(200,133,58,0.15); border-color: var(--accent-gold); color: var(--accent-gold); }
+.explore-btn .arr { width: 20px; height: 20px; border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: border-color 0.2s; }
+.explore-btn:hover .arr { border-color: var(--accent-gold); }
+.completed-status { color: #4caf7d !important; }
+.slide-counter { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--text-muted); text-align: center; margin-top: 12px; }
+#ongoing-cards { transition: opacity 0.35s ease, transform 0.35s ease; }
+
+/* ── COMPLETED SIDEBAR MINI CARDS ── */
+.completed-col { width: 200px; flex-shrink: 0; display: flex; flex-direction: column; gap: 10px; padding-bottom: 0; }
+
+.completed-card { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.2s; }
+.completed-card:hover { transform: translateY(-2px); }
+.completed-card img { width: 100%; height: 85px; object-fit: cover; display: block; filter: brightness(0.7); transition: filter 0.3s; }
+.completed-card:hover img { filter: brightness(0.9); }
+.completed-tag { position: absolute; top: 8px; left: 8px; background: var(--accent-gold); color: #fff; font-size: 8px; font-weight: 800; letter-spacing: 1.5px; padding: 3px 7px; border-radius: 3px; text-transform: uppercase; }
+
+.completed-info { background: var(--bg-card); border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 10px 12px 12px; }
+.completed-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: #fff; }
+.completed-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+.book-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-light); border-radius: 4px; padding: 7px 12px; font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); cursor: pointer; transition: all 0.2s; margin-top: 8px; width: 100%; justify-content: center; }
+.book-btn:hover { background: rgba(200,133,58,0.15); border-color: var(--accent-gold); color: var(--accent-gold); }
+
+/* ── BOTTOM STRIP ── */
+.bottom-strip {
+  display: grid; grid-template-columns: 260px 1fr auto; align-items: center;
+  border-top: 1px solid var(--border); margin-top: 32px;
+}
+.strip-visual { padding: 0 28px; display: flex; align-items: center; justify-content: center; }
+.strip-visual-img { width: 200px; height: 130px; object-fit: cover; border-radius: 6px; filter: hue-rotate(200deg) brightness(0.85) saturate(1.5); opacity: 0.85; }
+.strip-body { padding: 28px 28px 28px 0; }
+.strip-label { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
+.strip-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; max-width: 280px; }
+.strip-features { display: flex; border-left: 1px solid var(--border); }
+.strip-feat { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 26px; border-right: 1px solid var(--border); text-align: center; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; transition: background 0.2s; cursor: pointer; }
+.strip-feat:hover { background: rgba(255,255,255,0.03); color: var(--text-light); }
+.strip-feat svg { width: 28px; height: 28px; color: var(--accent-gold); opacity: 0.8; }
+.strip-cta { padding: 0 40px 0 28px; text-align: right; }
+.strip-cta-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; color: #fff; line-height: 1.1; margin-bottom: 6px; }
+.strip-cta-sub { font-size: 11px; color: var(--text-muted); margin-bottom: 14px; }
+.diamond-btn { width: 40px; height: 40px; border: 1px solid var(--border-light); transform: rotate(45deg); display: flex; align-items: center; justify-content: center; cursor: pointer; margin-left: auto; transition: all 0.2s; }
+.diamond-btn:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
+.diamond-btn svg { transform: rotate(-45deg); color: var(--text-light); width: 14px; height: 14px; }
+
+/* ════════════════════════════════════════════════════
+   PROJECT POPUP MODAL
+════════════════════════════════════════════════════ */
+#project-popup, #tour-modal {
+  position: fixed; inset: 0;
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0; transition: opacity 0.32s ease;
+}
+#project-popup.visible, #tour-modal.visible { opacity: 1; }
+
+.pop-overlay {
+  position: absolute; inset: 0;
+  background: rgba(5,8,14,0.88);
+  backdrop-filter: blur(6px);
+}
+
+/* ── Main popup modal ── */
+.pop-modal {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  width: min(1100px, 96vw);
+  max-height: 90vh;
+  background: linear-gradient(135deg, #0f1520 0%, #131925 60%, #0d1117 100%);
+  border: 1px solid rgba(200,133,58,0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(200,133,58,0.12), 0 32px 80px rgba(0,0,0,0.7);
+  animation: popSlideUp 0.35s cubic-bezier(0.34,1.36,0.64,1) both;
+}
+
+@keyframes popSlideUp {
+  from { transform: translateY(40px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.pop-close {
+  position: absolute; top: 16px; right: 16px; z-index: 10;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%; color: var(--text-light);
+  font-size: 14px; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.pop-close:hover { background: rgba(200,133,58,0.2); border-color: var(--accent-gold); color: #fff; box-shadow: 0 0 12px rgba(200,133,58,0.4); }
+
+/* ── Left panel ── */
+.pop-left {
+  display: flex; flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+
+.pop-hero-img-wrap {
+  position: relative; flex: 1; min-height: 0;
+  overflow: hidden; background: #080c12;
+}
+.pop-hero-img-wrap img#pop-main-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: opacity 0.28s ease;
+  display: block;
+}
+.pop-img-label {
+  position: absolute; bottom: 10px; left: 14px;
+  background: rgba(5,8,14,0.75); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 4px;
+  padding: 4px 10px; font-size: 10.5px; font-weight: 600;
+  letter-spacing: 1px; color: var(--text-light);
+}
+.pop-img-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px;
+  background: rgba(5,8,14,0.65); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%; color: #fff; font-size: 18px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.pop-img-nav:hover { background: rgba(200,133,58,0.3); border-color: var(--accent-gold); box-shadow: 0 0 14px rgba(200,133,58,0.4); }
+.pop-img-nav.prev { left: 10px; }
+.pop-img-nav.next { right: 10px; }
+
+.pop-thumbs {
+  display: flex; gap: 6px; padding: 10px 12px;
+  background: rgba(8,12,20,0.8);
+  overflow-x: auto; flex-shrink: 0;
+}
+.pop-thumbs::-webkit-scrollbar { height: 3px; }
+.pop-thumbs::-webkit-scrollbar-thumb { background: rgba(200,133,58,0.4); border-radius: 2px; }
+
+.pop-thumb {
+  flex-shrink: 0; width: 72px; cursor: pointer;
+  border-radius: 5px; overflow: hidden;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pop-thumb.active { border-color: var(--accent-gold); box-shadow: 0 0 10px rgba(200,133,58,0.45); }
+.pop-thumb:hover:not(.active) { border-color: rgba(255,255,255,0.25); }
+.pop-thumb img { width: 100%; height: 48px; object-fit: cover; display: block; }
+.pop-thumb span { display: block; font-size: 7.5px; font-weight: 600; letter-spacing: 0.5px; color: var(--text-muted); padding: 3px 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(8,12,20,0.9); }
+
+/* ── Right panel ── */
+.pop-right {
+  padding: 28px 28px 24px;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.pop-right::-webkit-scrollbar { width: 3px; }
+.pop-right::-webkit-scrollbar-thumb { background: rgba(200,133,58,0.35); border-radius: 2px; }
+
+.pop-eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; color: var(--accent-gold); text-transform: uppercase; }
+.pop-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -0.5px;
+  text-transform: uppercase; color: #fff;
+  text-shadow: 0 0 24px rgba(200,133,58,0.3);
+}
+.pop-status { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.pop-status-ongoing { color: var(--accent-gold); text-shadow: 0 0 14px rgba(200,133,58,0.5); }
+.pop-status-done    { color: #4caf7d; text-shadow: 0 0 14px rgba(76,175,80,0.4); }
+
+.pop-desc { font-size: 12.5px; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+
+/* Progress bar */
+.pop-progress-wrap { display: flex; align-items: center; gap: 10px; }
+.pop-progress-label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-subtle); text-transform: uppercase; flex-shrink: 0; }
+.pop-progress-track { flex: 1; height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+.pop-progress-fill  { height: 100%; background: linear-gradient(to right, var(--accent-gold2,#b8732a), var(--accent-gold)); border-radius: 3px; box-shadow: 0 0 8px rgba(200,133,58,0.6); transition: width 1s ease; }
+.pop-progress-pct   { font-size: 11px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0; }
+
+/* Meta grid */
+.pop-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pop-meta-item { display: flex; flex-direction: column; gap: 2px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; }
+.pop-meta-key { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-subtle); text-transform: uppercase; }
+.pop-meta-val { font-size: 12px; font-weight: 500; color: var(--text-light); line-height: 1.3; }
+.pop-price { color: var(--accent-gold) !important; font-weight: 700 !important; text-shadow: 0 0 10px rgba(200,133,58,0.4); }
+
+/* Features */
+.pop-features-label { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; color: var(--text-subtle); text-transform: uppercase; }
+.pop-features { display: flex; flex-wrap: wrap; gap: 6px; }
+.pop-feat {
+  background: rgba(200,133,58,0.1); border: 1px solid rgba(200,133,58,0.25);
+  border-radius: 4px; padding: 4px 10px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.8px; color: var(--text-light);
+  transition: all 0.2s;
+}
+.pop-feat:hover { background: rgba(200,133,58,0.2); color: #fff; box-shadow: 0 0 10px rgba(200,133,58,0.25); }
+
+/* Actions */
+.pop-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 4px; }
+.pop-action-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 18px; border-radius: 6px;
+  font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+  transition: all 0.25s; border: 1px solid;
+}
+.pop-action-btn.tour   { background: rgba(200,133,58,0.18); border-color: var(--accent-gold); color: var(--accent-gold); }
+.pop-action-btn.tour:hover { background: rgba(200,133,58,0.35); box-shadow: 0 0 20px rgba(200,133,58,0.4); color: #fff; }
+.pop-action-btn.status { background: rgba(255,255,255,0.06); border-color: var(--border-light); color: var(--text-light); }
+.pop-action-btn.status:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+.pop-action-btn.ghost  { background: transparent; border-color: var(--border); color: var(--text-muted); }
+.pop-action-btn.ghost:hover { border-color: var(--border-light); color: var(--text-light); }
+
+/* ════════════════════════════════════════════════════
+   BOOK A TOUR MODAL
+════════════════════════════════════════════════════ */
+.tour-modal-inner {
+  position: relative; z-index: 2;
+  width: min(700px, 96vw);
+  max-height: 90vh; overflow-y: auto;
+  background: linear-gradient(135deg, #0f1520 0%, #131925 100%);
+  border: 1px solid rgba(200,133,58,0.3);
+  border-radius: 14px; padding: 32px 32px 28px;
+  box-shadow: 0 0 60px rgba(200,133,58,0.15), 0 32px 80px rgba(0,0,0,0.75);
+  animation: popSlideUp 0.32s cubic-bezier(0.34,1.36,0.64,1) both;
+}
+.tour-modal-inner::-webkit-scrollbar { width: 3px; }
+.tour-modal-inner::-webkit-scrollbar-thumb { background: rgba(200,133,58,0.35); border-radius:2px; }
+
+.tour-header { margin-bottom: 22px; }
+.tour-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px; }
+.tour-title { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 800; text-transform: uppercase; color: #fff; text-shadow: 0 0 20px rgba(200,133,58,0.3); margin-bottom: 4px; }
+.tour-subtitle { font-size: 12px; color: var(--text-muted); }
+
+.tour-form { display: flex; flex-direction: column; gap: 14px; }
+.tour-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tour-field { display: flex; flex-direction: column; gap: 5px; }
+.tour-field.full { grid-column: 1/-1; }
+.tour-field label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; }
+.tour-field input, .tour-field textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--input-border, rgba(255,255,255,0.12));
+  border-radius: 6px; padding: 11px 14px;
+  color: #fff; font-family: 'Barlow', sans-serif; font-size: 13px;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.tour-field input:focus, .tour-field textarea:focus {
+  border-color: rgba(200,133,58,0.5);
+  box-shadow: 0 0 12px rgba(200,133,58,0.2);
+}
+.tour-field textarea { resize: none; height: 80px; }
+.tour-field input::placeholder, .tour-field textarea::placeholder { color: var(--text-subtle, #5a6a7e); }
+.tour-field input[type=date]::-webkit-calendar-picker-indicator { filter: invert(0.6); }
+
+.tour-slots { display: flex; gap: 10px; flex-wrap: wrap; }
+.slot-opt {
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  border-radius: 5px; padding: 9px 14px; font-size: 12px; color: var(--text-muted);
+  cursor: pointer; transition: all 0.2s;
+}
+.slot-opt:hover { border-color: var(--border-light); color: var(--text-light); }
+.slot-opt input[type=radio] { accent-color: var(--accent-gold); }
+
+/* Tour preview thumbnails */
+.tour-views-preview { margin-top: 4px; }
+.tour-views-label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-subtle); text-transform: uppercase; margin-bottom: 8px; }
+.tour-views-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.tour-view-thumb { border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+.tour-view-thumb img { width: 100%; height: 60px; object-fit: cover; display: block; filter: brightness(0.75); }
+.tour-view-thumb span { display: block; font-size: 8px; font-weight: 600; color: var(--text-muted); padding: 3px 5px; background: rgba(8,12,20,0.9); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.tour-form-footer { display: flex; gap: 10px; padding-top: 4px; }
+
+/* Responsive popup */
+@media (max-width: 860px) {
+  .pop-modal { grid-template-columns: 1fr; max-height: 95vh; }
+  .pop-left { max-height: 40vh; }
+  .tour-form-row { grid-template-columns: 1fr; }
+  .tour-views-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .pop-modal { border-radius: 10px; }
+  .pop-title { font-size: 30px; }
+  .tour-modal-inner { padding: 22px 18px; }
+}
+/* ══ END POPUP CSS ══ */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.project-card { animation: fadeUp 0.5s ease both; }
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1150px) {
+  .completed-col { display: none; }
+  .slider-nav.next { right: -4px; }
+}
+@media (max-width: 960px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .hero-title { font-size: 68px; }
+  .hero-side-card { display: none; }
+  .cards-track { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+  .bottom-strip { grid-template-columns: 1fr; }
+  .strip-visual { display: none; }
+  .strip-features { flex-wrap: wrap; border-left: none; border-top: 1px solid var(--border); padding-top: 20px; }
+  .strip-cta { text-align: left; padding: 24px; }
+  .diamond-btn { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: 52px; }
+  .hero-content { padding: 80px 0 0 24px; }
+  .cards-track { grid-template-columns: 1fr; padding: 0 10px; }
+  .projects-section { padding: 0 10px; }
+  .tab-btn { padding: 11px 20px; font-size: 10px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   NEON LIGHT SYSTEM  –  Ameritore Homes
+   Flowing amber/copper energy streaks across all pages
+═══════════════════════════════════════════════════ */
+
+/* Canvas sits behind everything, above the bg image */
+#neon-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.72;
+}
+
+/* Neon glow on active nav item */
+.nav-item.active {
+  box-shadow: 0 0 12px rgba(200,133,58,0.25), inset 0 0 10px rgba(200,133,58,0.06);
+}
+
+/* Neon glow on cards hover */
+.proc-card:hover,
+.project-card:hover,
+.value-card:hover,
+.home-card:hover,
+.team-card:hover,
+.completed-card:hover {
+  box-shadow: 0 0 18px rgba(200,133,58,0.18), 0 0 40px rgba(200,133,58,0.07);
+}
+
+/* Neon glow on buttons */
+.btn-primary:hover,
+.submit-btn:hover,
+.explore-btn:hover,
+.book-btn:hover,
+.tab-btn.active {
+  box-shadow: 0 0 16px rgba(200,133,58,0.35), 0 0 40px rgba(200,133,58,0.12);
+}
+
+/* Neon on timeline fill */
+.timeline-fill {
+  box-shadow: 0 0 10px rgba(200,133,58,0.6), 0 0 24px rgba(200,133,58,0.3);
+}
+
+/* Neon on gold accent text */
+.hero-title .line2,
+.hero-title .line3,
+.card-status,
+.stat-number,
+.stat-plus,
+.section-label,
+.homes-intro-label,
+.strip-cta-title,
+.hero-eyebrow,
+.card-heading,
+.inquiry-title-main {
+  text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+}
+
+/* Neon on hero side card border */
+.hero-side-card {
+  box-shadow: 0 0 30px rgba(200,133,58,0.1), inset 0 0 20px rgba(200,133,58,0.03);
+}
+
+/* Neon on icon glows */
+.side-icon,
+.nav-icon,
+.proc-icon svg,
+.strip-feat svg,
+.tech-feat svg,
+.value-icon,
+.loc-icon,
+.inq-icon {
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.55));
+}
+
+/* Neon border on form focus */
+.inp:focus {
+  box-shadow: 0 0 14px rgba(200,133,58,0.22), 0 0 2px rgba(200,133,58,0.5) inset;
+}
+
+/* Neon progress dots / map pins */
+.map-pin-dot {
+  box-shadow: 0 0 12px rgba(200,133,58,0.9), 0 0 24px rgba(200,133,58,0.5);
+}
+
+/* Diamond button neon */
+.diamond-btn:hover,
+.sidebar-arrow:hover,
+.cta-arrow-btn:hover {
+  box-shadow: 0 0 16px rgba(200,133,58,0.4);
+}
+
+/* Award badge neon glow */
+.award-badge {
+  box-shadow: 0 0 12px rgba(200,133,58,0.2);
+}
+
+/* ── Ambient corner glows on main sections ── */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 420px; height: 420px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientPulse 5s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 30px; right: 80px;
+  width: 320px; height: 240px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes ambientPulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.08); }
+}
+/* ═══════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════
+   SCROLL-TO-TOP BUTTON
+═══════════════════════════════════════════ */
+#scroll-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 44px; height: 44px;
+  background: rgba(13,17,23,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200,133,58,0.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 500;
+  color: var(--accent-gold);
+  font-size: 18px;
+  opacity: 0; pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 14px rgba(200,133,58,0.15);
+}
+#scroll-top.visible {
+  opacity: 1; pointer-events: auto; transform: translateY(0);
+}
+#scroll-top:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 22px rgba(200,133,58,0.5), 0 0 50px rgba(200,133,58,0.15);
+  background: rgba(200,133,58,0.18);
+}
+#scroll-top svg { display: block; }
+
+/* ═══════════════════════════════════════════
+   SOCIAL MEDIA ICONS  (replace client portal)
+═══════════════════════════════════════════ */
+.social-icons {
+  display: flex; align-items: center; gap: 6px;
+}
+.soc-btn {
+  width: 36px; height: 36px;
+  background: rgba(13,17,23,0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none;
+  color: var(--text-muted);
+  transition: all 0.22s;
+}
+.soc-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 14px rgba(200,133,58,0.35);
+  background: rgba(200,133,58,0.12);
+}
+.soc-btn svg { width: 15px; height: 15px; }
+
+/* Keep menu-btn same */
+.menu-btn {
+  width: 36px; height: 36px;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV MENU
+═══════════════════════════════════════════ */
+#mobile-nav {
+  display: none;
+  position: fixed; inset: 0;
+  z-index: 999;
+}
+#mobile-nav.open { display: flex; }
+
+.mob-overlay {
+  position: absolute; inset: 0;
+  background: rgba(5,8,14,0.85);
+  backdrop-filter: blur(8px);
+}
+
+.mob-panel {
+  position: absolute;
+  top: 0; right: 0;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: linear-gradient(160deg, #0f1520 0%, #111827 100%);
+  border-left: 1px solid rgba(200,133,58,0.2);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.6);
+  display: flex; flex-direction: column;
+  padding: 28px 24px 32px;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.34,1.12,0.64,1);
+}
+#mobile-nav.open .mob-panel {
+  transform: translateX(0);
+}
+
+.mob-close {
+  align-self: flex-end;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); font-size: 15px;
+  transition: all 0.2s; margin-bottom: 32px;
+}
+.mob-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.35); }
+
+.mob-logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 36px; text-decoration: none;
+}
+.mob-logo svg { width: 36px; height: 36px; }
+.mob-logo-text .name { font-family: 'Barlow Condensed',sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; color: #fff; display: block; }
+.mob-logo-text .sub  { font-size: 8.5px; letter-spacing: 3px; color: var(--text-muted); }
+
+.mob-nav { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+.mob-nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 8px;
+  text-decoration: none; color: var(--text-muted);
+  font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.mob-nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.mob-nav-item.active { background: rgba(200,133,58,0.14); color: #fff; border-color: rgba(200,133,58,0.2); }
+.mob-nav-item svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
+.mob-nav-item.active svg { opacity: 1; }
+
+.mob-socials {
+  display: flex; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border);
+  margin-top: 16px;
+}
+.mob-soc-btn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none; color: var(--text-muted);
+  transition: all 0.2s;
+}
+.mob-soc-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.3); }
+.mob-soc-btn svg { width: 16px; height: 16px; }
+/* ══ END SHARED CSS ══ */
+
+
+/* ═══════════════════════════════════════════
+   MINIMAL SITE FOOTER
+═══════════════════════════════════════════ */
+.site-footer {
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 18px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex; align-items: center; gap: 10px;
+}
+
+.footer-logo-img {
+  width: 28px; height: 28px;
+  border-radius: 4px; object-fit: cover;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.35));
+}
+
+.footer-copy {
+  font-size: 11px; font-weight: 500;
+  color: var(--text-subtle);
+  letter-spacing: 0.4px;
+}
+
+.footer-copy strong {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.footer-center {
+  font-size: 10.5px; color: var(--text-subtle);
+  letter-spacing: 0.3px; text-align: center;
+}
+
+.footer-center a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.footer-center a:hover { opacity: 0.75; }
+
+.footer-right {
+  display: flex; align-items: center; gap: 16px;
+}
+
+.footer-link {
+  font-size: 10.5px; font-weight: 500;
+  color: var(--text-subtle); text-decoration: none;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--accent-gold);
+  transform: scaleX(0); transition: transform 0.2s;
+  transform-origin: left;
+}
+
+.footer-link:hover { color: var(--accent-gold); }
+.footer-link:hover::after { transform: scaleX(1); }
+
+.footer-divider {
+  width: 1px; height: 12px;
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 860px) {
+  .site-footer {
+    flex-direction: column; align-items: center;
+    padding: 18px 20px; gap: 10px; text-align: center;
+  }
+  .footer-left, .footer-right { justify-content: center; }
+}
+/* ══ END FOOTER CSS ══ */
+
+
+/* ═══ FOOTER FIX ═══ */
+.site-footer {
+  margin-left: var(--sidebar-w);
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 16px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+@media (max-width: 860px) {
+  .site-footer {
+    margin-left: 0;
+    flex-direction: column; align-items: center;
+    padding: 16px 20px; gap: 8px; text-align: center;
+  }
+}
+/* ═══ END FOOTER FIX ═══ */
+
+
+/* ═══════════════════════════════════════════
+   LOGO FIXES – DESKTOP SIDEBAR + MOBILE TOPBAR
+═══════════════════════════════════════════ */
+
+/* ── Sidebar logo: show image + text stacked ── */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+.sidebar-logo-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(200,133,58,0.35));
+  transition: filter 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img {
+  filter: drop-shadow(0 0 14px rgba(200,133,58,0.6));
+}
+
+/* Hide the old SVG icon when image loads */
+.sidebar-logo .logo-icon { display: none; }
+
+.logo-text {
+  margin-top: 8px;
+  text-align: center;
+}
+.logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 2.5px; color: #fff;
+  display: block; text-align: center;
+}
+.logo-text .sub {
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: 3px; color: var(--text-muted);
+  display: block; text-align: center; margin-top: 1px;
+}
+
+/* ── Mobile topbar logo (left side) ── */
+.mob-topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(11,14,20,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,133,58,0.12);
+  z-index: 150;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.mob-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.mob-topbar-logo-img {
+  width: 36px; height: 36px;
+  border-radius: 5px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.3));
+}
+
+.mob-topbar-logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 2px; color: #fff; display: block;
+}
+.mob-topbar-logo-text .sub {
+  font-size: 7.5px; letter-spacing: 2.5px;
+  color: var(--text-muted); display: block;
+}
+
+.mob-topbar-right {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.mob-topbar-soc {
+  display: flex; align-items: center; gap: 5px;
+}
+
+.mob-topbar-soc .soc-btn {
+  width: 30px; height: 30px; border-radius: 6px;
+}
+
+.mob-topbar-ham {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border-light);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-light);
+  transition: all 0.2s;
+}
+.mob-topbar-ham:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(200,133,58,0.3);
+}
+
+/* ── Responsive: hide sidebar, show mob-topbar ── */
+@media (max-width: 860px) {
+  .sidebar { display: none !important; }
+  .main { margin-left: 0 !important; }
+  .mob-topbar { display: flex !important; }
+
+  /* Push content down below fixed topbar */
+  .hero,
+  .hero-section,
+  section.hero { padding-top: 56px; }
+
+  /* Hide desktop topbar social icons on mobile */
+  .topbar { display: none !important; }
+
+  .site-footer { margin-left: 0 !important; }
+}
+
+@media (min-width: 861px) {
+  .mob-topbar { display: none !important; }
+}
+/* ══ END LOGO FIXES ══ */
+
+
+
+
+
+/* ═══ SIDEBAR LOGO IMAGE FIX ═══ */
+.sidebar-logo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin-bottom: 32px !important;
+  text-decoration: none;
+  padding: 0 !important;
+  width: 100%;
+}
+.sidebar-logo-img {
+  width: 80%;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(200,133,58,0.18);
+  transition: opacity 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img { opacity: 0.85; }
+/* ═══ END SIDEBAR LOGO IMAGE FIX ═══ */
+
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+        <a href="index.html" class="sidebar-logo">
+    <img src="./assets/logo.jpeg"
+         class="sidebar-logo-img"
+         alt="Ameritore Homes"
+         onerror="this.style.display='none'">
+  </a>
+  <nav class="sidebar-nav">
+<a href="index.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      Home
+    </a>
+    <a href="about.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      About Us
+    </a>
+    <a href="projects.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      Projects
+    </a>
+    <a href="process.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
+      Process
+    </a>
+    <a href="career.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      Careers
+    </a>
+    <a href="contact.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>
+      Contact
+    </a>
+  </nav>
+  <div class="sidebar-bottom">
+    <p class="build-cta">Let's Build<br>The Future</p>
+    <div class="sidebar-arrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- MOBILE TOPBAR (logo left, socials + hamburger right) -->
+<div class="mob-topbar">
+  <a href="index.html" class="mob-topbar-logo">
+    <img src="./assets/logo.jpeg" class="mob-topbar-logo-img" alt="Ameritore"
+         onerror="this.style.display='none'">
+    <div class="mob-topbar-logo-text">
+      <span class="name">Ameritore</span>
+      <span class="sub">Homes</span>
+    </div>
+  </a>
+  <div class="mob-topbar-right">
+    <div class="mob-topbar-soc">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="mob-topbar-ham" onclick="openMobNav()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+</div>
+
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="social-icons">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+    <div class="menu-btn" onclick="openMobNav()" style="cursor:pointer;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Welcome to Ameritore Homes</p>
+      <h1 class="hero-title">Projects</h1>
+      <div class="tab-row">
+        <button class="tab-btn active" onclick="switchTab(this,'ongoing')">Ongoing Innovations</button>
+        <button class="tab-btn inactive" onclick="switchTab(this,'completed')">Completed Masterpieces</button>
+      </div>
+    </div>
+
+    <!-- Side Card 
+    <div class="hero-side-card">
+      <p class="side-card-title">The Ameritore Difference</p>
+      <ul class="side-card-list">
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Futuristic Design
+        </li>
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><circle cx="12" cy="13" r="2"/></svg>
+          Smart Home Technology
+        </li>
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Sustainable Building
+        </li>
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a9 9 0 110 18A9 9 0 0112 2z"/><path d="M8 12l3 3 5-5"/></svg>
+          Customized for You
+        </li>
+      </ul>
+      <div class="side-stat">
+        <span class="stat-number">20</span>
+        <span class="stat-plus">+</span>
+        <span class="stat-label">Years of<br>Excellence</span>
+      </div>
+    </div>-->
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects-section">
+    <div class="slider-wrapper">
+      <button class="slider-nav prev" onclick="slide(-1)">‹</button>
+
+      <!-- Cards rendered dynamically by JS -->
+      <div class="cards-track" id="ongoing-cards"></div>
+
+      <button class="slider-nav next" onclick="slide(1)">›</button>
+
+      <!-- COMPLETED MINI CARDS 
+      <div class="completed-col">
+        <div class="completed-card" onclick="openPopup('Samridhi UniqueSpaces – Autograph Villas')">
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&q=80" alt="Autograph Villas">
+          <span class="completed-tag">Completed</span>
+          <div class="completed-info">
+            <div class="completed-title">Autograph Villas</div>
+            <div class="completed-sub">Samridhi UniqueSpaces</div>
+          </div>
+        </div>
+        <div class="completed-card" onclick="openPopup('Shyam Controls – Residential Building')">
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&q=80" alt="Shyam Controls">
+          <span class="completed-tag">Completed</span>
+          <div class="completed-info">
+            <div class="completed-title">Shyam Controls</div>
+            <button class="book-btn" onclick="event.stopPropagation();openTourModal('Shyam Controls – Residential Building')">Book a Tour <span style="font-size:12px">›</span></button>
+          </div>
+        </div>
+      </div>-->
+
+    </div><!-- /slider-wrapper -->
+  </section>
+
+  <!-- BOTTOM STRIP -->
+  <div class="bottom-strip">
+    <div class="strip-visual">
+      <img class="strip-visual-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Smart Home">
+    </div>
+    <div class="strip-body">
+      <div class="strip-label">Smarter by Design</div>
+      <p class="strip-desc">We integrate the latest in smart home technology to enhance comfort, security, and efficiency.</p>
+    </div>
+    <div class="strip-features">
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+        AI-Powered<br>Automation
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Energy<br>Efficiency
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Advanced<br>Security
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        Climate<br>Control
+      </div>
+    </div>
+    <div class="strip-cta">
+      <p class="strip-cta-title">View Full<br>Portfolio?</p>
+      <p class="strip-cta-sub">Let's bring your vision to life, project.</p>
+      <div class="diamond-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════════════════════
+     PROJECT POPUP MODAL
+══════════════════════════ -->
+<div id="project-popup" style="display:none;"></div>
+<div id="tour-modal"    style="display:none;"></div>
+
+<script>
+  // ══════════════════════════════════════════════════════════════
+  //  FULL PROJECT DATA  (card + popup)
+  // ══════════════════════════════════════════════════════════════
+  const PROJECT_DETAILS = {
+    // ── ONGOING ──────────────────────────────────────────────
+    'Mr. Devaraj Residence': {
+      description: 'Ameritore Homes successfully initiated the construction of a G+3 residential building in LN Nagar, covering an area of 5,800 sq. ft. This project highlights our expertise in delivering robust and efficient housing solutions. The building is thoughtfully designed to provide a safe and comfortable living experience, adhering to the highest standards of construction excellence.',
+      location: 'LN Nagar, Tamilnadu',
+      architect: 'Ameritore Homes Design Team',
+      style: 'Residential Building (G+3)',
+      completion: 'In Progress',
+      price: 'On Request',
+      award: 'Quality Construction Standard',
+      views: [
+        { label: 'Front Elevation',   img: 'assets/projects/ongoing/devraj.png' },
+        { label: 'Side View',         img: '' },
+        { label: 'Living Area',       img: '' },
+        { label: 'Master Bedroom',    img: '' },
+        { label: 'Kitchen',           img: '' },
+        { label: 'Construction Site', img: '' },
+      ],
+      features: ['G+3 Structure','5,800 Sq.ft','Robust Construction','Efficient Space Planning','Structural Integrity','Quality Finishes'],
+      progress: 60,
+    },
+    'Mr. Karnan – OxygenVillas': {
+      description: 'Ameritore Homes successfully initiated a G+2 residential building in Kalapatti, spanning 5,807 sq. ft. This project showcases our expertise in designing and constructing modern living spaces that prioritize comfort, functionality, and sustainability. With meticulous attention to detail, this villa stands as a symbol of quality and innovation in residential development.',
+      location: 'Kalapatti, Tamilnadu',
+      architect: 'Ameritore Homes Design Team',
+      style: 'Residential Villa (G+2)',
+      completion: 'Delivered',
+      price: 'On Request',
+      award: 'OxygenVillas Series',
+      views: [
+        { label: 'Villa Exterior',    img: 'assets/projects/completed/karnan.png' },
+        { label: 'Garden View',       img: '' },
+        { label: 'Living Room',       img: '' },
+        { label: 'Bedroom',           img: '' },
+        { label: 'Dining Area',       img: '' },
+        { label: 'Construction View', img: '' },
+      ],
+      features: ['G+2 Villa','5,807 Sq.ft','Modern Living Spaces','Sustainable Design','Comfort & Functionality','OxygenVillas Series'],
+      progress: 100,
+    },
+    'Dr. Ganesan – OxygenVillas': {
+      description: 'Ameritore Homes successfully initiated a G+2 residential building in Kalapatti, spanning 5,866 sq. ft. This project showcases our expertise in designing and constructing modern living spaces that prioritize comfort, functionality, and sustainability. With meticulous attention to detail, this villa stands as a symbol of quality and innovation in residential development.',
+      location: 'Kalapatti, Tamilnadu',
+      architect: 'Ameritore Homes Design Team',
+      style: 'Residential Villa (G+2)',
+      completion: 'In Progress',
+      price: 'On Request',
+      award: 'OxygenVillas Series',
+      views: [
+        { label: 'Villa Front',       img: 'assets/projects/ongoing/ganesh.png' },
+        { label: 'Exterior Side',     img: '' },
+        { label: 'Open Living',       img: '' },
+        { label: 'Bedroom Suite',     img: '' },
+        { label: 'Terrace',           img: '' },
+        { label: 'Site Progress',     img: '' },
+      ],
+      features: ['G+2 Villa','5,866 Sq.ft','Innovation in Design','Sustainability Focus','Premium Finishes','OxygenVillas Series'],
+      progress: 45,
+    },
+    'Jagannathan Residence': {
+      description: 'Ameritore Homes successfully initiated the Jagannathan Residential Building, a 6,250 sq. ft. G+3 structure designed to provide modern and comfortable living spaces. The project is progressing with a strong focus on quality construction, efficient space planning, and structural integrity. Once completed, the building will offer a safe, functional, and high-quality residential environment that meets contemporary design and construction standards.',
+      location: 'Kaikolampalayam, Tamilnadu',
+      architect: 'Ameritore Homes Design Team',
+      style: 'Residential Building (G+3)',
+      completion: 'In Progress',
+      price: 'On Request',
+      award: 'Quality Construction Standard',
+      views: [
+        { label: 'Building Exterior', img: 'assets/projects/ongoing/jagannathan.png' },
+        { label: 'Front Facade',      img: '' },
+        { label: 'Interior Layout',   img: '' },
+        { label: 'Living Space',      img: '' },
+        { label: 'Staircase',         img: '' },
+        { label: 'Site Progress',     img: '' },
+      ],
+      features: ['G+3 Structure','6,250 Sq.ft','Modern Design','Efficient Space Planning','Structural Integrity','Contemporary Standards'],
+      progress: 35,
+    },
+    // ── COMPLETED ────────────────────────────────────────────
+    'Samridhi UniqueSpaces – Autograph Villas': {
+      description: 'Ameritore Homes proudly delivered a series of luxury G+1 residential villas in Kalapatti, spanning a total area of 12,992 sq. ft. These villas are a testament to our commitment to blending modern architecture with functionality and sustainability. Designed to offer comfort, style, and privacy, each villa reflects our dedication to quality and client satisfaction.',
+      location: 'Kalapatti, Tamilnadu',
+      architect: 'Ameritore Homes Design Team',
+      style: 'Luxury Villas (G+1)',
+      completion: 'Delivered',
+      price: 'On Request',
+      award: 'Autograph Villas Series',
+      views: [
+        { label: 'Villa Exterior',    img: 'assets/projects/completed/samridhi-uniquespaces.png' },
+        { label: 'Villa Cluster',     img: '' },
+        { label: 'Grand Living Room', img: '' },
+        { label: 'Master Bedroom',    img: '' },
+        { label: 'Garden Area',       img: '' },
+        { label: 'Night View',        img: '' },
+      ],
+      features: ['G+1 Luxury Villas','12,992 Sq.ft Total','Modern Architecture','Sustainable Design','Privacy & Comfort','Client Satisfaction'],
+      progress: 100,
+    },
+    'Mr. Sabari Residence': {
+      description: 'Ameritore Homes proudly presents a meticulously designed G+2 residential building, spanning 5,700 sq. ft. Located in Peelamedu, Tamil Nadu, this project blends modern architecture with functionality to create a comfortable living space. With a focus on quality and precision, the residence offers durable construction and thoughtfully planned interiors, ensuring a harmonious living experience for its occupants.',
+      location: 'Peelamedu, Tamilnadu',
+      architect: 'Ameritore Homes Design Team',
+      style: 'Residential Building (G+2)',
+      completion: 'Delivered',
+      price: 'On Request',
+      award: 'Quality Residential Build',
+      views: [
+        { label: 'Front Elevation',   img: 'assets/projects/completed/sabari.png' },
+        { label: 'Side Facade',       img: '' },
+        { label: 'Living Room',       img: '' },
+        { label: 'Bedroom',           img: '' },
+        { label: 'Kitchen',           img: '' },
+        { label: 'Staircase View',    img: '' },
+      ],
+      features: ['G+2 Structure','5,700 Sq.ft','Modern Architecture','Quality Construction','Thoughtful Interiors','Harmonious Living'],
+      progress: 100,
+    },
+    'Shyam Controls – Residential Building': {
+      description: 'Ameritore Homes proudly presents the renovation of the SHYAM CONTROLS Residential Building in RS Puram, spanning 3,500 sq. ft. with a combination of civil and PEB (Pre-Engineered Building) construction. This project focuses on enhancing the existing structure by integrating modern design elements and improving functionality, all while preserving the building\'s original charm. It showcases our dedication to quality, efficient space utilization, and thoughtful renovation strategies.',
+      location: 'RS Puram, Coimbatore',
+      architect: 'Ameritore Homes Design Team',
+      style: 'Renovation – Civil + PEB',
+      completion: 'Delivered',
+      price: 'On Request',
+      award: 'Renovation Excellence',
+      views: [
+        { label: 'Building Front',    img: 'assets/projects/completed/shyam-controls.png' },
+        { label: 'After Renovation',  img: '' },
+        { label: 'PEB Structure',     img: '' },
+        { label: 'Interior Space',    img: '' },
+        { label: 'Exterior Detail',   img: '' },
+        { label: 'Final Handover',    img: '' },
+      ],
+      features: ['3,500 Sq.ft','Civil + PEB Construction','Renovation Project','Modern Design Integration','Efficient Space Use','RS Puram, Coimbatore'],
+      progress: 100,
+    },
+  };
+
+  // ── CARD DATA ──────────────────────────────────────────────────────────────
+  const ONGOING = [
+    {
+      num:'01', name:'Mr. Devaraj Residence', pct:'60',
+      img:'assets/projects/ongoing/devraj.png',
+      milestones:[
+        {icon:'screen', label:'Foundation<br>Complete'},
+        {icon:'house',  label:'Structure<br>Ongoing'},
+        {icon:'gear',   label:'Finishing<br>Pending'}
+      ],
+      specs:'G+3 | Residential | 5,800 Sq.ft'
+    },
+    {
+      num:'02', name:'Dr. Ganesan – OxygenVillas', pct:'45',
+      img:'assets/projects/ongoing/ganesh.png',
+      milestones:[
+        {icon:'file',   label:'Design<br>Approved'},
+        {icon:'screen', label:'Foundation<br>Complete'},
+        {icon:'shield', label:'Structure<br>Ongoing'}
+      ],
+      specs:'G+2 | Villa | 5,866 Sq.ft'
+    },
+    {
+      num:'03', name:'Jagannathan Residence', pct:'35',
+      img:'assets/projects/ongoing/jagannathan.png',
+      milestones:[
+        {icon:'file',  label:'Design<br>Approved'},
+        {icon:'chart', label:'Site<br>Cleared'},
+        {icon:'house', label:'Foundation<br>Ongoing'}
+      ],
+      specs:'G+3 | Residential | 6,250 Sq.ft'
+    },
+  ];
+
+  const COMPLETED = [
+    {
+      num:'C1', name:'Samridhi UniqueSpaces – Autograph Villas',
+      img:'assets/projects/completed/samridhi-uniquespaces.png',
+      milestones:[
+        {icon:'check', label:'Handover<br>Complete'},
+        {icon:'gear',  label:'Quality<br>Certified'},
+        {icon:'house', label:'Client<br>Satisfied'}
+      ],
+      specs:'G+1 | Luxury Villas | 12,992 Sq.ft'
+    },
+    {
+      num:'C2', name:'Mr. Karnan – OxygenVillas',
+      img:'assets/projects/completed/karnan.png',
+      milestones:[
+        {icon:'check', label:'Handover<br>Complete'},
+        {icon:'gear',  label:'Quality<br>Certified'},
+        {icon:'house', label:'Client<br>Satisfied'}
+      ],
+      specs:'G+2 | Villa | 5,807 Sq.ft'
+    },
+    {
+      num:'C3', name:'Mr. Sabari Residence',
+      img:'assets/projects/completed/sabari.png',
+      milestones:[
+        {icon:'check',  label:'Keys<br>Delivered'},
+        {icon:'shield', label:'Quality<br>Inspected'},
+        {icon:'house',  label:'Client<br>Satisfied'}
+      ],
+      specs:'G+2 | Residential | 5,700 Sq.ft'
+    },
+    {
+      num:'C4', name:'Shyam Controls – Residential ',
+      img:'assets/projects/completed/shyam-controls.png',
+      milestones:[
+        {icon:'check', label:'Renovation<br>Complete'},
+        {icon:'gear',  label:'PEB<br>Integrated'},
+        {icon:'house', label:'Handover<br>Done'}
+      ],
+      specs:'Renovation | Civil+PEB | 3,500 Sq.ft'
+    },
+  ];
+
+    // ── SVG ICONS MAP ─────────────────────────────────────────────────────────
+  const ICONS = {
+    screen: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+    gear:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>`,
+    house:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    file:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+    shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    chart:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l4-8 4 4 4-6 4 10"/></svg>`,
+    check:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`
+  };
+
+  // ── STATE ─────────────────────────────────────────────────────────────────
+  let currentTab = 'ongoing';
+  let currentIndex = 0;   // first visible card index
+  const VISIBLE = 3;
+
+  // ── RENDER ────────────────────────────────────────────────────────────────
+  function buildCard(p, isCompleted) {
+    const statusHtml = isCompleted
+      ? `<div class="card-status completed-status">COMPLETED</div>`
+      : `<div class="card-status">ONGOING <span class="pct">(${p.pct}% Complete)</span></div>`;
+
+    const milestones = p.milestones.map(m => `
+      <div class="milestone">
+        ${ICONS[m.icon]}
+        <span class="milestone-label">${m.label}</span>
+      </div>`).join('');
+
+    const specParts = p.specs.split('|').map(s => s.trim());
+    const specsHtml = specParts.map((s,i) => i < specParts.length-1 ? `${s} <span>|</span> ` : s).join('');
+    const btnLabel = isCompleted ? 'Book a Tour' : 'Explore Status';
+    const safeName = p.name.replace(/'/g,"&#39;");
+
+    return `
+      <div class="project-card" onclick="openPopup('${safeName}')">
+        <div class="card-img-wrap">
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+          <span class="card-num-badge">${p.num}</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">${p.name}</div>
+          ${statusHtml}
+          <div class="card-milestones">${milestones}</div>
+          <div class="card-specs"><strong>Specs:</strong> ${specsHtml}</div>
+          <button class="explore-btn" onclick="event.stopPropagation();openPopup('${safeName}')">${btnLabel} <span class="arr">›</span></button>
+        </div>
+      </div>`;
+  }
+
+  // ── POPUP ─────────────────────────────────────────────────────────────────
+  let popupViewIndex = 0;
+
+  function openPopup(name) {
+    const d = PROJECT_DETAILS[name];
+    if (!d) return;
+    popupViewIndex = 0;
+
+    // Determine if completed
+    const isCompleted = d.progress === 100;
+    const statusClass = isCompleted ? 'pop-status-done' : 'pop-status-ongoing';
+    const statusText  = isCompleted ? 'COMPLETED' : `ONGOING — ${d.progress}% Complete`;
+
+    // Build view thumbnails
+    const thumbs = d.views.map((v,i) => `
+      <div class="pop-thumb ${i===0?'active':''}" onclick="setView(${i})" data-idx="${i}">
+        <img src="${v.img}" alt="${v.label}" loading="lazy">
+        <span>${v.label}</span>
+      </div>`).join('');
+
+    // Build features
+    const feats = d.features.map(f => `<span class="pop-feat">${f}</span>`).join('');
+
+    // Progress bar
+    const progressBar = isCompleted ? '' : `
+      <div class="pop-progress-wrap">
+        <div class="pop-progress-label">Construction Progress</div>
+        <div class="pop-progress-track"><div class="pop-progress-fill" style="width:${d.progress}%"></div></div>
+        <span class="pop-progress-pct">${d.progress}%</span>
+      </div>`;
+
+    const actionBtn = isCompleted
+      ? `<button class="pop-action-btn tour" onclick="openTourModal('${name.replace(/'/g,"&#39;")}')">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+           Book a Tour
+         </button>`
+      : `<button class="pop-action-btn status">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+           Track Progress
+         </button>`;
+
+    document.getElementById('project-popup').innerHTML = `
+      <div class="pop-overlay" onclick="closePopup()"></div>
+      <div class="pop-modal">
+        <button class="pop-close" onclick="closePopup()">✕</button>
+
+        <!-- LEFT: Image viewer -->
+        <div class="pop-left">
+          <div class="pop-hero-img-wrap">
+            <img id="pop-main-img" src="${d.views[0].img}" alt="${d.views[0].label}">
+            <div class="pop-img-label" id="pop-img-label">${d.views[0].label}</div>
+            <button class="pop-img-nav prev" onclick="changeView(-1)">‹</button>
+            <button class="pop-img-nav next" onclick="changeView(1)">›</button>
+          </div>
+          <div class="pop-thumbs" id="pop-thumbs">${thumbs}</div>
+        </div>
+
+        <!-- RIGHT: Details -->
+        <div class="pop-right">
+          <div class="pop-eyebrow">Ameritore Homes</div>
+          <h2 class="pop-title">${name}</h2>
+          <div class="pop-status ${statusClass}">${statusText}</div>
+
+          <p class="pop-desc">${d.description}</p>
+
+          ${progressBar}
+
+          <div class="pop-meta-grid">
+            <div class="pop-meta-item"><span class="pop-meta-key">Location</span><span class="pop-meta-val">${d.location}</span></div>
+            <div class="pop-meta-item"><span class="pop-meta-key">Architect</span><span class="pop-meta-val">${d.architect}</span></div>
+            <div class="pop-meta-item"><span class="pop-meta-key">Style</span><span class="pop-meta-val">${d.style}</span></div>
+            <div class="pop-meta-item"><span class="pop-meta-key">Completion</span><span class="pop-meta-val">${d.completion}</span></div>
+            <div class="pop-meta-item"><span class="pop-meta-key">Price</span><span class="pop-meta-val pop-price">${d.price}</span></div>
+            <div class="pop-meta-item"><span class="pop-meta-key">Award</span><span class="pop-meta-val">${d.award}</span></div>
+          </div>
+
+          <div class="pop-features-label">Key Features</div>
+          <div class="pop-features">${feats}</div>
+
+          <div class="pop-actions">
+            ${actionBtn}
+            <button class="pop-action-btn ghost" onclick="closePopup()">Close</button>
+          </div>
+        </div>
+      </div>`;
+
+    const popup = document.getElementById('project-popup');
+    popup.style.display = 'flex';
+    requestAnimationFrame(() => { popup.classList.add('visible'); });
+    document.body.style.overflow = 'hidden';
+
+    // Store views for nav
+    popup._views = d.views;
+    popup._name  = name;
+  }
+
+  function closePopup() {
+    const popup = document.getElementById('project-popup');
+    popup.classList.remove('visible');
+    setTimeout(() => { popup.style.display = 'none'; }, 320);
+    document.body.style.overflow = '';
+  }
+
+  function setView(idx) {
+    const popup = document.getElementById('project-popup');
+    popupViewIndex = idx;
+    const v = popup._views[idx];
+    document.getElementById('pop-main-img').src   = v.img;
+    document.getElementById('pop-img-label').textContent = v.label;
+    document.querySelectorAll('.pop-thumb').forEach((t,i) => t.classList.toggle('active', i===idx));
+  }
+
+  function changeView(dir) {
+    const popup = document.getElementById('project-popup');
+    const len   = popup._views.length;
+    popupViewIndex = (popupViewIndex + dir + len) % len;
+    setView(popupViewIndex);
+  }
+
+  // ── TOUR MODAL ────────────────────────────────────────────────────────────
+  function openTourModal(name) {
+    const d = PROJECT_DETAILS[name];
+    document.getElementById('tour-modal').innerHTML = `
+      <div class="pop-overlay" onclick="closeTourModal()"></div>
+      <div class="tour-modal-inner">
+        <button class="pop-close" onclick="closeTourModal()">✕</button>
+        <div class="tour-header">
+          <div class="tour-eyebrow">Book a Private Tour</div>
+          <h3 class="tour-title">${name}</h3>
+          <p class="tour-subtitle">${d.location} · ${d.completion}</p>
+        </div>
+        <form class="tour-form" onsubmit="submitTour(event)">
+          <div class="tour-form-row">
+            <div class="tour-field">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name" required>
+            </div>
+            <div class="tour-field">
+              <label>Email Address</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="tour-form-row">
+            <div class="tour-field">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="tour-field">
+              <label>Preferred Date</label>
+              <input type="date">
+            </div>
+          </div>
+          <div class="tour-field full">
+            <label>Preferred Time Slot</label>
+            <div class="tour-slots">
+              <label class="slot-opt"><input type="radio" name="slot" value="morning"> Morning (9am–12pm)</label>
+              <label class="slot-opt"><input type="radio" name="slot" value="afternoon"> Afternoon (1pm–4pm)</label>
+              <label class="slot-opt"><input type="radio" name="slot" value="evening"> Evening (5pm–7pm)</label>
+            </div>
+          </div>
+          <div class="tour-field full">
+            <label>Message (optional)</label>
+            <textarea placeholder="Any specific requirements or questions..."></textarea>
+          </div>
+          <div class="tour-views-preview">
+            <p class="tour-views-label">Views Included in Tour</p>
+            <div class="tour-views-row">
+              ${d.views.slice(0,4).map(v=>`<div class="tour-view-thumb"><img src="${v.img}" alt="${v.label}"><span>${v.label}</span></div>`).join('')}
+            </div>
+          </div>
+          <div class="tour-form-footer">
+            <button type="submit" class="pop-action-btn tour">Confirm Booking</button>
+            <button type="button" class="pop-action-btn ghost" onclick="closeTourModal()">Cancel</button>
+          </div>
+        </form>
+      </div>`;
+    const tm = document.getElementById('tour-modal');
+    tm.style.display = 'flex';
+    requestAnimationFrame(() => tm.classList.add('visible'));
+  }
+
+  function closeTourModal() {
+    const tm = document.getElementById('tour-modal');
+    tm.classList.remove('visible');
+    setTimeout(() => { tm.style.display = 'none'; }, 320);
+  }
+
+  function submitTour(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Booking Confirmed ✓';
+    btn.style.background = 'rgba(76,175,80,0.2)';
+    btn.style.borderColor = '#4caf7d';
+    btn.style.color = '#4caf7d';
+    setTimeout(() => { closeTourModal(); closePopup(); }, 1800);
+  }
+
+  // Keyboard support
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closePopup(); closeTourModal(); }
+    if (e.key === 'ArrowLeft')  changeView(-1);
+    if (e.key === 'ArrowRight') changeView(1);
+  });
+
+  // ── RENDER CARDS ──────────────────────────────────────────────────────────
+  function renderCards() {
+    const data = currentTab === 'ongoing' ? ONGOING : COMPLETED;
+    const isCompleted = currentTab === 'completed';
+    const track = document.getElementById('ongoing-cards');
+    if (!track) return;
+    const prevBtn = document.querySelector('.slider-nav.prev');
+    const nextBtn = document.querySelector('.slider-nav.next');
+
+    const slice = data.slice(currentIndex, currentIndex + VISIBLE);
+
+    // Instant render first time, fade for subsequent changes
+    const isFirstRender = track.innerHTML.trim() === '';
+    if (!isFirstRender) {
+      track.style.opacity = '0';
+      track.style.transform = 'translateY(8px)';
+    }
+
+    const doRender = () => {
+      track.innerHTML = slice.map(p => buildCard(p, isCompleted)).join('');
+      track.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      track.style.opacity = '1';
+      track.style.transform = 'translateY(0)';
+
+      if (prevBtn) {
+        prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+      }
+      if (nextBtn) {
+        nextBtn.style.opacity = currentIndex + VISIBLE >= data.length ? '0.3' : '1';
+        nextBtn.style.pointerEvents = currentIndex + VISIBLE >= data.length ? 'none' : 'auto';
+      }
+      const counter = document.getElementById('slide-counter');
+      if (counter) counter.textContent = `${currentIndex+1}–${Math.min(currentIndex+VISIBLE, data.length)} / ${data.length}`;
+    };
+
+    if (isFirstRender) {
+      doRender();
+    } else {
+      setTimeout(doRender, 150);
+    }
+  }
+
+  // ── TAB SWITCH ────────────────────────────────────────────────────────────
+  function switchTab(btn, tab) {
+    if (currentTab === tab) return;
+    currentTab = tab;
+    currentIndex = 0;
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.toggle('active', b === btn);
+      b.classList.toggle('inactive', b !== btn);
+    });
+    renderCards();
+  }
+
+  // ── SLIDER ────────────────────────────────────────────────────────────────
+  function slide(dir) {
+    const data = currentTab === 'ongoing' ? ONGOING : COMPLETED;
+    currentIndex = Math.max(0, Math.min(data.length - VISIBLE, currentIndex + dir * VISIBLE));
+    renderCards();
+  }
+
+  // ── INIT ──────────────────────────────────────────────────────────────────
+  function safeRender() {
+    const track = document.getElementById('ongoing-cards');
+    if (track) { renderCards(); }
+    else { setTimeout(safeRender, 30); }
+  }
+
+  // window.onload = most reliable for local file:// usage
+  window.addEventListener('load', safeRender);
+  // Also try immediately + DOMContentLoaded as backups
+  document.addEventListener('DOMContentLoaded', safeRender);
+  safeRender();
+
+  // ── PARALLAX ──────────────────────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const bg = document.querySelector('.hero-bg');
+    if (bg) bg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+  });
+</script>
+<script>
+
+/* ─── NEON CANVAS RENDERER ─── */
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'neon-canvas';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Each "streak" is a bezier light wave
+  const streaks = [];
+  const COLORS = [
+    'rgba(200,133,58,',
+    'rgba(220,155,70,',
+    'rgba(180,110,40,',
+    'rgba(240,170,80,',
+    'rgba(160,90,30,',
+  ];
+
+  function randBetween(a, b) { return a + Math.random() * (b - a); }
+
+  function createStreak() {
+    const W = canvas.width, H = canvas.height;
+    const side = Math.random() < 0.5; // true = horizontal, false = vertical
+    return {
+      // start
+      x0: side ? -80 : randBetween(W * 0.05, W * 0.95),
+      y0: side ? randBetween(H * 0.1, H * 0.9) : -60,
+      // control points
+      cx1: randBetween(W * 0.1, W * 0.5),
+      cy1: randBetween(H * 0.05, H * 0.5),
+      cx2: randBetween(W * 0.45, W * 0.9),
+      cy2: randBetween(H * 0.4,  H * 0.95),
+      // end
+      x1: side ? W + 80 : randBetween(W * 0.05, W * 0.95),
+      y1: side ? randBetween(H * 0.1, H * 0.9) : H + 60,
+      // visual
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      width: randBetween(0.6, 2.2),
+      alpha: 0,
+      maxAlpha: randBetween(0.22, 0.55),
+      speed: randBetween(0.003, 0.009),
+      progress: 0,        // 0 → 1 along the curve
+      headLen: randBetween(0.08, 0.22), // fraction of curve that's "lit"
+      phase: 'in',        // in | hold | out
+      holdTime: randBetween(40, 120),
+      holdCount: 0,
+      glowLayers: Math.random() < 0.5 ? 3 : 2,
+    };
+  }
+
+  // pre-seed
+  for (let i = 0; i < 6; i++) {
+    const s = createStreak();
+    s.progress = Math.random();
+    s.alpha = s.maxAlpha * Math.random();
+    streaks.push(s);
+  }
+
+  // Cubic bezier point
+  function bezierPoint(t, p0, p1, p2, p3) {
+    const u = 1 - t;
+    return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3;
+  }
+
+  function drawStreak(s) {
+    const t0 = Math.max(0, s.progress - s.headLen);
+    const t1 = Math.min(1, s.progress);
+    if (t0 >= t1) return;
+
+    const steps = 60;
+    ctx.save();
+
+    for (let layer = s.glowLayers; layer >= 1; layer--) {
+      ctx.beginPath();
+      for (let i = 0; i <= steps; i++) {
+        const t = t0 + (t1 - t0) * (i / steps);
+        const x = bezierPoint(t, s.x0, s.cx1, s.cx2, s.x1);
+        const y = bezierPoint(t, s.y0, s.cy1, s.cy2, s.y1);
+        // brightness fades toward tail
+        const frac = i / steps;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      const baseAlpha = s.alpha * (layer === 1 ? 1 : 0.3 / layer);
+      ctx.strokeStyle = s.color + baseAlpha + ')';
+      ctx.lineWidth   = s.width * (layer === 1 ? 1 : layer * 1.8);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (layer > 1) {
+        ctx.shadowColor = s.color + '0.6)';
+        ctx.shadowBlur  = 8 * layer;
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    // bright sparkle tip
+    const tipX = bezierPoint(t1, s.x0, s.cx1, s.cx2, s.x1);
+    const tipY = bezierPoint(t1, s.y0, s.cy1, s.cy2, s.y1);
+    const grad = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, 6);
+    grad.addColorStop(0, s.color + (s.alpha * 1.4) + ')');
+    grad.addColorStop(1, s.color + '0)');
+    ctx.beginPath();
+    ctx.arc(tipX, tipY, 6, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  let spawnTimer = 0;
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // spawn new streaks periodically
+    spawnTimer++;
+    if (spawnTimer > 55 && streaks.length < 12) {
+      streaks.push(createStreak());
+      spawnTimer = 0;
+    }
+
+    for (let i = streaks.length - 1; i >= 0; i--) {
+      const s = streaks[i];
+
+      // state machine
+      if (s.phase === 'in') {
+        s.alpha    += s.maxAlpha * 0.06;
+        s.progress += s.speed;
+        if (s.alpha  >= s.maxAlpha) { s.alpha = s.maxAlpha; }
+        if (s.progress >= 1) { s.progress = 1; s.phase = 'hold'; }
+      } else if (s.phase === 'hold') {
+        s.holdCount++;
+        if (s.holdCount >= s.holdTime) s.phase = 'out';
+      } else {
+        s.alpha -= s.maxAlpha * 0.04;
+        if (s.alpha <= 0) { streaks.splice(i, 1); continue; }
+      }
+
+      drawStreak(s);
+    }
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+</script>
+
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <img src="./assets/logo.jpeg" alt="Ameritore" class="footer-logo-img"
+         onerror="this.style.display='none'">
+    <span class="footer-copy">
+      &copy; <strong>Ameritore Homes</strong> 2026. All rights reserved.
+    </span>
+  </div>
+
+  <div class="footer-center">
+    Designed &amp; Developed by&nbsp;<a href="#" target="_blank">Creative Advs</a>
+  </div>
+
+  <div class="footer-right">
+    <a href="#" class="footer-link">Terms</a>
+    <div class="footer-divider"></div>
+    <a href="#" class="footer-link">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobile-nav">
+  <div class="mob-overlay" onclick="closeMobNav()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobNav()">✕</button>
+    <a href="index.html" class="mob-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <path d="M22 4L38 36H6L22 4Z" stroke="white" stroke-width="2.2" fill="none"/>
+        <path d="M22 4L38 36" stroke="white" stroke-width="2.2"/>
+        <path d="M14 24H30" stroke="white" stroke-width="2.2"/>
+      </svg>
+      <div class="mob-logo-text">
+        <span class="name">Ameritore</span>
+        <span class="sub">Homes</span>
+      </div>
+    </a>
+    <nav class="mob-nav">
+    <a href="index.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home</a>
+      <a href="about.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
+      <a href="projects.html" class="mob-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Technology</a>
+      <a href="process.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sustainability</a>
+      <a href="contact.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact</a>
+    </nav>
+    <div class="mob-socials">
+      <a href="#" class="mob-soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* ─── SCROLL TO TOP ─── */
+(function(){
+  const btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 280);
+  }, { passive: true });
+})();
+
+/* ─── MOBILE NAV ─── */
+function openMobNav() {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeMobNav(); });
+
+/* Mark active mobile link */
+(function(){
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mob-nav-item').forEach(a => {
+    const href = a.getAttribute('href').split('/').pop();
+    if (href === path) a.classList.add('active');
+  });
+})();
+
+</script>
+</body>
+</html>

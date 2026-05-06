@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ameritore Homes – Careers</title>
+<link rel="icon" type="image/png" href="./assets/favicon.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+/* ═══ SELF-HOSTED BARLOW CONDENSED FONT FACE ═══ */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700;800&display=swap');
+
+.hero-title,
+.hero-title span,
+.hero-title .line1,
+.hero-title .line2,
+.hero-title .line3,
+h1.hero-title {
+  font-family: 'Barlow Condensed', 'Arial Narrow', 'Impact', Arial, sans-serif !important;
+  font-weight: 900 !important;
+  font-stretch: condensed !important;
+  letter-spacing: -2px !important;
+  line-height: 0.88 !important;
+  text-transform: uppercase !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+/* ═══ END FONT FACE ═══ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #0d1117;
+  --bg-sidebar: #111519;
+  --bg-card: #161b22;
+  --bg-card2: #1a2030;
+  --accent-gold: #c8853a;
+  --accent-gold-light: #d9934a;
+  --accent-gold2: #b8732a;
+  --text-white: #ffffff;
+  --text-light: #d0d5dd;
+  --text-muted: #8a9ab0;
+  --text-subtle: #5a6a7e;
+  --border: rgba(255,255,255,0.07);
+  --border-light: rgba(255,255,255,0.12);
+  --sidebar-w: 140px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ════════════════════════════════
+   SIDEBAR
+════════════════════════════════ */
+.sidebar {
+  position: fixed; top: 0; left: 0;
+  width: var(--sidebar-w); height: 100vh;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center;
+  z-index: 100; padding: 28px 0 32px;
+}
+.sidebar-logo { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 40px; text-decoration: none; }
+.logo-icon { width: 44px; height: 44px; }
+.logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 2px; color: #fff; display: block; text-align: center; }
+.logo-text .sub { font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--text-muted); display: block; margin-top: 2px; text-align: center; }
+.sidebar-nav { flex: 1; width: 100%; display: flex; flex-direction: column; gap: 2px; padding: 0 10px; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 8px; text-decoration: none; color: var(--text-muted); font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; transition: all 0.2s; }
+.nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.nav-item.active { background: rgba(200,133,58,0.15); color: var(--text-white); border: 1px solid rgba(200,133,58,0.2); }
+.nav-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.75; }
+.nav-item.active .nav-icon { opacity: 1; }
+.sidebar-bottom { text-align: center; padding: 0 10px; }
+.build-cta { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; line-height: 1.4; margin-bottom: 10px; }
+.sidebar-arrow { width: 32px; height: 32px; border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; margin: 0 auto; }
+.sidebar-arrow:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
+
+/* ════════════════════════════════
+   MAIN
+════════════════════════════════ */
+.main { margin-left: var(--sidebar-w); }
+
+/* ════════════════════════════════
+   TOPBAR
+════════════════════════════════ */
+.topbar { position: absolute; top: 0; right: 0; padding: 20px 30px; display: flex; align-items: center; gap: 12px; z-index: 50; }
+.social-icons { display: flex; align-items: center; gap: 6px; }
+.soc-btn {
+  width: 36px; height: 36px;
+  background: rgba(13,17,23,0.65); backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none; color: var(--text-muted);
+  transition: all 0.22s;
+}
+.soc-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 14px rgba(200,133,58,0.35); background: rgba(200,133,58,0.12); }
+.soc-btn svg { width: 15px; height: 15px; }
+.menu-btn { width: 36px; height: 36px; background: rgba(13,17,23,0.65); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+.menu-btn:hover { border-color: var(--accent-gold); }
+
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+.hero {
+  position: relative; height: 480px; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(13,17,23,0.94) 28%, rgba(13,17,23,0.5) 58%, rgba(13,17,23,0.1) 100%),
+    linear-gradient(to bottom, rgba(13,17,23,0) 40%, rgba(13,17,23,0.98) 100%),
+    url('./assets/background-1.png') center/cover no-repeat;
+}
+.hero::before {
+  content: ''; position: absolute; bottom: -60px; left: -60px;
+  width: 420px; height: 420px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 68%);
+  pointer-events: none; z-index: 1;
+  animation: ambientPulse 5s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: ''; position: absolute; top: 30px; right: 80px;
+  width: 320px; height: 240px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.05) 0%, transparent 70%);
+  pointer-events: none; z-index: 1;
+}
+@keyframes ambientPulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.08); }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 90px 0 0 52px; max-width: 620px;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: 2px;
+  color: var(--text-muted); text-transform: uppercase;
+  margin-bottom: 18px; display: flex; align-items: center; gap: 7px;
+  animation: fadeUp 0.5s ease both;
+}
+.hero-eyebrow::before { content: '›'; color: var(--accent-gold); font-size: 16px; }
+.hero-title {
+  font-size: 88px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+.hero-title .line1 { display: block; color: #fff; }
+.hero-title .line2 { display: block; color: var(--accent-gold); text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18); }
+.hero-sub {
+  font-size: 14.5px; font-weight: 300; color: var(--text-light);
+  line-height: 1.65; margin-bottom: 30px; max-width: 480px;
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex; gap: 28px;
+  animation: fadeUp 0.5s ease 0.28s both;
+}
+.hero-stat { display: flex; flex-direction: column; gap: 2px; }
+.stat-num {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  font-size: 32px; font-weight: 800; color: var(--accent-gold);
+  line-height: 1; text-shadow: 0 0 14px rgba(200,133,58,0.4);
+}
+.stat-lbl { font-size: 9.5px; font-weight: 600; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; }
+
+/* ════════════════════════════════
+   WHY JOIN US STRIP
+════════════════════════════════ */
+.why-strip {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.why-item {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 24px 20px; border-right: 1px solid var(--border);
+  text-align: center; transition: background 0.2s; cursor: default;
+}
+.why-item:last-child { border-right: none; }
+.why-item:hover { background: rgba(255,255,255,0.03); }
+.why-icon { width: 32px; height: 32px; color: var(--accent-gold); filter: drop-shadow(0 0 6px rgba(200,133,58,0.55)); }
+.why-title { font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; color: #fff; text-transform: uppercase; }
+.why-desc { font-size: 11px; color: var(--text-muted); line-height: 1.55; }
+
+/* ════════════════════════════════
+   JOBS SECTION
+════════════════════════════════ */
+.jobs-section {
+  padding: 52px 52px 0;
+  display: grid; grid-template-columns: 260px 1fr; gap: 40px;
+}
+
+/* Left filter panel */
+.filter-panel {}
+.filter-label {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px;
+  color: var(--accent-gold); text-transform: uppercase; margin-bottom: 14px;
+  text-shadow: 0 0 14px rgba(200,133,58,0.4);
+}
+.filter-group { margin-bottom: 24px; }
+.filter-group-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  color: var(--text-muted); text-transform: uppercase;
+  margin-bottom: 10px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-opts { display: flex; flex-direction: column; gap: 6px; }
+.filter-opt {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 12px; color: var(--text-muted);
+  cursor: pointer; padding: 7px 10px; border-radius: 6px;
+  border: 1px solid transparent; transition: all 0.2s;
+  user-select: none;
+}
+.filter-opt:hover { background: rgba(255,255,255,0.04); color: var(--text-light); }
+.filter-opt.selected { background: rgba(200,133,58,0.1); border-color: rgba(200,133,58,0.25); color: var(--accent-gold); }
+.filter-opt input[type=checkbox] { accent-color: var(--accent-gold); width: 13px; height: 13px; }
+
+.search-box {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border-light);
+  border-radius: 7px; padding: 10px 14px; margin-bottom: 20px;
+  transition: border-color 0.2s;
+}
+.search-box:focus-within { border-color: rgba(200,133,58,0.4); box-shadow: 0 0 12px rgba(200,133,58,0.15); }
+.search-box svg { width: 15px; height: 15px; color: var(--text-muted); flex-shrink: 0; }
+.search-box input {
+  background: transparent; border: none; outline: none;
+  color: #fff; font-family: 'Barlow', sans-serif; font-size: 12.5px;
+  width: 100%;
+}
+.search-box input::placeholder { color: var(--text-subtle); }
+
+/* Jobs list */
+.jobs-list { display: flex; flex-direction: column; gap: 14px; }
+
+.job-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 22px 24px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer; position: relative; overflow: hidden;
+}
+.job-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 0% 100%, rgba(200,133,58,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.job-card:hover {
+  border-color: rgba(200,133,58,0.3); transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(200,133,58,0.1), 0 8px 30px rgba(0,0,0,0.4);
+}
+.job-card-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; margin-bottom: 12px;
+}
+.job-role {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  font-size: 22px; font-weight: 800; color: #fff;
+  text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px;
+  -webkit-font-smoothing: antialiased;
+}
+.job-dept {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  color: var(--accent-gold); text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(200,133,58,0.3);
+}
+.job-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.job-tag {
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border-light);
+  border-radius: 4px; padding: 4px 10px;
+  font-size: 9.5px; font-weight: 600; letter-spacing: 1px;
+  color: var(--text-muted); text-transform: uppercase;
+}
+.job-tag.type { border-color: rgba(200,133,58,0.25); color: var(--accent-gold); background: rgba(200,133,58,0.08); }
+.job-desc {
+  font-size: 12.5px; font-weight: 300; color: var(--text-muted);
+  line-height: 1.65; margin-bottom: 16px;
+}
+.job-meta {
+  display: flex; align-items: center; gap: 16px;
+  padding-top: 14px; border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.job-meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--text-subtle);
+}
+.job-meta-item svg { width: 13px; height: 13px; color: var(--accent-gold); opacity: 0.7; }
+.job-apply-btn {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,133,58,0.12); border: 1px solid rgba(200,133,58,0.3);
+  border-radius: 5px; padding: 9px 18px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--accent-gold);
+  cursor: pointer; transition: all 0.25s;
+}
+.job-apply-btn:hover {
+  background: rgba(200,133,58,0.25); border-color: var(--accent-gold);
+  box-shadow: 0 0 16px rgba(200,133,58,0.3); color: #fff;
+}
+
+/* No results */
+.no-results {
+  text-align: center; padding: 60px 0; color: var(--text-subtle);
+  font-size: 13px; display: none;
+}
+
+/* ════════════════════════════════
+   APPLY MODAL
+════════════════════════════════ */
+#apply-modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: none; align-items: center; justify-content: center; padding: 20px;
+  opacity: 0; transition: opacity 0.32s ease;
+}
+#apply-modal.visible { opacity: 1; }
+.modal-overlay {
+  position: absolute; inset: 0;
+  background: rgba(5,8,14,0.88); backdrop-filter: blur(6px);
+}
+.modal-inner {
+  position: relative; z-index: 2;
+  width: min(640px, 96vw); max-height: 92vh; overflow-y: auto;
+  background: linear-gradient(135deg, #0f1520 0%, #131925 100%);
+  border: 1px solid rgba(200,133,58,0.28); border-radius: 14px;
+  padding: 32px 32px 28px;
+  box-shadow: 0 0 60px rgba(200,133,58,0.12), 0 32px 80px rgba(0,0,0,0.7);
+  animation: popSlideUp 0.35s cubic-bezier(0.34,1.36,0.64,1) both;
+}
+.modal-inner::-webkit-scrollbar { width: 3px; }
+.modal-inner::-webkit-scrollbar-thumb { background: rgba(200,133,58,0.35); border-radius: 2px; }
+@keyframes popSlideUp {
+  from { transform: translateY(30px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 30px; height: 30px;
+  background: rgba(255,255,255,0.07); border: 1px solid var(--border-light);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); font-size: 13px; transition: all 0.2s;
+}
+.modal-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 10px rgba(200,133,58,0.35); }
+.modal-eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px; }
+.modal-title {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  font-size: 32px; font-weight: 900; text-transform: uppercase;
+  color: #fff; -webkit-font-smoothing: antialiased;
+  margin-bottom: 4px;
+}
+.modal-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
+.modal-form { display: flex; flex-direction: column; gap: 14px; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 5px; }
+.form-field label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; }
+.form-field input,
+.form-field textarea,
+.form-field select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px; padding: 11px 14px;
+  color: #fff; font-family: 'Barlow', sans-serif; font-size: 13px;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+  border-color: rgba(200,133,58,0.5); box-shadow: 0 0 12px rgba(200,133,58,0.18);
+}
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-subtle); }
+.form-field select option { background: #131925; }
+.form-field textarea { resize: none; height: 90px; }
+
+/* File upload */
+.file-upload-area {
+  border: 1.5px dashed rgba(200,133,58,0.3);
+  border-radius: 7px; padding: 20px;
+  text-align: center; cursor: pointer; transition: all 0.25s;
+  background: rgba(200,133,58,0.04);
+}
+.file-upload-area:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.08); }
+.file-upload-area input { display: none; }
+.file-upload-icon { color: var(--accent-gold); margin-bottom: 8px; }
+.file-upload-text { font-size: 12px; color: var(--text-muted); }
+.file-upload-text strong { color: var(--accent-gold); }
+.file-upload-note { font-size: 10px; color: var(--text-subtle); margin-top: 4px; }
+
+.modal-footer { display: flex; gap: 10px; margin-top: 6px; }
+.modal-submit {
+  flex: 1; padding: 13px;
+  background: rgba(200,133,58,0.18); border: 1px solid var(--accent-gold);
+  border-radius: 6px; color: var(--accent-gold);
+  font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+  transition: all 0.25s;
+}
+.modal-submit:hover { background: rgba(200,133,58,0.35); color: #fff; box-shadow: 0 0 20px rgba(200,133,58,0.35); }
+.modal-cancel {
+  padding: 13px 20px;
+  background: transparent; border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text-muted);
+  font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s;
+}
+.modal-cancel:hover { border-color: var(--border-light); color: var(--text-light); }
+
+/* ════════════════════════════════
+   CULTURE SECTION
+════════════════════════════════ */
+.culture-section {
+  padding: 52px 52px 0;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+}
+.culture-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; transition: border-color 0.3s, transform 0.3s;
+  cursor: default;
+}
+.culture-card:hover { border-color: rgba(200,133,58,0.25); transform: translateY(-2px); box-shadow: 0 0 18px rgba(200,133,58,0.1); }
+.culture-img { height: 160px; overflow: hidden; }
+.culture-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75); transition: filter 0.3s; }
+.culture-card:hover .culture-img img { filter: brightness(0.9); }
+.culture-body { padding: 18px 18px 16px; }
+.culture-icon { color: var(--accent-gold); margin-bottom: 10px; filter: drop-shadow(0 0 6px rgba(200,133,58,0.5)); }
+.culture-title { font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; font-size: 18px; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 8px; -webkit-font-smoothing: antialiased; }
+.culture-desc { font-size: 12px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+
+/* ════════════════════════════════
+   BOTTOM STRIP
+════════════════════════════════ */
+.bottom-strip {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; border-top: 1px solid var(--border);
+  margin-top: 52px; padding: 0;
+}
+.strip-features { display: flex; border-right: 1px solid var(--border); }
+.strip-feat {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 20px 30px; border-right: 1px solid var(--border);
+  text-align: center; font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  color: var(--text-muted); text-transform: uppercase; transition: background 0.2s; cursor: default;
+}
+.strip-feat:hover { background: rgba(255,255,255,0.03); color: var(--text-light); }
+.strip-feat svg { width: 26px; height: 26px; color: var(--accent-gold); opacity: 0.8; filter: drop-shadow(0 0 6px rgba(200,133,58,0.55)); }
+.strip-cta { padding: 0 44px; text-align: right; }
+.strip-cta-title {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: #fff; line-height: 1.1; margin-bottom: 4px;
+  -webkit-font-smoothing: antialiased;
+}
+.strip-cta-sub { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; }
+.diamond-btn {
+  width: 38px; height: 38px; border: 1px solid var(--border-light);
+  transform: rotate(45deg); display: flex; align-items: center;
+  justify-content: center; cursor: pointer; margin-left: auto; transition: all 0.2s;
+}
+.diamond-btn:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); box-shadow: 0 0 16px rgba(200,133,58,0.4); }
+.diamond-btn svg { transform: rotate(-45deg); color: var(--text-light); width: 14px; height: 14px; }
+
+/* ════════════════════════════════
+   NEON CANVAS
+════════════════════════════════ */
+#neon-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.72; }
+
+/* ════════════════════════════════
+   SCROLL TOP
+════════════════════════════════ */
+#scroll-top {
+  position: fixed; bottom: 32px; right: 32px; width: 44px; height: 44px;
+  background: rgba(13,17,23,0.85); backdrop-filter: blur(10px);
+  border: 1px solid rgba(200,133,58,0.4); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 500; color: var(--accent-gold);
+  opacity: 0; pointer-events: none; transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 14px rgba(200,133,58,0.15);
+}
+#scroll-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+#scroll-top:hover { box-shadow: 0 0 22px rgba(200,133,58,0.5); background: rgba(200,133,58,0.18); }
+
+/* ════════════════════════════════
+   MOBILE NAV
+════════════════════════════════ */
+.soc-btn.mob-soc-btn { width: 38px; height: 38px; border-radius: 8px; }
+.mob-soc-btn svg { width: 16px; height: 16px; }
+#mobile-nav { display: none; position: fixed; inset: 0; z-index: 999; }
+#mobile-nav.open { display: flex; }
+.mob-overlay { position: absolute; inset: 0; background: rgba(5,8,14,0.85); backdrop-filter: blur(8px); }
+.mob-panel {
+  position: absolute; top: 0; right: 0; width: min(300px, 85vw); height: 100vh;
+  background: linear-gradient(160deg, #0f1520 0%, #111827 100%);
+  border-left: 1px solid rgba(200,133,58,0.2);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.6);
+  display: flex; flex-direction: column; padding: 28px 24px 32px;
+  transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.34,1.12,0.64,1);
+}
+#mobile-nav.open .mob-panel { transform: translateX(0); }
+.mob-close { align-self: flex-end; width: 32px; height: 32px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 15px; transition: all 0.2s; margin-bottom: 32px; }
+.mob-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+.mob-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 36px; text-decoration: none; }
+.mob-logo svg { width: 36px; height: 36px; }
+.mob-logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; color: #fff; display: block; }
+.mob-logo-text .sub { font-size: 8.5px; letter-spacing: 3px; color: var(--text-muted); }
+.mob-nav { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.mob-nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.2s; border: 1px solid transparent; }
+.mob-nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.mob-nav-item.active { background: rgba(200,133,58,0.14); color: #fff; border-color: rgba(200,133,58,0.2); }
+.mob-nav-item svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
+.mob-nav-item.active svg { opacity: 1; }
+.mob-socials { display: flex; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border); margin-top: 16px; }
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+.site-footer {
+  margin-left: var(--sidebar-w);
+  background: #080b10; border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 16px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; position: relative; z-index: 10;
+}
+.footer-left { display: flex; align-items: center; gap: 10px; }
+.footer-logo-img { width: 28px; height: 28px; border-radius: 4px; object-fit: cover; opacity: 0.85; filter: drop-shadow(0 0 6px rgba(200,133,58,0.35)); }
+.footer-copy { font-size: 11px; font-weight: 500; color: var(--text-subtle); letter-spacing: 0.4px; }
+.footer-copy strong { color: var(--text-muted); font-weight: 600; }
+.footer-center { font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.3px; text-align: center; }
+.footer-center a { color: var(--accent-gold); text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+.footer-center a:hover { opacity: 0.75; }
+.footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-link { font-size: 10.5px; font-weight: 500; color: var(--text-subtle); text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; position: relative; }
+.footer-link::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 1px; background: var(--accent-gold); transform: scaleX(0); transition: transform 0.2s; transform-origin: left; }
+.footer-link:hover { color: var(--accent-gold); }
+.footer-link:hover::after { transform: scaleX(1); }
+.footer-divider { width: 1px; height: 12px; background: rgba(255,255,255,0.1); }
+
+/* ════════════════════════════════
+   ANIMATIONS
+════════════════════════════════ */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 1100px) {
+  .jobs-section { grid-template-columns: 1fr; }
+  .filter-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+  .culture-section { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding-top: 56px; }
+  .mob-topbar { display: flex !important; }
+  .topbar { display: none !important; }
+  .hero-title { font-size: 58px !important; }
+  .hero-content { padding: 80px 0 0 24px; }
+  .why-strip { grid-template-columns: 1fr 1fr; }
+  .jobs-section { padding: 36px 20px 0; }
+  .culture-section { grid-template-columns: 1fr; padding: 36px 20px 0; }
+  .bottom-strip { grid-template-columns: 1fr; }
+  .strip-features { flex-wrap: wrap; border-right: none; border-bottom: 1px solid var(--border); }
+  .strip-cta { text-align: left; padding: 24px; }
+  .diamond-btn { margin-left: 0; }
+  .site-footer { margin-left: 0; flex-direction: column; align-items: center; padding: 16px 20px; text-align: center; }
+}
+@media (max-width: 560px) {
+  .hero-title { font-size: 44px !important; }
+  .hero-stats { flex-wrap: wrap; gap: 16px; }
+  .culture-section, .jobs-section { padding: 24px 14px 0; }
+  .why-strip { grid-template-columns: 1fr; }
+  .form-row-2 { grid-template-columns: 1fr; }
+}
+
+/* ── Mobile topbar ── */
+.mob-topbar {
+  display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px;
+  background: rgba(11,14,20,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,133,58,0.12); z-index: 150;
+  align-items: center; justify-content: space-between; padding: 0 16px;
+}
+.mob-topbar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.mob-topbar-logo-img { width: 36px; height: 36px; border-radius: 5px; object-fit: cover; filter: drop-shadow(0 0 6px rgba(200,133,58,0.3)); }
+.mob-topbar-logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #fff; display: block; }
+.mob-topbar-logo-text .sub { font-size: 7.5px; letter-spacing: 2.5px; color: var(--text-muted); display: block; }
+.mob-topbar-right { display: flex; align-items: center; gap: 8px; }
+.mob-topbar-soc { display: flex; align-items: center; gap: 5px; }
+.mob-topbar-soc .soc-btn { width: 30px; height: 30px; border-radius: 6px; }
+.mob-topbar-ham { width: 34px; height: 34px; background: rgba(255,255,255,0.07); border: 1px solid var(--border-light); border-radius: 7px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-light); transition: all 0.2s; }
+.mob-topbar-ham:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+@media (min-width: 861px) { .mob-topbar { display: none !important; } }
+
+
+
+/* ═══════════════════════════════════════════
+   LOGO FIXES – DESKTOP SIDEBAR + MOBILE TOPBAR
+═══════════════════════════════════════════ */
+
+/* ── Sidebar logo: show image + text stacked ── */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+.sidebar-logo-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(200,133,58,0.35));
+  transition: filter 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img {
+  filter: drop-shadow(0 0 14px rgba(200,133,58,0.6));
+}
+
+/* Hide the old SVG icon when image loads */
+.sidebar-logo .logo-icon { display: none; }
+
+.logo-text {
+  margin-top: 8px;
+  text-align: center;
+}
+.logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 2.5px; color: #fff;
+  display: block; text-align: center;
+}
+.logo-text .sub {
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: 3px; color: var(--text-muted);
+  display: block; text-align: center; margin-top: 1px;
+}
+
+/* ── Mobile topbar logo (left side) ── */
+.mob-topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(11,14,20,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,133,58,0.12);
+  z-index: 150;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.mob-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.mob-topbar-logo-img {
+  width: 36px; height: 36px;
+  border-radius: 5px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.3));
+}
+
+.mob-topbar-logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 2px; color: #fff; display: block;
+}
+.mob-topbar-logo-text .sub {
+  font-size: 7.5px; letter-spacing: 2.5px;
+  color: var(--text-muted); display: block;
+}
+
+.mob-topbar-right {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.mob-topbar-soc {
+  display: flex; align-items: center; gap: 5px;
+}
+
+.mob-topbar-soc .soc-btn {
+  width: 30px; height: 30px; border-radius: 6px;
+}
+
+.mob-topbar-ham {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border-light);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-light);
+  transition: all 0.2s;
+}
+.mob-topbar-ham:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(200,133,58,0.3);
+}
+
+/* ── Responsive: hide sidebar, show mob-topbar ── */
+@media (max-width: 860px) {
+  .sidebar { display: none !important; }
+  .main { margin-left: 0 !important; }
+  .mob-topbar { display: flex !important; }
+
+  /* Push content down below fixed topbar */
+  .hero,
+  .hero-section,
+  section.hero { padding-top: 56px; }
+
+  /* Hide desktop topbar social icons on mobile */
+  .topbar { display: none !important; }
+
+  .site-footer { margin-left: 0 !important; }
+}
+
+@media (min-width: 861px) {
+  .mob-topbar { display: none !important; }
+}
+/* ══ END LOGO FIXES ══ */
+
+
+
+
+
+/* ═══ SIDEBAR LOGO IMAGE FIX ═══ */
+.sidebar-logo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin-bottom: 32px !important;
+  text-decoration: none;
+  padding: 0 !important;
+  width: 100%;
+}
+.sidebar-logo-img {
+  width: 80%;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(200,133,58,0.18);
+  transition: opacity 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img { opacity: 0.85; }
+/* ═══ END SIDEBAR LOGO IMAGE FIX ═══ */
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <a href="index.html" class="sidebar-logo">
+    <img src="./assets/logo.jpeg" class="sidebar-logo-img" alt="Ameritore Homes" onerror="this.style.display='none'">
+  </a>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home
+    </a>
+    <a href="about.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us
+    </a>
+    <a href="projects.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects
+    </a>
+    <a href="process.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process
+    </a>
+    <a href="career.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>Careers
+    </a>
+    <a href="contact.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact
+    </a>
+  </nav>
+  <div class="sidebar-bottom">
+    <p class="build-cta">Let's Build<br>The Future</p>
+    <div class="sidebar-arrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+    </div>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mob-topbar">
+  <a href="index.html" class="mob-topbar-logo">
+    <img src="./assets/logo.jpeg" class="mob-topbar-logo-img" alt="Ameritore" onerror="this.style.display='none'">
+    <div class="mob-topbar-logo-text"><span class="name">Ameritore</span><span class="sub">Homes</span></div>
+  </a>
+  <div class="mob-topbar-right">
+    <div class="mob-topbar-soc">
+      <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg></a>
+    </div>
+    <div class="mob-topbar-ham" onclick="openMobNav()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="social-icons">
+      <a href="#" class="soc-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" class="soc-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg></a>
+      <a href="#" class="soc-btn" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" class="soc-btn" title="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg></a>
+    </div>
+    <div class="menu-btn" onclick="openMobNav()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Join the Ameritore Family</p>
+      <h1 class="hero-title">
+        <span class="line1">Build Your</span>
+        <span class="line2">Legacy With Us</span>
+      </h1>
+      <p class="hero-sub">We are looking for passionate designers, engineers, and innovators who want to shape the future of luxury construction in India. Be part of something extraordinary.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">12+</span>
+          <span class="stat-lbl">Active Projects</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-lbl">Team Members</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">7+</span>
+          <span class="stat-lbl">Open Roles</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">5★</span>
+          <span class="stat-lbl">Employee Rating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY AMERITORE STRIP -->
+  <div class="why-strip">
+    <div class="why-item">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="why-title">Job Security</div>
+      <div class="why-desc">Stable, long-term employment with India's growing luxury construction sector</div>
+    </div>
+    <div class="why-item">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div class="why-title">Growth Path</div>
+      <div class="why-desc">Clear progression plans, skill development, and mentorship from industry veterans</div>
+    </div>
+    <div class="why-item">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      <div class="why-title">Innovation First</div>
+      <div class="why-desc">Work with AI, smart home tech, and cutting-edge sustainable construction methods</div>
+    </div>
+    <div class="why-item">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="why-title">Great Culture</div>
+      <div class="why-desc">Collaborative, inclusive team environment where every idea matters and is heard</div>
+    </div>
+  </div>
+
+  <!-- JOBS SECTION -->
+  <div class="jobs-section">
+
+    <!-- Filter Panel -->
+    <div class="filter-panel">
+      <p class="filter-label">Filter Roles</p>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="job-search" placeholder="Search roles..." oninput="filterJobs()">
+      </div>
+      <div class="filter-group">
+        <div class="filter-group-title">Department</div>
+        <div class="filter-opts" id="dept-filters">
+          <label class="filter-opt selected"><input type="checkbox" value="all" checked onchange="filterJobs()"> All Departments</label>
+          <label class="filter-opt"><input type="checkbox" value="design" onchange="filterJobs()"> Design & Architecture</label>
+          <label class="filter-opt"><input type="checkbox" value="engineering" onchange="filterJobs()"> Civil Engineering</label>
+          <label class="filter-opt"><input type="checkbox" value="technology" onchange="filterJobs()"> Technology</label>
+          <label class="filter-opt"><input type="checkbox" value="management" onchange="filterJobs()"> Project Management</label>
+          <label class="filter-opt"><input type="checkbox" value="sales" onchange="filterJobs()"> Sales & Marketing</label>
+          <label class="filter-opt"><input type="checkbox" value="operations" onchange="filterJobs()"> Operations</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <div class="filter-group-title">Job Type</div>
+        <div class="filter-opts">
+          <label class="filter-opt selected"><input type="checkbox" value="all-type" checked onchange="filterJobs()"> All Types</label>
+          <label class="filter-opt"><input type="checkbox" value="full-time" onchange="filterJobs()"> Full Time</label>
+          <label class="filter-opt"><input type="checkbox" value="part-time" onchange="filterJobs()"> Part Time</label>
+          <label class="filter-opt"><input type="checkbox" value="internship" onchange="filterJobs()"> Internship</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <div class="filter-group-title">Location</div>
+        <div class="filter-opts">
+          <label class="filter-opt selected"><input type="checkbox" value="all-loc" checked onchange="filterJobs()"> All Locations</label>
+          <label class="filter-opt"><input type="checkbox" value="coimbatore" onchange="filterJobs()"> Coimbatore</label>
+          <label class="filter-opt"><input type="checkbox" value="remote" onchange="filterJobs()"> Remote</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jobs List -->
+    <div>
+      <div class="jobs-list" id="jobs-list"></div>
+      <div class="no-results" id="no-results">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40" style="margin-bottom:14px;color:var(--text-subtle)"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <p>No roles match your search. <a href="#" onclick="resetFilters();return false;" style="color:var(--accent-gold)">Clear filters</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CULTURE SECTION -->
+  <div class="culture-section">
+    <div class="culture-card" style="animation:fadeUp 0.5s ease 0.1s both">
+      <div class="culture-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Design Team"></div>
+      <div class="culture-body">
+        <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="culture-title">Design Excellence</div>
+        <div class="culture-desc">Our design team pushes boundaries daily, creating homes that challenge conventions and inspire. From conceptual sketches to 3D renders, every idea is nurtured.</div>
+      </div>
+    </div>
+    <div class="culture-card" style="animation:fadeUp 0.5s ease 0.2s both">
+      <div class="culture-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Site Team"></div>
+      <div class="culture-body">
+        <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M2 20h20M6 20V10M18 20V10"/><path d="M6 10l6-7 6 7"/></svg>
+        <div class="culture-title">Site Mastery</div>
+        <div class="culture-desc">Our construction teams execute with precision and pride. Every pour of concrete, every brick laid is an act of craftsmanship that we take immense pride in.</div>
+      </div>
+    </div>
+    <div class="culture-card" style="animation:fadeUp 0.5s ease 0.3s both">
+      <div class="culture-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Tech Team"></div>
+      <div class="culture-body">
+        <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        <div class="culture-title">Tech-Driven Future</div>
+        <div class="culture-desc">We integrate the latest in AI, smart home systems, and BIM technology. Join our tech team and redefine what modern construction means in India.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM STRIP -->
+  <div class="bottom-strip">
+    <div class="strip-features">
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        Competitive<br>Salaries
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Skill<br>Development
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Health<br>Benefits
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Inclusive<br>Culture
+      </div>
+    </div>
+    <div class="strip-cta">
+      <p class="strip-cta-title">Don't See<br>Your Role?</p>
+      <p class="strip-cta-sub">Send us your CV and we'll be in touch.</p>
+      <div class="diamond-btn" onclick="openApply({role:'Open Application',dept:'General',type:'Full Time',location:'Coimbatore'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- APPLY MODAL -->
+<div id="apply-modal">
+  <div class="modal-overlay" onclick="closeApply()"></div>
+  <div class="modal-inner" id="modal-inner">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <img src="./assets/logo.jpeg" alt="Ameritore" class="footer-logo-img" onerror="this.style.display='none'">
+    <span class="footer-copy">&copy; <strong>Ameritore Homes</strong> 2026. All rights reserved.</span>
+  </div>
+  <div class="footer-center">Designed &amp; Developed by&nbsp;<a href="#" target="_blank">Creative Advs</a></div>
+  <div class="footer-right">
+    <a href="#" class="footer-link">Terms</a>
+    <div class="footer-divider"></div>
+    <a href="#" class="footer-link">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <div class="mob-overlay" onclick="closeMobNav()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobNav()">✕</button>
+    <a href="index.html" class="mob-logo">
+      <svg viewBox="0 0 44 44" fill="none"><path d="M22 4L38 36H6L22 4Z" stroke="white" stroke-width="2.2" fill="none"/><path d="M22 4L38 36" stroke="white" stroke-width="2.2"/><path d="M14 24H30" stroke="white" stroke-width="2.2"/></svg>
+      <div class="mob-logo-text"><span class="name">Ameritore</span><span class="sub">Homes</span></div>
+    </a>
+    <nav class="mob-nav">
+      <a href="index.html"   class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home</a>
+      <a href="about.html"   class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
+      <a href="projects.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects</a>
+      <a href="process.html"  class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process</a>
+      <a href="career.html"   class="mob-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Careers</a>
+      <a href="contact.html"  class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact</a>
+    </nav>
+    <div class="mob-socials">
+      <a href="#" class="soc-btn mob-soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" class="soc-btn mob-soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg></a>
+      <a href="#" class="soc-btn mob-soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" class="soc-btn mob-soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── JOB DATA ── */
+const JOBS = [
+  {
+    id:1, role:'Senior Architect', dept:'Design & Architecture', deptKey:'design',
+    type:'Full Time', typeKey:'full-time', location:'Coimbatore', locationKey:'coimbatore',
+    exp:'5–8 Years',
+    desc:'Lead the design of premium residential projects from concept to execution. You will work directly with clients to translate their vision into architectural reality, collaborating with our structural and MEP teams.',
+    skills:['AutoCAD','Revit','3ds Max','BIM','Client Communication','Structural Co-ordination'],
+  },
+  {
+    id:2, role:'Civil Site Engineer', dept:'Civil Engineering', deptKey:'engineering',
+    type:'Full Time', typeKey:'full-time', location:'Coimbatore', locationKey:'coimbatore',
+    exp:'2–5 Years',
+    desc:'Supervise day-to-day construction activities on residential project sites in Coimbatore. Ensure quality standards, timeline adherence, and material management as per the project plan.',
+    skills:['Site Supervision','RCC','Quality Control','MS Project','AutoCAD','BOQ'],
+  },
+  {
+    id:3, role:'Interior Designer', dept:'Design & Architecture', deptKey:'design',
+    type:'Full Time', typeKey:'full-time', location:'Coimbatore', locationKey:'coimbatore',
+    exp:'2–4 Years',
+    desc:'Create stunning interior concepts for luxury residences. Coordinate with clients on material selections, finishes, furniture layout, and lighting design that align with Ameritore\'s premium brand.',
+    skills:['SketchUp','AutoCAD','Material Sourcing','Client Presentations','3D Visualization','Space Planning'],
+  },
+  {
+    id:4, role:'BIM / CAD Technician', dept:'Technology', deptKey:'technology',
+    type:'Full Time', typeKey:'full-time', location:'Coimbatore', locationKey:'coimbatore',
+    exp:'1–3 Years', 
+    desc:'Develop and maintain Building Information Models for ongoing projects. Work closely with architects and engineers to ensure all drawings are accurate, coordinated, and updated in real-time.',
+    skills:['Revit','AutoCAD','BIM 360','Navisworks','Drawing Coordination','LOD 300+'],
+  },
+  {
+    id:5, role:'Project Manager', dept:'Project Management', deptKey:'management',
+    type:'Full Time', typeKey:'full-time', location:'Coimbatore', locationKey:'coimbatore',
+    exp:'6–10 Years',
+    desc:'Own end-to-end delivery of residential construction projects. Manage timelines, budgets, subcontractors, and client communication to ensure every Ameritore project is delivered to the highest standard.',
+    skills:['MS Project','Primavera P6','Risk Management','Contractor Management','Budget Control','Reporting'],
+  },
+  {
+    id:6, role:'Business Development Executive', dept:'Sales & Marketing', deptKey:'sales',
+    type:'Full Time', typeKey:'full-time', location:'Coimbatore', locationKey:'coimbatore',
+    exp:'1–3 Years',
+    desc:'Identify and develop new client relationships for Ameritore\'s residential construction business. You will represent our brand at events, generate leads, and guide prospects through the enquiry to contract journey.',
+    skills:['Lead Generation','CRM','Presentations','Negotiation','Real Estate Knowledge','Tamil/English'],
+  },
+  {
+    id:7, role:'Structural Draftsman – Internship', dept:'Civil Engineering', deptKey:'engineering',
+    type:'Internship', typeKey:'internship', location:'Coimbatore', locationKey:'coimbatore',
+    exp:'Final Year / Fresher', 
+    desc:'A 3–6 month paid internship for Civil Engineering students. You will assist our structural team with drawings, site visits, and quantity estimation under the mentorship of senior engineers.',
+    skills:['AutoCAD Basic','Enthusiasm','Civil Engineering','Site Visits','BOQ Basics'],
+  },
+];
+
+/* ── RENDER JOBS ── */
+function renderJobs(list) {
+  const container = document.getElementById('jobs-list');
+  const noRes = document.getElementById('no-results');
+  if (!list.length) {
+    container.innerHTML = '';
+    noRes.style.display = 'block';
+    return;
+  }
+  noRes.style.display = 'none';
+  container.innerHTML = list.map(j => `
+    <div class="job-card" onclick="openApply(${JSON.stringify({role:j.role,dept:j.dept,type:j.type,location:j.location}).replace(/"/g,'&quot;')})">
+      <div class="job-card-top">
+        <div>
+          <div class="job-dept">${j.dept}</div>
+          <div class="job-role">${j.role}</div>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag type">${j.type}</span>
+          <span class="job-tag">${j.location}</span>
+          <span class="job-tag">${j.exp}</span>
+        </div>
+      </div>
+      <p class="job-desc">${j.desc}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+        ${j.skills.map(s=>`<span class="job-tag">${s}</span>`).join('')}
+      </div>
+      <div class="job-meta">
+        <div class="job-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${j.location}</div>
+        <div class="job-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${j.exp}</div>
+        <div class="job-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>${j.salary}</div>
+        <button class="job-apply-btn" onclick="event.stopPropagation();openApply(${JSON.stringify({role:j.role,dept:j.dept,type:j.type,location:j.location}).replace(/"/g,'&quot;')})">Apply Now ›</button>
+      </div>
+    </div>`).join('');
+}
+
+/* ── FILTER ── */
+function filterJobs() {
+  const q = (document.getElementById('job-search').value || '').toLowerCase();
+  const deptCbs  = [...document.querySelectorAll('#dept-filters input[type=checkbox]')];
+  const activeDepts = deptCbs.filter(c=>c.checked && c.value!=='all').map(c=>c.value);
+  const allDepts = deptCbs.find(c=>c.value==='all')?.checked;
+
+  const filtered = JOBS.filter(j => {
+    const matchQ = !q || j.role.toLowerCase().includes(q) || j.dept.toLowerCase().includes(q) || j.desc.toLowerCase().includes(q);
+    const matchDept = allDepts || activeDepts.includes(j.deptKey);
+    return matchQ && matchDept;
+  });
+  renderJobs(filtered);
+}
+
+function resetFilters() {
+  document.getElementById('job-search').value = '';
+  document.querySelectorAll('#dept-filters input').forEach(c => { c.checked = c.value === 'all'; });
+  renderJobs(JOBS);
+}
+
+/* ── APPLY MODAL ── */
+function openApply(job) {
+  const m = document.getElementById('modal-inner');
+  m.innerHTML = `
+    <button class="modal-close" onclick="closeApply()">✕</button>
+    <div class="modal-eyebrow">Apply for this Role</div>
+    <div class="modal-title">${job.role}</div>
+    <div class="modal-sub">${job.dept} &nbsp;·&nbsp; ${job.type} &nbsp;·&nbsp; ${job.location}</div>
+    <form class="modal-form" onsubmit="submitApply(event)">
+      <div class="form-row-2">
+        <div class="form-field"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="form-field"><label>Email Address *</label><input type="email" placeholder="you@email.com" required></div>
+      </div>
+      <div class="form-row-2">
+        <div class="form-field"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+        <div class="form-field"><label>Years of Experience</label><input type="text" placeholder="e.g. 3 years"></div>
+      </div>
+      <div class="form-field">
+        <label>Current / Last Company</label>
+        <input type="text" placeholder="Company name or Fresher">
+      </div>
+      <div class="form-field">
+        <label>Why Ameritore? *</label>
+        <textarea placeholder="Tell us why you want to join Ameritore Homes and what you'll bring to the team..." required></textarea>
+      </div>
+      <div class="form-field">
+        <label>Upload CV / Resume *</label>
+        <div class="file-upload-area" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.doc,.docx">
+          <div class="file-upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="32" height="32"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="file-upload-text"><strong>Click to upload</strong> or drag & drop</div>
+          <div class="file-upload-note">PDF, DOC, DOCX — Max 5MB</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="modal-submit">Submit Application</button>
+        <button type="button" class="modal-cancel" onclick="closeApply()">Cancel</button>
+      </div>
+    </form>`;
+
+  const modal = document.getElementById('apply-modal');
+  modal.style.display = 'flex';
+  requestAnimationFrame(() => modal.classList.add('visible'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeApply() {
+  const modal = document.getElementById('apply-modal');
+  modal.classList.remove('visible');
+  setTimeout(() => { modal.style.display = 'none'; }, 320);
+  document.body.style.overflow = '';
+}
+
+function submitApply(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.modal-submit');
+  btn.textContent = 'Submitting…';
+  setTimeout(() => {
+    btn.textContent = 'Application Sent ✓';
+    btn.style.background = 'rgba(76,175,80,0.2)';
+    btn.style.borderColor = '#4caf7d';
+    btn.style.color = '#4caf7d';
+    setTimeout(() => closeApply(), 1800);
+  }, 900);
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => renderJobs(JOBS));
+if (document.readyState !== 'loading') renderJobs(JOBS);
+
+/* ── PARALLAX ── */
+window.addEventListener('scroll', () => {
+  const bg = document.getElementById('heroBg');
+  if (bg) bg.style.transform = `translateY(${window.scrollY * 0.22}px)`;
+  const btn = document.getElementById('scroll-top');
+  if (btn) btn.classList.toggle('visible', window.scrollY > 280);
+}, { passive: true });
+
+/* ── MOBILE NAV ── */
+function openMobNav()  { document.getElementById('mobile-nav').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMobNav() { document.getElementById('mobile-nav').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if(e.key==='Escape'){ closeApply(); closeMobNav(); } });
+</script>
+
+<script>
+/* ─── NEON CANVAS RENDERER ─── */
+(function(){
+  const canvas=document.createElement('canvas'); canvas.id='neon-canvas';
+  document.body.appendChild(canvas); const ctx=canvas.getContext('2d');
+  function resize(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+  resize(); window.addEventListener('resize',resize);
+  const streaks=[]; const COLORS=['rgba(200,133,58,','rgba(220,155,70,','rgba(180,110,40,','rgba(240,170,80,','rgba(160,90,30,'];
+  function rb(a,b){return a+Math.random()*(b-a);}
+  function mk(){const W=canvas.width,H=canvas.height,s=Math.random()<0.5;
+    return{x0:s?-80:rb(W*.05,W*.95),y0:s?rb(H*.1,H*.9):-60,cx1:rb(W*.1,W*.5),cy1:rb(H*.05,H*.5),cx2:rb(W*.45,W*.9),cy2:rb(H*.4,H*.95),x1:s?W+80:rb(W*.05,W*.95),y1:s?rb(H*.1,H*.9):H+60,color:COLORS[Math.floor(Math.random()*COLORS.length)],width:rb(0.6,2.2),alpha:0,maxAlpha:rb(0.22,0.55),speed:rb(0.003,0.009),progress:0,headLen:rb(0.08,0.22),phase:'in',holdTime:rb(40,120),holdCount:0,glowLayers:Math.random()<0.5?3:2};}
+  for(let i=0;i<6;i++){const s=mk();s.progress=Math.random();s.alpha=s.maxAlpha*Math.random();streaks.push(s);}
+  function bp(t,p0,p1,p2,p3){const u=1-t;return u*u*u*p0+3*u*u*t*p1+3*u*t*t*p2+t*t*t*p3;}
+  function draw(s){const t0=Math.max(0,s.progress-s.headLen),t1=Math.min(1,s.progress);if(t0>=t1)return;
+    const n=60;ctx.save();
+    for(let l=s.glowLayers;l>=1;l--){ctx.beginPath();
+      for(let i=0;i<=n;i++){const t=t0+(t1-t0)*(i/n);const x=bp(t,s.x0,s.cx1,s.cx2,s.x1),y=bp(t,s.y0,s.cy1,s.cy2,s.y1);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+      ctx.strokeStyle=s.color+(s.alpha*(l===1?1:0.3/l))+')';ctx.lineWidth=s.width*(l===1?1:l*1.8);ctx.lineCap='round';ctx.lineJoin='round';
+      if(l>1){ctx.shadowColor=s.color+'0.6)';ctx.shadowBlur=8*l;}ctx.stroke();ctx.shadowBlur=0;}
+    const tx=bp(t1,s.x0,s.cx1,s.cx2,s.x1),ty=bp(t1,s.y0,s.cy1,s.cy2,s.y1);
+    const g=ctx.createRadialGradient(tx,ty,0,tx,ty,6);g.addColorStop(0,s.color+(s.alpha*1.4)+')');g.addColorStop(1,s.color+'0)');
+    ctx.beginPath();ctx.arc(tx,ty,6,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();ctx.restore();}
+  let st=0;
+  function tick(){ctx.clearRect(0,0,canvas.width,canvas.height);st++;if(st>55&&streaks.length<12){streaks.push(mk());st=0;}
+    for(let i=streaks.length-1;i>=0;i--){const s=streaks[i];
+      if(s.phase==='in'){s.alpha+=s.maxAlpha*0.06;s.progress+=s.speed;if(s.alpha>=s.maxAlpha)s.alpha=s.maxAlpha;if(s.progress>=1){s.progress=1;s.phase='hold';}}
+      else if(s.phase==='hold'){s.holdCount++;if(s.holdCount>=s.holdTime)s.phase='out';}
+      else{s.alpha-=s.maxAlpha*0.04;if(s.alpha<=0){streaks.splice(i,1);continue;}}
+      draw(s);}requestAnimationFrame(tick);}
+  tick();
+})();
+</script>
+</body>
+</html>

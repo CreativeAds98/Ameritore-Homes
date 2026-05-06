@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ameritore Homes – Contact</title>
+<link rel="icon" type="image/png" href="./assets/favicon.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #0b0e14;
+  --bg-sidebar: #0f1218;
+  --bg-card: rgba(16,20,28,0.82);
+  --bg-card-solid: #10141c;
+  --accent-gold: #c8853a;
+  --text-white: #ffffff;
+  --text-light: #d0d5dd;
+  --text-muted: #8a9ab0;
+  --text-subtle: #5a6a7e;
+  --border: rgba(255,255,255,0.07);
+  --border-light: rgba(255,255,255,0.13);
+  --sidebar-w: 140px;
+  --input-bg: rgba(255,255,255,0.05);
+  --input-border: rgba(255,255,255,0.12);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ════════════════════════════════
+   SIDEBAR
+════════════════════════════════ */
+.sidebar {
+  position: fixed; top: 0; left: 0;
+  width: var(--sidebar-w); height: 100vh;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center;
+  z-index: 100; padding: 28px 0 32px;
+}
+.sidebar-logo { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 40px; text-decoration: none; }
+.logo-icon { width: 44px; height: 44px; }
+.logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 2px; color: #fff; display: block; text-align: center; }
+.logo-text .sub { font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--text-muted); display: block; margin-top: 2px; text-align: center; }
+.sidebar-nav { flex: 1; width: 100%; display: flex; flex-direction: column; gap: 2px; padding: 0 10px; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 8px; text-decoration: none; color: var(--text-muted); font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; transition: all 0.2s; }
+.nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.nav-item.active { background: rgba(200,133,58,0.15); color: var(--text-white); border: 1px solid rgba(200,133,58,0.2); }
+.nav-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.75; }
+.nav-item.active .nav-icon { opacity: 1; }
+.sidebar-bottom { text-align: center; padding: 0 10px; }
+.build-cta { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; line-height: 1.4; margin-bottom: 10px; }
+.sidebar-arrow { width: 32px; height: 32px; border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; margin: 0 auto; }
+.sidebar-arrow:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
+
+/* ════════════════════════════════
+   MAIN
+════════════════════════════════ */
+.main { margin-left: var(--sidebar-w); display: flex; flex-direction: column; min-height: 100vh; }
+
+/* ════════════════════════════════
+   TOPBAR
+════════════════════════════════ */
+.topbar { position: absolute; top: 0; right: 0; padding: 20px 30px; display: flex; align-items: center; gap: 12px; z-index: 50; }
+.client-portal-btn { display: flex; align-items: center; gap: 8px; background: rgba(11,14,20,0.65); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 24px; padding: 9px 20px; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+.client-portal-btn:hover { border-color: var(--accent-gold); color: #fff; }
+.menu-btn { width: 40px; height: 40px; background: rgba(11,14,20,0.65); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+.menu-btn:hover { border-color: var(--accent-gold); }
+
+/* ════════════════════════════════
+   HERO SECTION
+════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(11,14,20,0.96) 28%, rgba(11,14,20,0.55) 58%, rgba(11,14,20,0.12) 100%),
+    linear-gradient(to bottom, rgba(11,14,20,0) 40%, rgba(11,14,20,0.98) 100%),
+    url('./assets/background-1.png') center/cover no-repeat;
+  transform-origin: center;
+  transition: transform 0.1s linear;
+}
+
+/* ── Hero text area ── */
+.hero-text {
+  position: relative; z-index: 2;
+  padding: 120px 0 0 48px;
+  max-width: 700px;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+  color: var(--accent-gold); text-transform: uppercase;
+  margin-bottom: 16px; display: flex; align-items: center; gap: 7px;
+  animation: fadeUp 0.5s ease both;
+}
+.hero-eyebrow::before { content: '›'; font-size: 15px; }
+
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 90px; font-weight: 800;
+  line-height: 0.92; letter-spacing: -1.5px;
+  text-transform: uppercase; margin-bottom: 22px;
+  animation: fadeUp 0.5s ease 0.08s both;
+}
+.hero-title .line1 { display: block; color: #fff; }
+.hero-title .line2 { display: block; color: var(--accent-gold); }
+
+.hero-sub {
+  font-size: 14.5px; font-weight: 300; color: var(--text-light);
+  line-height: 1.65; max-width: 490px;
+  animation: fadeUp 0.5s ease 0.16s both;
+}
+
+/* ════════════════════════════════
+   CONTENT GRID  (form + cards)
+════════════════════════════════ */
+.content-grid {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 490px 1fr 1fr;
+  gap: 16px;
+  padding: 32px 48px 0;
+  animation: fadeUp 0.6s ease 0.24s both;
+}
+
+/* ── CONTACT FORM ── */
+.form-panel {
+  background: rgba(11,14,20,0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 28px 24px 24px;
+}
+
+.form-row { margin-bottom: 10px; }
+.form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+.inp {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  padding: 14px 18px;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  placeholder-color: var(--text-subtle);
+}
+.inp::placeholder { color: var(--text-muted); font-weight: 300; }
+.inp:focus { border-color: rgba(200,133,58,0.45); background: rgba(255,255,255,0.07); }
+
+textarea.inp { resize: none; height: 130px; }
+
+.form-footer { display: flex; align-items: center; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+
+.submit-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 5px;
+  padding: 13px 36px;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.25s;
+}
+.submit-btn:hover { background: rgba(200,133,58,0.25); border-color: var(--accent-gold); color: var(--accent-gold); }
+
+.pref-check { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); cursor: pointer; }
+.pref-check input[type=checkbox] { width: 14px; height: 14px; accent-color: var(--accent-gold); }
+
+/* ── MAP PANEL ── */
+.map-panel {
+  background: rgba(11,14,20,0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 12px;
+  position: relative;
+  height: 200px;
+}
+
+.map-expand {
+  position: absolute; top: 10px; right: 10px;
+  width: 28px; height: 28px;
+  background: rgba(11,14,20,0.7);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 5;
+  color: var(--text-muted);
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+.map-expand:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+/* SVG World Map */
+.world-map-svg {
+  width: 100%; height: 100%;
+  opacity: 0.55;
+}
+
+.map-pin {
+  position: absolute;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 2px;
+}
+.map-pin-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 8px rgba(200,133,58,0.7);
+  position: relative;
+}
+.map-pin-dot::after {
+  content: '';
+  position: absolute; inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,133,58,0.35);
+  animation: pulse 2s ease infinite;
+}
+.map-pin-label {
+  background: rgba(11,14,20,0.85);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 8.5px; font-weight: 600;
+  color: var(--text-light);
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+/* ── GLOBAL REACH CARD ── */
+.reach-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 22px 22px;
+}
+.card-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent-gold); margin-bottom: 18px;
+}
+
+.location-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
+.location-item { display: flex; align-items: flex-start; gap: 10px; }
+.loc-icon { width: 18px; height: 18px; color: var(--accent-gold); flex-shrink: 0; margin-top: 1px; }
+.loc-text { font-size: 12.5px; color: var(--text-light); line-height: 1.45; }
+.loc-text strong { display: block; font-weight: 600; color: #fff; margin-bottom: 1px; }
+
+.divider { height: 1px; background: var(--border); margin: 18px 0; }
+
+.enquiry-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent-gold); margin-bottom: 14px;
+}
+
+.contact-links { display: flex; flex-direction: column; gap: 10px; }
+.contact-link-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+.contact-link-item:hover { color: var(--accent-gold); }
+.contact-link-item svg { width: 16px; height: 16px; color: var(--accent-gold); flex-shrink: 0; }
+
+/* ── INQUIRY TYPES CARD ── */
+.inquiry-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 22px 22px;
+}
+.inquiry-list { display: flex; flex-direction: column; gap: 18px; }
+.inquiry-item { display: flex; align-items: flex-start; gap: 12px; }
+.inq-icon {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-gold);
+}
+.inq-icon svg { width: 16px; height: 16px; }
+.inq-body {}
+.inq-title { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; margin-bottom: 4px; }
+.inq-desc { font-size: 11px; font-weight: 300; color: var(--text-muted); line-height: 1.55; }
+
+/* ════════════════════════════════
+   FOOTER STRIP
+════════════════════════════════ */
+.footer-strip {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 20px 48px 28px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+  gap: 32px;
+}
+
+.footer-left { display: flex; flex-direction: column; gap: 4px; }
+.footer-legal { font-size: 11px; color: var(--text-muted); line-height: 1.55; max-width: 480px; }
+.footer-legal a { color: var(--accent-gold); text-decoration: none; }
+.footer-legal a:hover { text-decoration: underline; }
+.footer-copy { font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.5px; }
+
+.newsletter-block { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+.newsletter-label { font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; }
+.newsletter-row { display: flex; align-items: center; gap: 0; }
+.newsletter-inp {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  padding: 10px 16px;
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px; outline: none;
+  width: 220px;
+  transition: border-color 0.2s;
+}
+.newsletter-inp::placeholder { color: var(--text-muted); }
+.newsletter-inp:focus { border-color: rgba(200,133,58,0.45); }
+
+.newsletter-submit {
+  width: 40px; height: 40px;
+  background: rgba(200,133,58,0.15);
+  border: 1px solid var(--accent-gold);
+  border-radius: 0 5px 5px 0;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s;
+  color: var(--accent-gold);
+  position: relative;
+}
+.newsletter-submit:hover { background: rgba(200,133,58,0.3); }
+
+/* diamond star icon */
+.diamond-star {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+}
+.diamond-star svg { width: 36px; height: 36px; fill: var(--accent-gold); opacity: 0.8; }
+
+/* ════════════════════════════════
+   ANIMATIONS
+════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 1200px) {
+  .content-grid { grid-template-columns: 1fr 1fr; }
+  .inquiry-card { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .hero-title { font-size: 64px; }
+  .content-grid { grid-template-columns: 1fr; padding: 24px 20px 0; }
+  .footer-strip { grid-template-columns: 1fr; padding: 20px; }
+  .newsletter-block { align-items: flex-start; }
+}
+@media (max-width: 580px) {
+  .hero-text { padding: 80px 0 0 20px; }
+  .hero-title { font-size: 48px; }
+  .form-row-split { grid-template-columns: 1fr; }
+  .footer-strip { padding: 16px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   NEON LIGHT SYSTEM  –  Ameritore Homes
+   Flowing amber/copper energy streaks across all pages
+═══════════════════════════════════════════════════ */
+
+/* Canvas sits behind everything, above the bg image */
+#neon-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.72;
+}
+
+/* Neon glow on active nav item */
+.nav-item.active {
+  box-shadow: 0 0 12px rgba(200,133,58,0.25), inset 0 0 10px rgba(200,133,58,0.06);
+}
+
+/* Neon glow on cards hover */
+.proc-card:hover,
+.project-card:hover,
+.value-card:hover,
+.home-card:hover,
+.team-card:hover,
+.completed-card:hover {
+  box-shadow: 0 0 18px rgba(200,133,58,0.18), 0 0 40px rgba(200,133,58,0.07);
+}
+
+/* Neon glow on buttons */
+.btn-primary:hover,
+.submit-btn:hover,
+.explore-btn:hover,
+.book-btn:hover,
+.tab-btn.active {
+  box-shadow: 0 0 16px rgba(200,133,58,0.35), 0 0 40px rgba(200,133,58,0.12);
+}
+
+/* Neon on timeline fill */
+.timeline-fill {
+  box-shadow: 0 0 10px rgba(200,133,58,0.6), 0 0 24px rgba(200,133,58,0.3);
+}
+
+/* Neon on gold accent text */
+.hero-title .line2,
+.hero-title .line3,
+.card-status,
+.stat-number,
+.stat-plus,
+.section-label,
+.homes-intro-label,
+.strip-cta-title,
+.hero-eyebrow,
+.card-heading,
+.inquiry-title-main {
+  text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+}
+
+/* Neon on hero side card border */
+.hero-side-card {
+  box-shadow: 0 0 30px rgba(200,133,58,0.1), inset 0 0 20px rgba(200,133,58,0.03);
+}
+
+/* Neon on icon glows */
+.side-icon,
+.nav-icon,
+.proc-icon svg,
+.strip-feat svg,
+.tech-feat svg,
+.value-icon,
+.loc-icon,
+.inq-icon {
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.55));
+}
+
+/* Neon border on form focus */
+.inp:focus {
+  box-shadow: 0 0 14px rgba(200,133,58,0.22), 0 0 2px rgba(200,133,58,0.5) inset;
+}
+
+/* Neon progress dots / map pins */
+.map-pin-dot {
+  box-shadow: 0 0 12px rgba(200,133,58,0.9), 0 0 24px rgba(200,133,58,0.5);
+}
+
+/* Diamond button neon */
+.diamond-btn:hover,
+.sidebar-arrow:hover,
+.cta-arrow-btn:hover {
+  box-shadow: 0 0 16px rgba(200,133,58,0.4);
+}
+
+/* Award badge neon glow */
+.award-badge {
+  box-shadow: 0 0 12px rgba(200,133,58,0.2);
+}
+
+/* ── Ambient corner glows on main sections ── */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 420px; height: 420px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientPulse 5s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 30px; right: 80px;
+  width: 320px; height: 240px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes ambientPulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.08); }
+}
+/* ═══════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════
+   SCROLL-TO-TOP BUTTON
+═══════════════════════════════════════════ */
+#scroll-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 44px; height: 44px;
+  background: rgba(13,17,23,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200,133,58,0.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 500;
+  color: var(--accent-gold);
+  font-size: 18px;
+  opacity: 0; pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 14px rgba(200,133,58,0.15);
+}
+#scroll-top.visible {
+  opacity: 1; pointer-events: auto; transform: translateY(0);
+}
+#scroll-top:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 22px rgba(200,133,58,0.5), 0 0 50px rgba(200,133,58,0.15);
+  background: rgba(200,133,58,0.18);
+}
+#scroll-top svg { display: block; }
+
+/* ═══════════════════════════════════════════
+   SOCIAL MEDIA ICONS  (replace client portal)
+═══════════════════════════════════════════ */
+.social-icons {
+  display: flex; align-items: center; gap: 6px;
+}
+.soc-btn {
+  width: 36px; height: 36px;
+  background: rgba(13,17,23,0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none;
+  color: var(--text-muted);
+  transition: all 0.22s;
+}
+.soc-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 14px rgba(200,133,58,0.35);
+  background: rgba(200,133,58,0.12);
+}
+.soc-btn svg { width: 15px; height: 15px; }
+
+/* Keep menu-btn same */
+.menu-btn {
+  width: 36px; height: 36px;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV MENU
+═══════════════════════════════════════════ */
+#mobile-nav {
+  display: none;
+  position: fixed; inset: 0;
+  z-index: 999;
+}
+#mobile-nav.open { display: flex; }
+
+.mob-overlay {
+  position: absolute; inset: 0;
+  background: rgba(5,8,14,0.85);
+  backdrop-filter: blur(8px);
+}
+
+.mob-panel {
+  position: absolute;
+  top: 0; right: 0;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: linear-gradient(160deg, #0f1520 0%, #111827 100%);
+  border-left: 1px solid rgba(200,133,58,0.2);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.6);
+  display: flex; flex-direction: column;
+  padding: 28px 24px 32px;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.34,1.12,0.64,1);
+}
+#mobile-nav.open .mob-panel {
+  transform: translateX(0);
+}
+
+.mob-close {
+  align-self: flex-end;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); font-size: 15px;
+  transition: all 0.2s; margin-bottom: 32px;
+}
+.mob-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.35); }
+
+.mob-logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 36px; text-decoration: none;
+}
+.mob-logo svg { width: 36px; height: 36px; }
+.mob-logo-text .name { font-family: 'Barlow Condensed',sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; color: #fff; display: block; }
+.mob-logo-text .sub  { font-size: 8.5px; letter-spacing: 3px; color: var(--text-muted); }
+
+.mob-nav { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+.mob-nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 8px;
+  text-decoration: none; color: var(--text-muted);
+  font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.mob-nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.mob-nav-item.active { background: rgba(200,133,58,0.14); color: #fff; border-color: rgba(200,133,58,0.2); }
+.mob-nav-item svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
+.mob-nav-item.active svg { opacity: 1; }
+
+.mob-socials {
+  display: flex; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border);
+  margin-top: 16px;
+}
+.mob-soc-btn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none; color: var(--text-muted);
+  transition: all 0.2s;
+}
+.mob-soc-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.3); }
+.mob-soc-btn svg { width: 16px; height: 16px; }
+/* ══ END SHARED CSS ══ */
+
+
+/* ═══════════════════════════════════════════
+   MINIMAL SITE FOOTER
+═══════════════════════════════════════════ */
+.site-footer {
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 18px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex; align-items: center; gap: 10px;
+}
+
+.footer-logo-img {
+  width: 28px; height: 28px;
+  border-radius: 4px; object-fit: cover;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.35));
+}
+
+.footer-copy {
+  font-size: 11px; font-weight: 500;
+  color: var(--text-subtle);
+  letter-spacing: 0.4px;
+}
+
+.footer-copy strong {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.footer-center {
+  font-size: 10.5px; color: var(--text-subtle);
+  letter-spacing: 0.3px; text-align: center;
+}
+
+.footer-center a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.footer-center a:hover { opacity: 0.75; }
+
+.footer-right {
+  display: flex; align-items: center; gap: 16px;
+}
+
+.footer-link {
+  font-size: 10.5px; font-weight: 500;
+  color: var(--text-subtle); text-decoration: none;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--accent-gold);
+  transform: scaleX(0); transition: transform 0.2s;
+  transform-origin: left;
+}
+
+.footer-link:hover { color: var(--accent-gold); }
+.footer-link:hover::after { transform: scaleX(1); }
+
+.footer-divider {
+  width: 1px; height: 12px;
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 860px) {
+  .site-footer {
+    flex-direction: column; align-items: center;
+    padding: 18px 20px; gap: 10px; text-align: center;
+  }
+  .footer-left, .footer-right { justify-content: center; }
+}
+/* ══ END FOOTER CSS ══ */
+
+
+/* ═══ FOOTER FIX ═══ */
+.site-footer {
+  margin-left: var(--sidebar-w);
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 16px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+@media (max-width: 860px) {
+  .site-footer {
+    margin-left: 0;
+    flex-direction: column; align-items: center;
+    padding: 16px 20px; gap: 8px; text-align: center;
+  }
+}
+/* ═══ END FOOTER FIX ═══ */
+
+
+
+/* ═══════════════════════════════════════════
+   LOGO FIXES – DESKTOP SIDEBAR + MOBILE TOPBAR
+═══════════════════════════════════════════ */
+
+/* ── Sidebar logo: show image + text stacked ── */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+.sidebar-logo-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(200,133,58,0.35));
+  transition: filter 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img {
+  filter: drop-shadow(0 0 14px rgba(200,133,58,0.6));
+}
+
+/* Hide the old SVG icon when image loads */
+.sidebar-logo .logo-icon { display: none; }
+
+.logo-text {
+  margin-top: 8px;
+  text-align: center;
+}
+.logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 2.5px; color: #fff;
+  display: block; text-align: center;
+}
+.logo-text .sub {
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: 3px; color: var(--text-muted);
+  display: block; text-align: center; margin-top: 1px;
+}
+
+/* ── Mobile topbar logo (left side) ── */
+.mob-topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(11,14,20,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,133,58,0.12);
+  z-index: 150;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.mob-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.mob-topbar-logo-img {
+  width: 36px; height: 36px;
+  border-radius: 5px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.3));
+}
+
+.mob-topbar-logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 2px; color: #fff; display: block;
+}
+.mob-topbar-logo-text .sub {
+  font-size: 7.5px; letter-spacing: 2.5px;
+  color: var(--text-muted); display: block;
+}
+
+.mob-topbar-right {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.mob-topbar-soc {
+  display: flex; align-items: center; gap: 5px;
+}
+
+.mob-topbar-soc .soc-btn {
+  width: 30px; height: 30px; border-radius: 6px;
+}
+
+.mob-topbar-ham {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border-light);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-light);
+  transition: all 0.2s;
+}
+.mob-topbar-ham:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(200,133,58,0.3);
+}
+
+/* ── Responsive: hide sidebar, show mob-topbar ── */
+@media (max-width: 860px) {
+  .sidebar { display: none !important; }
+  .main { margin-left: 0 !important; }
+  .mob-topbar { display: flex !important; }
+
+  /* Push content down below fixed topbar */
+  .hero,
+  .hero-section,
+  section.hero { padding-top: 56px; }
+
+  /* Hide desktop topbar social icons on mobile */
+  .topbar { display: none !important; }
+
+  .site-footer { margin-left: 0 !important; }
+}
+
+@media (min-width: 861px) {
+  .mob-topbar { display: none !important; }
+}
+/* ══ END LOGO FIXES ══ */
+
+
+
+
+
+/* ═══ SIDEBAR LOGO IMAGE FIX ═══ */
+.sidebar-logo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin-bottom: 32px !important;
+  text-decoration: none;
+  padding: 0 !important;
+  width: 100%;
+}
+.sidebar-logo-img {
+  width: 80%;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(200,133,58,0.18);
+  transition: opacity 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img { opacity: 0.85; }
+/* ═══ END SIDEBAR LOGO IMAGE FIX ═══ */
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════
+     SIDEBAR
+══════════════════════════ -->
+<aside class="sidebar">
+        <a href="index.html" class="sidebar-logo">
+    <img src="./assets/logo.jpeg"
+         class="sidebar-logo-img"
+         alt="Ameritore Homes"
+         onerror="this.style.display='none'">
+  </a>
+
+  <nav class="sidebar-nav">
+<a href="index.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      Home
+    </a>
+    <a href="about.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      About Us
+    </a>
+    <a href="projects.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      Projects
+    </a>
+    <a href="process.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
+      Process
+    </a>
+    <a href="career.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      Careers
+    </a>
+    <a href="contact.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>
+      Contact
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <p class="build-cta">Let's Build<br>The Future</p>
+    <div class="sidebar-arrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+    </div>
+  </div>
+</aside>
+
+<!-- ══════════════════════════
+     MAIN
+══════════════════════════ -->
+<main class="main">
+
+<!-- MOBILE TOPBAR (logo left, socials + hamburger right) -->
+<div class="mob-topbar">
+  <a href="index.html" class="mob-topbar-logo">
+    <img src="./assets/logo.jpeg" class="mob-topbar-logo-img" alt="Ameritore"
+         onerror="this.style.display='none'">
+    <div class="mob-topbar-logo-text">
+      <span class="name">Ameritore</span>
+      <span class="sub">Homes</span>
+    </div>
+  </a>
+  <div class="mob-topbar-right">
+    <div class="mob-topbar-soc">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="mob-topbar-ham" onclick="openMobNav()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+</div>
+
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="social-icons">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+    <div class="menu-btn" onclick="openMobNav()" style="cursor:pointer;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+
+    <!-- Hero text -->
+    <div class="hero-text">
+      <p class="hero-eyebrow">Partner with Ameritore</p>
+      <h1 class="hero-title">
+        <span class="line1">Let's Innovate</span>
+        <span class="line2">Together.</span>
+      </h1>
+      <p class="hero-sub">Have a project in mind, want to explore opportunities, or have any questions?<br>Our expert team is ready to guide you through building beyond tomorrow.</p>
+    </div>
+
+    <!-- ── CONTENT GRID ── -->
+    <div class="content-grid">
+
+      <!-- LEFT: Form + Map -->
+      <div>
+        <!-- Contact Form -->
+        <div class="form-panel">
+          <div class="form-row">
+            <input class="inp" type="text" placeholder="Full Name">
+          </div>
+          <div class="form-row">
+            <input class="inp" type="text" placeholder="Company Name">
+          </div>
+          <div class="form-row-split">
+            <input class="inp" type="email" placeholder="Email Address">
+            <input class="inp" type="tel" placeholder="Phone Number">
+          </div>
+          <div class="form-row">
+            <textarea class="inp" placeholder="Message"></textarea>
+          </div>
+          <div class="form-footer">
+            <button class="submit-btn">Submit</button>
+            <label class="pref-check">
+              <input type="checkbox">
+              Preferred Method of Contact (Email/Phone)
+            </label>
+          </div>
+        </div>
+
+        <!-- Map Panel -->
+        <div class="map-panel" style="margin-top:12px;">
+          <div class="map-expand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </div>
+          <!-- SVG World Map (simplified dot-grid style) -->
+          <svg class="world-map-svg" viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="dots" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1" fill="rgba(200,133,58,0.25)"/>
+              </pattern>
+            </defs>
+            <!-- Continents as rough filled paths -->
+            <!-- North America -->
+            <path d="M80,60 L180,55 L220,80 L230,130 L210,160 L190,180 L160,200 L130,210 L100,190 L70,150 L60,100 Z" fill="rgba(150,160,180,0.18)" stroke="rgba(150,160,180,0.1)" stroke-width="0.5"/>
+            <!-- South America -->
+            <path d="M160,220 L200,215 L220,240 L225,290 L210,340 L185,360 L165,340 L150,300 L145,260 Z" fill="rgba(150,160,180,0.18)" stroke="rgba(150,160,180,0.1)" stroke-width="0.5"/>
+            <!-- Europe -->
+            <path d="M350,50 L410,45 L430,65 L420,90 L400,100 L370,95 L345,80 Z" fill="rgba(150,160,180,0.18)" stroke="rgba(150,160,180,0.1)" stroke-width="0.5"/>
+            <!-- Africa -->
+            <path d="M355,110 L410,105 L440,130 L445,180 L430,240 L400,270 L370,260 L348,220 L340,170 L342,130 Z" fill="rgba(150,160,180,0.18)" stroke="rgba(150,160,180,0.1)" stroke-width="0.5"/>
+            <!-- Asia -->
+            <path d="M430,40 L600,35 L650,60 L660,100 L640,140 L580,160 L510,155 L460,130 L430,100 Z" fill="rgba(150,160,180,0.18)" stroke="rgba(150,160,180,0.1)" stroke-width="0.5"/>
+            <!-- Australia -->
+            <path d="M590,220 L650,215 L680,240 L670,280 L640,290 L600,280 L580,255 Z" fill="rgba(150,160,180,0.18)" stroke="rgba(150,160,180,0.1)" stroke-width="0.5"/>
+            <!-- Dot overlay -->
+            <rect width="800" height="380" fill="url(#dots)"/>
+
+            <!-- Glowing location markers -->
+            <!-- Coimbatore, India -->
+            <circle cx="530" cy="145" r="5" fill="#c8853a" opacity="0.95"/>
+            <circle cx="530" cy="145" r="10" fill="none" stroke="#c8853a" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="530" cy="145" r="16" fill="none" stroke="#c8853a" stroke-width="0.6" opacity="0.25"/>
+            <!-- Subtle ambient dots for visual interest -->
+            <circle cx="372" cy="68"  r="2" fill="#c8853a" opacity="0.2"/>
+            <circle cx="490" cy="115" r="2" fill="#c8853a" opacity="0.2"/>
+            <circle cx="95"  cy="120" r="2" fill="#c8853a" opacity="0.2"/>
+          </svg>
+
+          <!-- Coimbatore label -->
+          <div class="map-pin" style="left:62%;top:36%;">
+            <div class="map-pin-dot"></div>
+            <div class="map-pin-label">Coimbatore, India<br>98431 30004</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIDDLE: Contact Us Today -->
+      <div class="reach-card">
+        <p class="card-heading">Contact Us Today</p>
+
+        <div class="location-list">
+          <!-- Address -->
+          <div class="location-item">
+            <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="loc-text">
+              <strong>Our Office</strong>
+              1/3, L.N. Nagar, Nehru Nagar West,<br>
+              Coimbatore, India – 641048
+            </div>
+          </div>
+          <!-- Landmark -->
+          <div class="location-item">
+            <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <div class="loc-text">
+              <strong>Landmark</strong>
+              Mount Raindrop Apartment
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="enquiry-title">Get in Touch</p>
+        <div class="contact-links">
+          <a href="tel:+919843130004" class="contact-link-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.8 19.79 19.79 0 01.99 3.18 2 2 0 013 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9a16 16 0 006.91 6.91l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            98431 30004
+          </a>
+          <a href="https://maps.google.com/?q=1/3+LN+Nagar+Nehru+Nagar+West+Coimbatore" target="_blank" class="contact-link-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            View on Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Inquiry Types -->
+      <div class="inquiry-card">
+        <p class="card-heading">Consultation &amp;<br>Inquiry Types</p>
+
+        <div class="inquiry-list">
+          <div class="inquiry-item">
+            <div class="inq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="inq-body">
+              <div class="inq-title">Bespoke Design Consultation</div>
+              <div class="inq-desc">We haute design home a masterplace of innovation, built precision and confounment.</div>
+            </div>
+          </div>
+          <div class="inquiry-item">
+            <div class="inq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="inq-body">
+              <div class="inq-title">Bespoke Design Consultation</div>
+              <div class="inq-desc">Design oralien scamneois nonsutanr and your designes consultin precieiety.</div>
+            </div>
+          </div>
+          <div class="inquiry-item">
+            <div class="inq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>
+            </div>
+            <div class="inq-body">
+              <div class="inq-title">Land Acquisition &amp; Planning</div>
+              <div class="inq-desc">Land acquisition &amp; comerres, traeenand assiostion in precisiont, security and planning.</div>
+            </div>
+          </div>
+          <div class="inquiry-item">
+            <div class="inq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+            </div>
+            <div class="inq-body">
+              <div class="inq-title">Technology Integration</div>
+              <div class="inq-desc">Death onine scenetanation with technology and technology integration.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content-grid -->
+
+    <!-- ── FOOTER STRIP ── -->
+    <div class="footer-strip">
+    </div>
+
+  </section><!-- /hero -->
+
+</main>
+
+<script>
+  // Parallax on hero bg
+  window.addEventListener('scroll', () => {
+    const bg = document.getElementById('heroBg');
+    if (bg) bg.style.transform = `translateY(${window.scrollY * 0.22}px)`;
+  });
+
+  // Form submit
+  document.querySelector('.submit-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    const btn = e.currentTarget;
+    btn.textContent = 'Sending...';
+    btn.style.color = 'var(--accent-gold)';
+    setTimeout(() => { btn.textContent = 'Sent ✓'; }, 900);
+    setTimeout(() => { btn.textContent = 'Submit'; btn.style.color = ''; }, 2800);
+  });
+
+  // Newsletter
+  document.querySelector('.newsletter-submit').addEventListener('click', () => {
+    const inp = document.querySelector('.newsletter-inp');
+    if (inp.value) {
+      inp.value = '';
+      inp.placeholder = 'You\'re subscribed ✓';
+      setTimeout(() => { inp.placeholder = 'Enter your email ancs..'; }, 2500);
+    }
+  });
+
+  // Map expand toggle
+  document.querySelector('.map-expand').addEventListener('click', () => {
+    const panel = document.querySelector('.map-panel');
+    const isExpanded = panel.style.height === '420px';
+    panel.style.height = isExpanded ? '200px' : '420px';
+    panel.style.transition = 'height 0.35s ease';
+  });
+</script>
+<script>
+
+/* ─── NEON CANVAS RENDERER ─── */
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'neon-canvas';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Each "streak" is a bezier light wave
+  const streaks = [];
+  const COLORS = [
+    'rgba(200,133,58,',
+    'rgba(220,155,70,',
+    'rgba(180,110,40,',
+    'rgba(240,170,80,',
+    'rgba(160,90,30,',
+  ];
+
+  function randBetween(a, b) { return a + Math.random() * (b - a); }
+
+  function createStreak() {
+    const W = canvas.width, H = canvas.height;
+    const side = Math.random() < 0.5; // true = horizontal, false = vertical
+    return {
+      // start
+      x0: side ? -80 : randBetween(W * 0.05, W * 0.95),
+      y0: side ? randBetween(H * 0.1, H * 0.9) : -60,
+      // control points
+      cx1: randBetween(W * 0.1, W * 0.5),
+      cy1: randBetween(H * 0.05, H * 0.5),
+      cx2: randBetween(W * 0.45, W * 0.9),
+      cy2: randBetween(H * 0.4,  H * 0.95),
+      // end
+      x1: side ? W + 80 : randBetween(W * 0.05, W * 0.95),
+      y1: side ? randBetween(H * 0.1, H * 0.9) : H + 60,
+      // visual
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      width: randBetween(0.6, 2.2),
+      alpha: 0,
+      maxAlpha: randBetween(0.22, 0.55),
+      speed: randBetween(0.003, 0.009),
+      progress: 0,        // 0 → 1 along the curve
+      headLen: randBetween(0.08, 0.22), // fraction of curve that's "lit"
+      phase: 'in',        // in | hold | out
+      holdTime: randBetween(40, 120),
+      holdCount: 0,
+      glowLayers: Math.random() < 0.5 ? 3 : 2,
+    };
+  }
+
+  // pre-seed
+  for (let i = 0; i < 6; i++) {
+    const s = createStreak();
+    s.progress = Math.random();
+    s.alpha = s.maxAlpha * Math.random();
+    streaks.push(s);
+  }
+
+  // Cubic bezier point
+  function bezierPoint(t, p0, p1, p2, p3) {
+    const u = 1 - t;
+    return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3;
+  }
+
+  function drawStreak(s) {
+    const t0 = Math.max(0, s.progress - s.headLen);
+    const t1 = Math.min(1, s.progress);
+    if (t0 >= t1) return;
+
+    const steps = 60;
+    ctx.save();
+
+    for (let layer = s.glowLayers; layer >= 1; layer--) {
+      ctx.beginPath();
+      for (let i = 0; i <= steps; i++) {
+        const t = t0 + (t1 - t0) * (i / steps);
+        const x = bezierPoint(t, s.x0, s.cx1, s.cx2, s.x1);
+        const y = bezierPoint(t, s.y0, s.cy1, s.cy2, s.y1);
+        // brightness fades toward tail
+        const frac = i / steps;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      const baseAlpha = s.alpha * (layer === 1 ? 1 : 0.3 / layer);
+      ctx.strokeStyle = s.color + baseAlpha + ')';
+      ctx.lineWidth   = s.width * (layer === 1 ? 1 : layer * 1.8);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (layer > 1) {
+        ctx.shadowColor = s.color + '0.6)';
+        ctx.shadowBlur  = 8 * layer;
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    // bright sparkle tip
+    const tipX = bezierPoint(t1, s.x0, s.cx1, s.cx2, s.x1);
+    const tipY = bezierPoint(t1, s.y0, s.cy1, s.cy2, s.y1);
+    const grad = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, 6);
+    grad.addColorStop(0, s.color + (s.alpha * 1.4) + ')');
+    grad.addColorStop(1, s.color + '0)');
+    ctx.beginPath();
+    ctx.arc(tipX, tipY, 6, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  let spawnTimer = 0;
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // spawn new streaks periodically
+    spawnTimer++;
+    if (spawnTimer > 55 && streaks.length < 12) {
+      streaks.push(createStreak());
+      spawnTimer = 0;
+    }
+
+    for (let i = streaks.length - 1; i >= 0; i--) {
+      const s = streaks[i];
+
+      // state machine
+      if (s.phase === 'in') {
+        s.alpha    += s.maxAlpha * 0.06;
+        s.progress += s.speed;
+        if (s.alpha  >= s.maxAlpha) { s.alpha = s.maxAlpha; }
+        if (s.progress >= 1) { s.progress = 1; s.phase = 'hold'; }
+      } else if (s.phase === 'hold') {
+        s.holdCount++;
+        if (s.holdCount >= s.holdTime) s.phase = 'out';
+      } else {
+        s.alpha -= s.maxAlpha * 0.04;
+        if (s.alpha <= 0) { streaks.splice(i, 1); continue; }
+      }
+
+      drawStreak(s);
+    }
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+</script>
+
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <img src="./assets/logo.jpeg" alt="Ameritore" class="footer-logo-img"
+         onerror="this.style.display='none'">
+    <span class="footer-copy">
+      &copy; <strong>Ameritore Homes</strong> 2026. All rights reserved.
+    </span>
+  </div>
+
+  <div class="footer-center">
+    Designed &amp; Developed by&nbsp;<a href="#" target="_blank">Creative Advs</a>
+  </div>
+
+  <div class="footer-right">
+    <a href="#" class="footer-link">Terms</a>
+    <div class="footer-divider"></div>
+    <a href="#" class="footer-link">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobile-nav">
+  <div class="mob-overlay" onclick="closeMobNav()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobNav()">✕</button>
+    <a href="index.html" class="mob-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <path d="M22 4L38 36H6L22 4Z" stroke="white" stroke-width="2.2" fill="none"/>
+        <path d="M22 4L38 36" stroke="white" stroke-width="2.2"/>
+        <path d="M14 24H30" stroke="white" stroke-width="2.2"/>
+      </svg>
+      <div class="mob-logo-text">
+        <span class="name">Ameritore</span>
+        <span class="sub">Homes</span>
+      </div>
+    </a>
+    <nav class="mob-nav">
+<a href="index.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home</a>
+      <a href="about.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
+      <a href="projects.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Technology</a>
+      <a href="process.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sustainability</a>
+      <a href="contact.html" class="mob-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact</a>
+    </nav>
+    <div class="mob-socials">
+      <a href="#" class="mob-soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* ─── SCROLL TO TOP ─── */
+(function(){
+  const btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 280);
+  }, { passive: true });
+})();
+
+/* ─── MOBILE NAV ─── */
+function openMobNav() {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeMobNav(); });
+
+/* Mark active mobile link */
+(function(){
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mob-nav-item').forEach(a => {
+    const href = a.getAttribute('href').split('/').pop();
+    if (href === path) a.classList.add('active');
+  });
+})();
+
+</script>
+</body>
+</html>

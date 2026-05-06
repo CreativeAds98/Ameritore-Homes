@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ameritore Homes – About Us</title>
+<link rel="icon" type="image/png" href="./assets/favicon.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #0d1117;
+  --bg-sidebar: #111519;
+  --bg-card: #161b22;
+  --bg-card2: #1a2030;
+  --accent-gold: #c8853a;
+  --accent-gold-light: #d9934a;
+  --text-white: #ffffff;
+  --text-light: #d0d5dd;
+  --text-muted: #8a9ab0;
+  --text-subtle: #5a6a7e;
+  --border: rgba(255,255,255,0.07);
+  --border-light: rgba(255,255,255,0.12);
+  --sidebar-w: 140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+  padding: 28px 0 32px;
+}
+
+.sidebar-logo {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  margin-bottom: 40px; text-decoration: none;
+}
+
+.logo-icon { width: 44px; height: 44px; }
+
+.logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px; font-weight: 600; letter-spacing: 2px;
+  color: #fff; display: block; text-align: center;
+}
+
+.logo-text .sub {
+  font-size: 9px; font-weight: 500; letter-spacing: 3px;
+  color: var(--text-muted); display: block; margin-top: 2px; text-align: center;
+}
+
+.sidebar-nav {
+  flex: 1; width: 100%;
+  display: flex; flex-direction: column; gap: 2px; padding: 0 10px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  white-space: nowrap;   /* ← ADD THIS */
+}
+
+.nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+
+.nav-item.active {
+  background: rgba(200,133,58,0.15); color: var(--text-white);
+  border: 1px solid rgba(200,133,58,0.2);
+}
+
+.nav-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.75; }
+.nav-item.active .nav-icon { opacity: 1; }
+
+.sidebar-bottom { text-align: center; padding: 0 10px; }
+
+.build-cta {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  color: var(--text-muted); text-transform: uppercase;
+  line-height: 1.4; margin-bottom: 10px;
+}
+
+.sidebar-arrow {
+  width: 32px; height: 32px; border: 1px solid var(--border-light);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s; margin: 0 auto;
+}
+.sidebar-arrow:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
+
+/* ── MAIN ── */
+.main { margin-left: var(--sidebar-w); }
+
+/* ── TOP NAV BAR ── */
+.topnav {
+  display: flex; align-items: center;
+  padding: 0 32px; height: 58px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-dark);
+  position: sticky; top: 0; z-index: 50;
+}
+
+.topnav-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text-white);
+  margin-right: 48px; white-space: nowrap;
+}
+
+.topnav-links {
+  display: flex; align-items: center; gap: 0;
+  flex: 1;
+}
+
+.topnav-link {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-muted);
+  text-decoration: none; padding: 0 20px; height: 58px;
+  display: flex; align-items: center; position: relative;
+  transition: color 0.2s; white-space: nowrap;
+}
+
+.topnav-link:hover { color: var(--text-white); }
+
+.topnav-link.active {
+  color: var(--text-white);
+}
+
+.topnav-link.active::after {
+  content: '';
+  position: absolute; bottom: 0; left: 20px; right: 20px;
+  height: 2px; background: var(--accent-gold); border-radius: 1px;
+}
+
+.topnav-right {
+  margin-left: auto; display: flex; align-items: center; gap: 12px;
+}
+
+.client-portal-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: transparent; border: 1px solid var(--border-light);
+  border-radius: 24px; padding: 8px 18px;
+  color: var(--text-light); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s;
+}
+.client-portal-btn:hover { border-color: var(--accent-gold); color: #fff; }
+
+.menu-btn {
+  width: 38px; height: 38px;
+  background: transparent; border: 1px solid var(--border-light);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s;
+}
+.menu-btn:hover { border-color: var(--accent-gold); }
+
+/* ── HERO ── */
+.hero {
+  position: relative; height: 340px; overflow: hidden;
+  margin: 16px 16px 0;
+  border-radius: 10px;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(13,17,23,0.92) 34%, rgba(13,17,23,0.45) 65%, rgba(13,17,23,0.1) 100%),
+    url('./assets/background-1.png') center/cover no-repeat;
+  border-radius: 10px;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 60px 0 0 48px; max-width: 560px;
+}
+
+.hero-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: 2px;
+  color: var(--text-muted); text-transform: uppercase; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 6px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.hero-eyebrow::before { content: '>'; color: var(--accent-gold); font-size: 13px; }
+
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 82px; font-weight: 800; line-height: 0.93;
+  letter-spacing: -1px; text-transform: uppercase;
+  margin-bottom: 22px;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+
+.hero-title .line1 { display: block; color: #fff; }
+.hero-title .line2 { display: block; color: var(--accent-gold); }
+
+.hero-sub {
+  font-size: 14px; font-weight: 300; color: var(--text-light);
+  line-height: 1.65; letter-spacing: 0.2px;
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+
+/* ── CONTENT GRID ── */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  padding: 40px 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* LEFT COL */
+.col-left { padding-right: 32px; border-right: 1px solid var(--border); }
+
+.section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  color: var(--accent-gold); text-transform: uppercase; margin-bottom: 18px;
+}
+
+.legacy-text {
+  font-size: 12.5px; font-weight: 300; color: var(--text-muted);
+  line-height: 1.72; margin-bottom: 28px;
+}
+
+/* Timeline images */
+.timeline-imgs {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  margin-top: 4px;
+}
+
+.timeline-item { cursor: pointer; }
+
+.timeline-img-wrap {
+  position: relative; overflow: hidden; border-radius: 6px;
+  height: 100px; margin-bottom: 8px;
+}
+
+.timeline-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.8); transition: all 0.3s;
+}
+
+.timeline-item:hover .timeline-img-wrap img { filter: brightness(1); transform: scale(1.04); }
+
+.timeline-item-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  color: var(--text-light); text-transform: uppercase; padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.timeline-item.active .timeline-item-label { color: var(--accent-gold); border-color: var(--accent-gold); }
+
+/* CENTER COL */
+.col-center { padding: 0 28px; border-right: 1px solid var(--border); }
+
+.values-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0;
+}
+
+.value-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 16px 16px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.value-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+
+.value-icon {
+  width: 36px; height: 36px; color: var(--accent-gold);
+  margin-bottom: 14px; opacity: 0.85;
+}
+
+.value-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--text-white); margin-bottom: 7px;
+  line-height: 1.3;
+}
+
+.value-desc {
+  font-size: 11.5px; font-weight: 300; color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* RIGHT COL */
+.col-right { padding-left: 28px; }
+
+/* Team */
+.team-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px; transition: border-color 0.2s;
+  cursor: pointer;
+}
+.team-card:hover { border-color: var(--border-light); }
+
+.team-avatar {
+  width: 52px; height: 52px; border-radius: 4px; object-fit: cover;
+  margin-bottom: 10px; filter: grayscale(20%);
+}
+
+.team-name {
+  font-size: 11.5px; font-weight: 600; color: var(--text-white);
+  margin-bottom: 3px; line-height: 1.3;
+}
+
+.team-name span { font-weight: 400; color: var(--text-muted); }
+
+.team-role {
+  font-size: 10px; color: var(--text-subtle); margin-bottom: 10px;
+  font-style: italic;
+}
+
+.bio-btn {
+  display: inline-flex; align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-light); border-radius: 4px;
+  padding: 3px 10px; font-size: 10px; font-weight: 600;
+  letter-spacing: 1px; color: var(--text-muted); cursor: pointer;
+  transition: all 0.2s; text-transform: uppercase;
+}
+.bio-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+/* Awards */
+.awards-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  color: var(--accent-gold); text-transform: uppercase; margin-bottom: 14px;
+}
+
+.awards-row { display: flex; gap: 16px; align-items: flex-start; }
+
+.award-item { text-align: center; }
+
+.award-badge {
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 2px solid var(--border-light);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; color: var(--accent-gold);
+  background: var(--bg-card);
+  position: relative;
+}
+
+.award-badge.leed {
+  font-size: 11px; font-weight: 800; letter-spacing: 1px;
+  flex-direction: column; gap: 1px;
+}
+
+.award-badge .leed-sub { font-size: 7px; letter-spacing: 2px; color: var(--text-muted); }
+
+.award-name {
+  font-size: 9.5px; font-weight: 500; color: var(--text-muted);
+  line-height: 1.4; max-width: 72px;
+}
+
+/* ── BOTTOM STRIP ── */
+.bottom-strip {
+  display: grid;
+  grid-template-columns: 280px 1fr auto;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+}
+
+.strip-visual {
+  padding: 0 32px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.strip-visual-img {
+  width: 200px; height: 130px; object-fit: cover;
+  border-radius: 6px;
+  filter: hue-rotate(200deg) brightness(0.85) saturate(1.5);
+  opacity: 0.85;
+}
+
+.strip-body { padding-right: 32px; }
+
+.strip-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #fff; margin-bottom: 8px;
+}
+
+.strip-desc {
+  font-size: 12px; color: var(--text-muted); line-height: 1.6; max-width: 280px;
+}
+
+.strip-features {
+  display: flex; border-left: 1px solid var(--border);
+}
+
+.strip-feat {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 16px 24px; border-right: 1px solid var(--border);
+  text-align: center; font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase;
+  transition: background 0.2s; cursor: pointer;
+}
+.strip-feat:hover { background: rgba(255,255,255,0.03); color: var(--text-light); }
+
+.strip-feat svg { width: 26px; height: 26px; color: var(--accent-gold); opacity: 0.8; }
+
+.strip-cta { padding: 0 40px 0 28px; text-align: right; }
+
+.strip-cta-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 700; text-transform: uppercase;
+  color: #fff; line-height: 1.2; margin-bottom: 6px;
+}
+
+.strip-cta-sub {
+  font-size: 10px; color: var(--text-muted); margin-bottom: 12px; letter-spacing: 0.5px;
+}
+
+.diamond-btn {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border-light);
+  transform: rotate(45deg); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; margin-left: auto; transition: all 0.2s;
+}
+.diamond-btn:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
+.diamond-btn svg { transform: rotate(-45deg); color: var(--text-light); width: 14px; height: 14px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.content-grid > * {
+  animation: fadeUp 0.6s ease both;
+}
+.col-left  { animation-delay: 0.1s; }
+.col-center { animation-delay: 0.2s; }
+.col-right { animation-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .content-grid { grid-template-columns: 1fr 1fr; gap: 0; }
+  .col-right { grid-column: 1 / -1; padding: 28px 0 0; border-top: 1px solid var(--border); border-left: none; }
+  .col-right .team-grid { grid-template-columns: repeat(4, 1fr); }
+  .bottom-strip { grid-template-columns: 1fr; }
+  .strip-visual { display: none; }
+  .strip-features { flex-wrap: wrap; border-left: none; border-top: 1px solid var(--border); padding-top: 24px; }
+  .strip-cta { text-align: left; padding: 24px 32px; }
+  .diamond-btn { margin-left: 0; }
+}
+
+@media (max-width: 860px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .topnav-links { display: none; }
+  .hero-title { font-size: 58px; }
+  .content-grid { grid-template-columns: 1fr; padding: 24px; }
+  .col-left, .col-center { border-right: none; padding-right: 0; padding-left: 0; border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 28px; }
+  .col-right { padding-left: 0; }
+}
+
+@media (max-width: 580px) {
+  .hero { margin: 8px; height: auto; min-height: 300px; }
+  .hero-content { padding: 48px 20px 32px; }
+  .hero-title { font-size: 46px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .awards-row { flex-wrap: wrap; gap: 12px; }
+  .timeline-imgs { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════
+   NEON LIGHT SYSTEM  –  Ameritore Homes
+   Flowing amber/copper energy streaks across all pages
+═══════════════════════════════════════════════════ */
+
+/* Canvas sits behind everything, above the bg image */
+#neon-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.72;
+}
+
+/* Neon glow on active nav item */
+.nav-item.active {
+  box-shadow: 0 0 12px rgba(200,133,58,0.25), inset 0 0 10px rgba(200,133,58,0.06);
+}
+
+/* Neon glow on cards hover */
+.proc-card:hover,
+.project-card:hover,
+.value-card:hover,
+.home-card:hover,
+.team-card:hover,
+.completed-card:hover {
+  box-shadow: 0 0 18px rgba(200,133,58,0.18), 0 0 40px rgba(200,133,58,0.07);
+}
+
+/* Neon glow on buttons */
+.btn-primary:hover,
+.submit-btn:hover,
+.explore-btn:hover,
+.book-btn:hover,
+.tab-btn.active {
+  box-shadow: 0 0 16px rgba(200,133,58,0.35), 0 0 40px rgba(200,133,58,0.12);
+}
+
+/* Neon on timeline fill */
+.timeline-fill {
+  box-shadow: 0 0 10px rgba(200,133,58,0.6), 0 0 24px rgba(200,133,58,0.3);
+}
+
+/* Neon on gold accent text */
+.hero-title .line2,
+.hero-title .line3,
+.card-status,
+.stat-number,
+.stat-plus,
+.section-label,
+.homes-intro-label,
+.strip-cta-title,
+.hero-eyebrow,
+.card-heading,
+.inquiry-title-main {
+  text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+}
+
+/* Neon on hero side card border */
+.hero-side-card {
+  box-shadow: 0 0 30px rgba(200,133,58,0.1), inset 0 0 20px rgba(200,133,58,0.03);
+}
+
+/* Neon on icon glows */
+.side-icon,
+.nav-icon,
+.proc-icon svg,
+.strip-feat svg,
+.tech-feat svg,
+.value-icon,
+.loc-icon,
+.inq-icon {
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.55));
+}
+
+/* Neon border on form focus */
+.inp:focus {
+  box-shadow: 0 0 14px rgba(200,133,58,0.22), 0 0 2px rgba(200,133,58,0.5) inset;
+}
+
+/* Neon progress dots / map pins */
+.map-pin-dot {
+  box-shadow: 0 0 12px rgba(200,133,58,0.9), 0 0 24px rgba(200,133,58,0.5);
+}
+
+/* Diamond button neon */
+.diamond-btn:hover,
+.sidebar-arrow:hover,
+.cta-arrow-btn:hover {
+  box-shadow: 0 0 16px rgba(200,133,58,0.4);
+}
+
+/* Award badge neon glow */
+.award-badge {
+  box-shadow: 0 0 12px rgba(200,133,58,0.2);
+}
+
+/* ── Ambient corner glows on main sections ── */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 420px; height: 420px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientPulse 5s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 30px; right: 80px;
+  width: 320px; height: 240px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes ambientPulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.08); }
+}
+/* ═══════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════
+   SCROLL-TO-TOP BUTTON
+═══════════════════════════════════════════ */
+#scroll-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 44px; height: 44px;
+  background: rgba(13,17,23,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200,133,58,0.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 500;
+  color: var(--accent-gold);
+  font-size: 18px;
+  opacity: 0; pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 14px rgba(200,133,58,0.15);
+}
+#scroll-top.visible {
+  opacity: 1; pointer-events: auto; transform: translateY(0);
+}
+#scroll-top:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 22px rgba(200,133,58,0.5), 0 0 50px rgba(200,133,58,0.15);
+  background: rgba(200,133,58,0.18);
+}
+#scroll-top svg { display: block; }
+
+/* ═══════════════════════════════════════════
+   SOCIAL MEDIA ICONS  (replace client portal)
+═══════════════════════════════════════════ */
+.social-icons {
+  display: flex; align-items: center; gap: 6px;
+}
+.soc-btn {
+  width: 36px; height: 36px;
+  background: rgba(13,17,23,0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none;
+  color: var(--text-muted);
+  transition: all 0.22s;
+}
+.soc-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 14px rgba(200,133,58,0.35);
+  background: rgba(200,133,58,0.12);
+}
+.soc-btn svg { width: 15px; height: 15px; }
+
+/* Keep menu-btn same */
+.menu-btn {
+  width: 36px; height: 36px;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV MENU
+═══════════════════════════════════════════ */
+#mobile-nav {
+  display: none;
+  position: fixed; inset: 0;
+  z-index: 999;
+}
+#mobile-nav.open { display: flex; }
+
+.mob-overlay {
+  position: absolute; inset: 0;
+  background: rgba(5,8,14,0.85);
+  backdrop-filter: blur(8px);
+}
+
+.mob-panel {
+  position: absolute;
+  top: 0; right: 0;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: linear-gradient(160deg, #0f1520 0%, #111827 100%);
+  border-left: 1px solid rgba(200,133,58,0.2);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.6);
+  display: flex; flex-direction: column;
+  padding: 28px 24px 32px;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.34,1.12,0.64,1);
+}
+#mobile-nav.open .mob-panel {
+  transform: translateX(0);
+}
+
+.mob-close {
+  align-self: flex-end;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); font-size: 15px;
+  transition: all 0.2s; margin-bottom: 32px;
+}
+.mob-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.35); }
+
+.mob-logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 36px; text-decoration: none;
+}
+.mob-logo svg { width: 36px; height: 36px; }
+.mob-logo-text .name { font-family: 'Barlow Condensed',sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; color: #fff; display: block; }
+.mob-logo-text .sub  { font-size: 8.5px; letter-spacing: 3px; color: var(--text-muted); }
+
+.mob-nav { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+.mob-nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 8px;
+  text-decoration: none; color: var(--text-muted);
+  font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.mob-nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.mob-nav-item.active { background: rgba(200,133,58,0.14); color: #fff; border-color: rgba(200,133,58,0.2); }
+.mob-nav-item svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
+.mob-nav-item.active svg { opacity: 1; }
+
+.mob-socials {
+  display: flex; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border);
+  margin-top: 16px;
+}
+.mob-soc-btn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none; color: var(--text-muted);
+  transition: all 0.2s;
+}
+.mob-soc-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.3); }
+.mob-soc-btn svg { width: 16px; height: 16px; }
+/* ══ END SHARED CSS ══ */
+
+
+/* ═══════════════════════════════════════════
+   MINIMAL SITE FOOTER
+═══════════════════════════════════════════ */
+.site-footer {
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 18px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex; align-items: center; gap: 10px;
+}
+
+.footer-logo-img {
+  width: 28px; height: 28px;
+  border-radius: 4px; object-fit: cover;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.35));
+}
+
+.footer-copy {
+  font-size: 11px; font-weight: 500;
+  color: var(--text-subtle);
+  letter-spacing: 0.4px;
+}
+
+.footer-copy strong {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.footer-center {
+  font-size: 10.5px; color: var(--text-subtle);
+  letter-spacing: 0.3px; text-align: center;
+}
+
+.footer-center a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.footer-center a:hover { opacity: 0.75; }
+
+.footer-right {
+  display: flex; align-items: center; gap: 16px;
+}
+
+.footer-link {
+  font-size: 10.5px; font-weight: 500;
+  color: var(--text-subtle); text-decoration: none;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--accent-gold);
+  transform: scaleX(0); transition: transform 0.2s;
+  transform-origin: left;
+}
+
+.footer-link:hover { color: var(--accent-gold); }
+.footer-link:hover::after { transform: scaleX(1); }
+
+.footer-divider {
+  width: 1px; height: 12px;
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 860px) {
+  .site-footer {
+    flex-direction: column; align-items: center;
+    padding: 18px 20px; gap: 10px; text-align: center;
+  }
+  .footer-left, .footer-right { justify-content: center; }
+}
+/* ══ END FOOTER CSS ══ */
+
+
+/* ═══ FOOTER FIX ═══ */
+.site-footer {
+  margin-left: var(--sidebar-w);
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 16px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+@media (max-width: 860px) {
+  .site-footer {
+    margin-left: 0;
+    flex-direction: column; align-items: center;
+    padding: 16px 20px; gap: 8px; text-align: center;
+  }
+}
+/* ═══ END FOOTER FIX ═══ */
+
+
+/* ═══════════════════════════════════════════
+   LOGO FIXES – DESKTOP SIDEBAR + MOBILE TOPBAR
+═══════════════════════════════════════════ */
+
+/* ── Sidebar logo: show image + text stacked ── */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+.sidebar-logo-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(200,133,58,0.35));
+  transition: filter 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img {
+  filter: drop-shadow(0 0 14px rgba(200,133,58,0.6));
+}
+
+/* Hide the old SVG icon when image loads */
+.sidebar-logo .logo-icon { display: none; }
+
+.logo-text {
+  margin-top: 8px;
+  text-align: center;
+}
+.logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 2.5px; color: #fff;
+  display: block; text-align: center;
+}
+.logo-text .sub {
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: 3px; color: var(--text-muted);
+  display: block; text-align: center; margin-top: 1px;
+}
+
+/* ── Mobile topbar logo (left side) ── */
+.mob-topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(11,14,20,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,133,58,0.12);
+  z-index: 150;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.mob-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.mob-topbar-logo-img {
+  width: 36px; height: 36px;
+  border-radius: 5px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.3));
+}
+
+.mob-topbar-logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 2px; color: #fff; display: block;
+}
+.mob-topbar-logo-text .sub {
+  font-size: 7.5px; letter-spacing: 2.5px;
+  color: var(--text-muted); display: block;
+}
+
+.mob-topbar-right {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.mob-topbar-soc {
+  display: flex; align-items: center; gap: 5px;
+}
+
+.mob-topbar-soc .soc-btn {
+  width: 30px; height: 30px; border-radius: 6px;
+}
+
+.mob-topbar-ham {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border-light);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-light);
+  transition: all 0.2s;
+}
+.mob-topbar-ham:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(200,133,58,0.3);
+}
+
+/* ── Responsive: hide sidebar, show mob-topbar ── */
+@media (max-width: 860px) {
+  .sidebar { display: none !important; }
+  .main { margin-left: 0 !important; }
+  .mob-topbar { display: flex !important; }
+
+  /* Push content down below fixed topbar */
+  .hero,
+  .hero-section,
+  section.hero { padding-top: 56px; }
+
+  /* Hide desktop topbar social icons on mobile */
+  .topbar { display: none !important; }
+
+  .site-footer { margin-left: 0 !important; }
+}
+
+@media (min-width: 861px) {
+  .mob-topbar { display: none !important; }
+}
+/* ══ END LOGO FIXES ══ */
+
+
+
+
+
+/* ═══ SIDEBAR LOGO IMAGE FIX ═══ */
+.sidebar-logo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin-bottom: 32px !important;
+  text-decoration: none;
+  padding: 0 !important;
+  width: 100%;
+}
+.sidebar-logo-img {
+  width: 80%;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(200,133,58,0.18);
+  transition: opacity 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img { opacity: 0.85; }
+/* ═══ END SIDEBAR LOGO IMAGE FIX ═══ */
+
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+        <a href="index.html" class="sidebar-logo">
+    <img src="./assets/logo.jpeg"
+         class="sidebar-logo-img"
+         alt="Ameritore Homes"
+         onerror="this.style.display='none'">
+  </a>
+
+  <nav class="sidebar-nav">
+<a href="index.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      Home
+    </a>
+    <a href="about.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      About Us
+    </a>
+    <a href="projects.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      Projects
+    </a>
+    <a href="process.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
+      Process
+    </a>
+    <a href="career.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      Careers
+    </a>
+    <a href="contact.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>
+      Contact
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <p class="build-cta">Let's Build<br>The Future</p>
+    <div class="sidebar-arrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- MOBILE TOPBAR (logo left, socials + hamburger right) -->
+<div class="mob-topbar">
+  <a href="index.html" class="mob-topbar-logo">
+    <img src="./assets/logo.jpeg" class="mob-topbar-logo-img" alt="Ameritore"
+         onerror="this.style.display='none'">
+    <div class="mob-topbar-logo-text">
+      <span class="name">Ameritore</span>
+      <span class="sub">Homes</span>
+    </div>
+  </a>
+  <div class="mob-topbar-right">
+    <div class="mob-topbar-soc">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="mob-topbar-ham" onclick="openMobNav()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+</div>
+
+
+  <!-- TOP NAV BAR -->
+  <nav class="topnav">
+    <div class="topnav-right">
+      <div class="social-icons">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+      <div class="menu-btn" onclick="openMobNav()" style="cursor:pointer;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">About Us</p>
+      <h1 class="hero-title">
+        <span class="line1">Builders of</span>
+        <span class="line2">The Beyond</span>
+      </h1>
+      <p class="hero-sub">Crafting the Future of Luxury Living through Innovative Design,<br>Cutting-Edge Technology, and Sustainable Precision.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT GRID -->
+  <div class="content-grid">
+
+    <!-- LEFT: Legacy -->
+    <div class="col-left">
+      <p class="section-label">Our Legacy of Innovation</p>
+      <p class="legacy-text">Ameritore was founded on a commitment to smart luxury, and a vision to transform homebuilding through intelligent design and precision engineering. From the very first blueprint, our mission has been to merge innovative architecture with cutting-edge technology — creating residences that don't just shelter, but inspire.<br><br>Every Ameritore home reflects decades of refinement, pushing boundaries to deliver spaces where comfort, security, and sustainability converge seamlessly for modern living.</p>
+
+      <div class="timeline-imgs">
+        <div class="timeline-item active">
+          <div class="timeline-img-wrap">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=300&q=80" alt="Blueprint">
+          </div>
+          <div class="timeline-item-label">The First Blueprint</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-img-wrap">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&q=80" alt="Meeting">
+          </div>
+          <div class="timeline-item-label">Meeting the Challenge</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&q=80" alt="Vision">
+          </div>
+          <div class="timeline-item-label">The Vision Realized</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER: Core Values -->
+    <div class="col-center">
+      <p class="section-label">Our Core Values</p>
+      <div class="values-grid">
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+            <path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>
+          </svg>
+          <div class="value-title">Innovation &amp;<br>Technology:</div>
+          <div class="value-desc">Leading with pioneering AI integration.</div>
+        </div>
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
+          </svg>
+          <div class="value-title">Sustainable<br>Precision:</div>
+          <div class="value-desc">Building responsibility with eco-materials and efficiency.</div>
+        </div>
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+          <div class="value-title">T-Centric<br>Design:</div>
+          <div class="value-desc">Forging homes that mirror individual lives.</div>
+        </div>
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <div class="value-title">Unyielding<br>Quality:</div>
+          <div class="value-desc">Uncompromising craftsmanship in every detail.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Team & Awards -->
+    <div class="col-right">
+      <p class="section-label">Meet the Team</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <img class="team-avatar" src="tps://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&q=80" alt="Alex Mercer">
+          <div class="team-name">Mr. P.V. Sabari <span><br>- Director - Operations</span></div>
+          <!--<div class="team-role">Very short title</div>-->
+          <span class="bio-btn">Bio</span>
+        </div>
+        <div class="team-card">
+          <img class="team-avatar" src="tps://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&q=80" alt="Seraphina Chen">
+          <div class="team-name">Dr. P.V. Prabha<span><br>- Director - Finance</span></div>
+          <!--<div class="team-role">Very short title</div>-->
+          <span class="bio-btn">Bio</span>
+        </div>
+      </div>
+
+      <div class="awards-label">Awards &amp; Recognition</div>
+      <div class="awards-row">
+        <div class="award-item">
+          <div class="award-badge">A+</div>
+          <div class="award-name">Architizer A+ Award for Futuristic Design</div>
+        </div>
+        <div class="award-item">
+          <div class="award-badge leed">
+            <span>LEED</span>
+            <span class="leed-sub">PLATINUM</span>
+          </div>
+          <div class="award-name">LEED Platinum Certification</div>
+        </div>
+        <div class="award-item">
+          <div class="award-badge leed">
+            <span>LEED</span>
+            <span class="leed-sub">PLATINUM</span>
+          </div>
+          <div class="award-name">LEED Platinum Certification</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content-grid -->
+
+  <!-- BOTTOM STRIP -->
+  <div class="bottom-strip">
+    <div class="strip-visual">
+      <img class="strip-visual-img"
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+        alt="Smart Home">
+    </div>
+
+    <div class="strip-body">
+      <div class="strip-label">Craftsmanship, Certified</div>
+      <p class="strip-desc">Our dedication to excellence is verified by leading industry certifications and satisfied clients.</p>
+    </div>
+
+    <div class="strip-features">
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+          <path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>
+        </svg>
+        AI-Powered<br>Automation
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+        Energy<br>Efficiency
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Advanced<br>Security
+      </div>
+      <div class="strip-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>
+        </svg>
+        Climate<br>Control
+      </div>
+    </div>
+
+    <div class="strip-cta">
+      <p class="strip-cta-title">Ready to Build<br>Your Legacy?</p>
+      <p class="strip-cta-sub">Let's Innovate Together</p>
+      <div class="diamond-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Parallax on hero
+  window.addEventListener('scroll', () => {
+    const bg = document.querySelector('.hero-bg');
+    if (bg) bg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+  });
+
+  // Timeline active state
+  document.querySelectorAll('.timeline-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+</script>
+<script>
+
+/* ─── NEON CANVAS RENDERER ─── */
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'neon-canvas';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Each "streak" is a bezier light wave
+  const streaks = [];
+  const COLORS = [
+    'rgba(200,133,58,',
+    'rgba(220,155,70,',
+    'rgba(180,110,40,',
+    'rgba(240,170,80,',
+    'rgba(160,90,30,',
+  ];
+
+  function randBetween(a, b) { return a + Math.random() * (b - a); }
+
+  function createStreak() {
+    const W = canvas.width, H = canvas.height;
+    const side = Math.random() < 0.5; // true = horizontal, false = vertical
+    return {
+      // start
+      x0: side ? -80 : randBetween(W * 0.05, W * 0.95),
+      y0: side ? randBetween(H * 0.1, H * 0.9) : -60,
+      // control points
+      cx1: randBetween(W * 0.1, W * 0.5),
+      cy1: randBetween(H * 0.05, H * 0.5),
+      cx2: randBetween(W * 0.45, W * 0.9),
+      cy2: randBetween(H * 0.4,  H * 0.95),
+      // end
+      x1: side ? W + 80 : randBetween(W * 0.05, W * 0.95),
+      y1: side ? randBetween(H * 0.1, H * 0.9) : H + 60,
+      // visual
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      width: randBetween(0.6, 2.2),
+      alpha: 0,
+      maxAlpha: randBetween(0.22, 0.55),
+      speed: randBetween(0.003, 0.009),
+      progress: 0,        // 0 → 1 along the curve
+      headLen: randBetween(0.08, 0.22), // fraction of curve that's "lit"
+      phase: 'in',        // in | hold | out
+      holdTime: randBetween(40, 120),
+      holdCount: 0,
+      glowLayers: Math.random() < 0.5 ? 3 : 2,
+    };
+  }
+
+  // pre-seed
+  for (let i = 0; i < 6; i++) {
+    const s = createStreak();
+    s.progress = Math.random();
+    s.alpha = s.maxAlpha * Math.random();
+    streaks.push(s);
+  }
+
+  // Cubic bezier point
+  function bezierPoint(t, p0, p1, p2, p3) {
+    const u = 1 - t;
+    return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3;
+  }
+
+  function drawStreak(s) {
+    const t0 = Math.max(0, s.progress - s.headLen);
+    const t1 = Math.min(1, s.progress);
+    if (t0 >= t1) return;
+
+    const steps = 60;
+    ctx.save();
+
+    for (let layer = s.glowLayers; layer >= 1; layer--) {
+      ctx.beginPath();
+      for (let i = 0; i <= steps; i++) {
+        const t = t0 + (t1 - t0) * (i / steps);
+        const x = bezierPoint(t, s.x0, s.cx1, s.cx2, s.x1);
+        const y = bezierPoint(t, s.y0, s.cy1, s.cy2, s.y1);
+        // brightness fades toward tail
+        const frac = i / steps;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      const baseAlpha = s.alpha * (layer === 1 ? 1 : 0.3 / layer);
+      ctx.strokeStyle = s.color + baseAlpha + ')';
+      ctx.lineWidth   = s.width * (layer === 1 ? 1 : layer * 1.8);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (layer > 1) {
+        ctx.shadowColor = s.color + '0.6)';
+        ctx.shadowBlur  = 8 * layer;
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    // bright sparkle tip
+    const tipX = bezierPoint(t1, s.x0, s.cx1, s.cx2, s.x1);
+    const tipY = bezierPoint(t1, s.y0, s.cy1, s.cy2, s.y1);
+    const grad = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, 6);
+    grad.addColorStop(0, s.color + (s.alpha * 1.4) + ')');
+    grad.addColorStop(1, s.color + '0)');
+    ctx.beginPath();
+    ctx.arc(tipX, tipY, 6, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  let spawnTimer = 0;
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // spawn new streaks periodically
+    spawnTimer++;
+    if (spawnTimer > 55 && streaks.length < 12) {
+      streaks.push(createStreak());
+      spawnTimer = 0;
+    }
+
+    for (let i = streaks.length - 1; i >= 0; i--) {
+      const s = streaks[i];
+
+      // state machine
+      if (s.phase === 'in') {
+        s.alpha    += s.maxAlpha * 0.06;
+        s.progress += s.speed;
+        if (s.alpha  >= s.maxAlpha) { s.alpha = s.maxAlpha; }
+        if (s.progress >= 1) { s.progress = 1; s.phase = 'hold'; }
+      } else if (s.phase === 'hold') {
+        s.holdCount++;
+        if (s.holdCount >= s.holdTime) s.phase = 'out';
+      } else {
+        s.alpha -= s.maxAlpha * 0.04;
+        if (s.alpha <= 0) { streaks.splice(i, 1); continue; }
+      }
+
+      drawStreak(s);
+    }
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+</script>
+
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <img src="./assets/logo.jpeg" alt="Ameritore" class="footer-logo-img"
+         onerror="this.style.display='none'">
+    <span class="footer-copy">
+      &copy; <strong>Ameritore Homes</strong> 2026. All rights reserved.
+    </span>
+  </div>
+
+  <div class="footer-center">
+    Designed &amp; Developed by&nbsp;<a href="#" target="_blank">Creative Advs</a>
+  </div>
+
+  <div class="footer-right">
+    <a href="#" class="footer-link">Terms</a>
+    <div class="footer-divider"></div>
+    <a href="#" class="footer-link">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobile-nav">
+  <div class="mob-overlay" onclick="closeMobNav()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobNav()">✕</button>
+    <a href="index.html" class="mob-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <path d="M22 4L38 36H6L22 4Z" stroke="white" stroke-width="2.2" fill="none"/>
+        <path d="M22 4L38 36" stroke="white" stroke-width="2.2"/>
+        <path d="M14 24H30" stroke="white" stroke-width="2.2"/>
+      </svg>
+      <div class="mob-logo-text">
+        <span class="name">Ameritore</span>
+        <span class="sub">Homes</span>
+      </div>
+    </a>
+    <nav class="mob-nav">
+<a href="index.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home</a>
+      <a href="about.html" class="mob-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
+      <a href="projects.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Technology</a>
+      <a href="process.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sustainability</a>
+      <a href="contact.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact</a>
+    </nav>
+    <div class="mob-socials">
+      <a href="#" class="mob-soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* ─── SCROLL TO TOP ─── */
+(function(){
+  const btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 280);
+  }, { passive: true });
+})();
+
+/* ─── MOBILE NAV ─── */
+function openMobNav() {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeMobNav(); });
+
+/* Mark active mobile link */
+(function(){
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mob-nav-item').forEach(a => {
+    const href = a.getAttribute('href').split('/').pop();
+    if (href === path) a.classList.add('active');
+  });
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ameritore Homes – Building Beyond Tomorrow</title>
+<link rel="icon" type="image/png" href="./assets/favicon.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-dark: #0d1117;
+    --bg-sidebar: #111519;
+    --bg-card: #161b22;
+    --bg-card2: #1a2030;
+    --accent-gold: #c8853a;
+    --accent-gold-light: #d9934a;
+    --text-white: #ffffff;
+    --text-light: #d0d5dd;
+    --text-muted: #8a9ab0;
+    --text-subtle: #5a6a7e;
+    --border: rgba(255,255,255,0.07);
+    --border-light: rgba(255,255,255,0.12);
+    --sidebar-w: 140px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    padding: 28px 0 32px;
+  }
+
+  .sidebar-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 40px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 44px; height: 44px;
+  }
+
+  .logo-text {
+    text-align: center;
+    line-height: 1;
+  }
+
+  .logo-text .name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    display: block;
+  }
+
+  .logo-text .sub {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 10px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+
+  .nav-item.active {
+    background: rgba(200,133,58,0.15);
+    color: var(--text-white);
+    border: 1px solid rgba(200,133,58,0.2);
+  }
+
+  .nav-icon {
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+    opacity: 0.75;
+  }
+
+  .nav-item.active .nav-icon { opacity: 1; }
+
+  .sidebar-bottom {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .build-cta {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-arrow {
+    width: 32px; height: 32px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 auto;
+  }
+
+  .sidebar-arrow:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    margin-left: var(--sidebar-w);
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    position: absolute;
+    top: 0; right: 0;
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 50;
+  }
+
+  .client-portal-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(13,17,23,0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    padding: 9px 20px;
+    color: var(--text-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .client-portal-btn:hover { border-color: rgba(200,133,58,0.4); color: #fff; }
+
+  .menu-btn {
+    width: 40px; height: 40px;
+    background: rgba(13,17,23,0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .menu-btn:hover { border-color: var(--accent-gold); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 560px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(to right, rgba(13,17,23,0.85) 28%, rgba(13,17,23,0.3) 55%, rgba(13,17,23,0.15) 100%),
+      url('./assets/background-1.png') center/cover no-repeat;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 0 0 60px;
+    max-width: 520px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-eyebrow::before {
+    content: '›';
+    color: var(--accent-gold);
+    font-size: 16px;
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 88px;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-title .line1,
+  .hero-title .line2 {
+    display: block;
+    color: #fff;
+  }
+
+  .hero-title .line3 {
+    display: block;
+    color: var(--accent-gold);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 14px 28px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-primary:hover {
+    background: rgba(200,133,58,0.2);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    transform: translateY(-1px);
+  }
+
+  .btn-arrow {
+    width: 28px; height: 28px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    transition: all 0.25s;
+  }
+
+  .btn-primary:hover .btn-arrow {
+    border-color: var(--accent-gold);
+    background: rgba(200,133,58,0.2);
+  }
+
+  /* ── HERO SIDE CARD ── */
+  .hero-side-card {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(13,17,23,0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px 28px;
+    min-width: 240px;
+    z-index: 10;
+  }
+
+  .side-card-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .side-card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .side-card-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .side-icon {
+    width: 18px; height: 18px;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+  }
+
+  .side-stat {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .stat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1;
+  }
+
+  .stat-plus {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1.3;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  /* ── HERO SLIDER DOTS ── */
+  .hero-dots {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+  }
+
+  .dot-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+
+  .dot-track {
+    width: 80px;
+    height: 2px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .dot-progress {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    width: 20%;
+    background: var(--accent-gold);
+    border-radius: 2px;
+  }
+
+  /* ── HOMES SECTION ── */
+  .homes-section {
+    background: var(--bg-dark);
+    padding: 56px 60px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .homes-intro-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .homes-intro-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--text-white);
+  }
+
+  .homes-intro-desc {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .view-all-link:hover { gap: 14px; }
+
+  .view-all-link .arrow-circle {
+    width: 24px; height: 24px;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+
+  /* ── HOME CARDS ── */
+  .homes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    position: relative;
+  }
+
+  .homes-nav-btn {
+    position: absolute;
+    right: -52px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px; height: 36px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    background: var(--bg-card);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+
+  .homes-nav-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+  .home-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .home-card:hover { transform: translateY(-3px); }
+
+  .home-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+    transition: filter 0.3s;
+  }
+
+  .home-card:hover img { filter: brightness(1); }
+
+  .home-card-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0) 100%);
+    padding: 24px 14px 14px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .card-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    line-height: 1.5;
+    background: rgba(200,133,58,0.15);
+    border: 1px solid rgba(200,133,58,0.3);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  .card-info-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  .card-info-sub {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── TECH SECTION ── */
+  .tech-section {
+    background: linear-gradient(135deg, #0d1117 0%, #101520 50%, #0d1117 100%);
+    padding: 48px 0;
+    display: grid;
+    grid-template-columns: 340px 1fr auto;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .tech-visual {
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tech-visual-img {
+    width: 240px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    filter: hue-rotate(200deg) brightness(0.9) saturate(1.5);
+    opacity: 0.85;
+  }
+
+  .tech-body {
+    padding-right: 40px;
+  }
+
+  .tech-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .tech-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .tech-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 320px;
+  }
+
+  .tech-features {
+    display: flex;
+    gap: 0;
+    border-left: 1px solid var(--border);
+    padding-left: 0;
+  }
+
+  .tech-feat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 32px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .tech-feat:hover { background: rgba(255,255,255,0.03); color: var(--text-light); }
+
+  .tech-feat svg {
+    width: 30px; height: 30px;
+    color: var(--accent-gold);
+    opacity: 0.8;
+  }
+
+  .tech-cta {
+    padding: 0 48px 0 32px;
+    text-align: right;
+  }
+
+  .tech-cta-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .tech-cta-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+  }
+
+  .cta-arrow-btn {
+    width: 38px; height: 38px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    margin-left: auto;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+
+  .cta-arrow-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+  /* ── SVG ICONS ── */
+  svg { display: inline-block; vertical-align: middle; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title   { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-sub     { animation: fadeUp 0.6s ease 0.2s both; }
+  .btn-primary  { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-side-card { animation: fadeUp 0.7s ease 0.25s both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .hero-title { font-size: 66px; }
+    .homes-section { grid-template-columns: 260px 1fr; gap: 32px; padding: 40px; }
+    .tech-section { grid-template-columns: 1fr; padding: 40px; }
+    .tech-visual { display: none; }
+    .tech-features { border-left: none; border-top: 1px solid var(--border); padding-top: 24px; flex-wrap: wrap; }
+    .tech-cta { text-align: left; padding: 24px 0 0; }
+    .cta-arrow-btn { margin-left: 0; }
+  }
+
+  @media (max-width: 860px) {
+    :root { --sidebar-w: 0px; }
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    .hero-title { font-size: 52px; }
+    .hero-side-card { display: none; }
+    .homes-section { grid-template-columns: 1fr; padding: 32px 24px; }
+    .homes-grid { grid-template-columns: 1fr 1fr; }
+    .homes-nav-btn { display: none; }
+  }
+
+  @media (max-width: 580px) {
+    .hero { height: auto; min-height: 500px; }
+    .hero-content { padding: 70px 20px 40px; }
+    .hero-title { font-size: 44px; }
+    .homes-grid { grid-template-columns: 1fr; }
+    .tech-features { flex-direction: column; }
+    .tech-feat { flex-direction: row; text-align: left; justify-content: flex-start; padding: 16px 20px; }
+  }
+
+/* ═══════════════════════════════════════════════════
+   NEON LIGHT SYSTEM  –  Ameritore Homes
+   Flowing amber/copper energy streaks across all pages
+═══════════════════════════════════════════════════ */
+
+/* Canvas sits behind everything, above the bg image */
+#neon-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.72;
+}
+
+/* Neon glow on active nav item */
+.nav-item.active {
+  box-shadow: 0 0 12px rgba(200,133,58,0.25), inset 0 0 10px rgba(200,133,58,0.06);
+}
+
+/* Neon glow on cards hover */
+.proc-card:hover,
+.project-card:hover,
+.value-card:hover,
+.home-card:hover,
+.team-card:hover,
+.completed-card:hover {
+  box-shadow: 0 0 18px rgba(200,133,58,0.18), 0 0 40px rgba(200,133,58,0.07);
+}
+
+/* Neon glow on buttons */
+.btn-primary:hover,
+.submit-btn:hover,
+.explore-btn:hover,
+.book-btn:hover,
+.tab-btn.active {
+  box-shadow: 0 0 16px rgba(200,133,58,0.35), 0 0 40px rgba(200,133,58,0.12);
+}
+
+/* Neon on timeline fill */
+.timeline-fill {
+  box-shadow: 0 0 10px rgba(200,133,58,0.6), 0 0 24px rgba(200,133,58,0.3);
+}
+
+/* Neon on gold accent text */
+.hero-title .line2,
+.hero-title .line3,
+.card-status,
+.stat-number,
+.stat-plus,
+.section-label,
+.homes-intro-label,
+.strip-cta-title,
+.hero-eyebrow,
+.card-heading,
+.inquiry-title-main {
+  text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+}
+
+/* Neon on hero side card border */
+.hero-side-card {
+  box-shadow: 0 0 30px rgba(200,133,58,0.1), inset 0 0 20px rgba(200,133,58,0.03);
+}
+
+/* Neon on icon glows */
+.side-icon,
+.nav-icon,
+.proc-icon svg,
+.strip-feat svg,
+.tech-feat svg,
+.value-icon,
+.loc-icon,
+.inq-icon {
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.55));
+}
+
+/* Neon border on form focus */
+.inp:focus {
+  box-shadow: 0 0 14px rgba(200,133,58,0.22), 0 0 2px rgba(200,133,58,0.5) inset;
+}
+
+/* Neon progress dots / map pins */
+.map-pin-dot {
+  box-shadow: 0 0 12px rgba(200,133,58,0.9), 0 0 24px rgba(200,133,58,0.5);
+}
+
+/* Diamond button neon */
+.diamond-btn:hover,
+.sidebar-arrow:hover,
+.cta-arrow-btn:hover {
+  box-shadow: 0 0 16px rgba(200,133,58,0.4);
+}
+
+/* Award badge neon glow */
+.award-badge {
+  box-shadow: 0 0 12px rgba(200,133,58,0.2);
+}
+
+/* ── Ambient corner glows on main sections ── */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 420px; height: 420px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientPulse 5s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 30px; right: 80px;
+  width: 320px; height: 240px;
+  background: radial-gradient(ellipse, rgba(200,133,58,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes ambientPulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.08); }
+}
+/* ═══════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════
+   SCROLL-TO-TOP BUTTON
+═══════════════════════════════════════════ */
+#scroll-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 44px; height: 44px;
+  background: rgba(13,17,23,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200,133,58,0.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 500;
+  color: var(--accent-gold);
+  font-size: 18px;
+  opacity: 0; pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 14px rgba(200,133,58,0.15);
+}
+#scroll-top.visible {
+  opacity: 1; pointer-events: auto; transform: translateY(0);
+}
+#scroll-top:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 22px rgba(200,133,58,0.5), 0 0 50px rgba(200,133,58,0.15);
+  background: rgba(200,133,58,0.18);
+}
+#scroll-top svg { display: block; }
+
+/* ═══════════════════════════════════════════
+   SOCIAL MEDIA ICONS  (replace client portal)
+═══════════════════════════════════════════ */
+.social-icons {
+  display: flex; align-items: center; gap: 6px;
+}
+.soc-btn {
+  width: 36px; height: 36px;
+  background: rgba(13,17,23,0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none;
+  color: var(--text-muted);
+  transition: all 0.22s;
+}
+.soc-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 14px rgba(200,133,58,0.35);
+  background: rgba(200,133,58,0.12);
+}
+.soc-btn svg { width: 15px; height: 15px; }
+
+/* Keep menu-btn same */
+.menu-btn {
+  width: 36px; height: 36px;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV MENU
+═══════════════════════════════════════════ */
+#mobile-nav {
+  display: none;
+  position: fixed; inset: 0;
+  z-index: 999;
+}
+#mobile-nav.open { display: flex; }
+
+.mob-overlay {
+  position: absolute; inset: 0;
+  background: rgba(5,8,14,0.85);
+  backdrop-filter: blur(8px);
+}
+
+.mob-panel {
+  position: absolute;
+  top: 0; right: 0;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: linear-gradient(160deg, #0f1520 0%, #111827 100%);
+  border-left: 1px solid rgba(200,133,58,0.2);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.6);
+  display: flex; flex-direction: column;
+  padding: 28px 24px 32px;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.34,1.12,0.64,1);
+}
+#mobile-nav.open .mob-panel {
+  transform: translateX(0);
+}
+
+.mob-close {
+  align-self: flex-end;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); font-size: 15px;
+  transition: all 0.2s; margin-bottom: 32px;
+}
+.mob-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.35); }
+
+.mob-logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 36px; text-decoration: none;
+}
+.mob-logo svg { width: 36px; height: 36px; }
+.mob-logo-text .name { font-family: 'Barlow Condensed',sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; color: #fff; display: block; }
+.mob-logo-text .sub  { font-size: 8.5px; letter-spacing: 3px; color: var(--text-muted); }
+
+.mob-nav { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+.mob-nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 8px;
+  text-decoration: none; color: var(--text-muted);
+  font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.mob-nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+.mob-nav-item.active { background: rgba(200,133,58,0.14); color: #fff; border-color: rgba(200,133,58,0.2); }
+.mob-nav-item svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
+.mob-nav-item.active svg { opacity: 1; }
+
+.mob-socials {
+  display: flex; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border);
+  margin-top: 16px;
+}
+.mob-soc-btn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none; color: var(--text-muted);
+  transition: all 0.2s;
+}
+.mob-soc-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.3); }
+.mob-soc-btn svg { width: 16px; height: 16px; }
+/* ══ END SHARED CSS ══ */
+
+
+/* ═══════════════════════════════════════════
+   MINIMAL SITE FOOTER
+═══════════════════════════════════════════ */
+.site-footer {
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 18px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex; align-items: center; gap: 10px;
+}
+
+.footer-logo-img {
+  width: 28px; height: 28px;
+  border-radius: 4px; object-fit: cover;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.35));
+}
+
+.footer-copy {
+  font-size: 11px; font-weight: 500;
+  color: var(--text-subtle);
+  letter-spacing: 0.4px;
+}
+
+.footer-copy strong {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.footer-center {
+  font-size: 10.5px; color: var(--text-subtle);
+  letter-spacing: 0.3px; text-align: center;
+}
+
+.footer-center a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.footer-center a:hover { opacity: 0.75; }
+
+.footer-right {
+  display: flex; align-items: center; gap: 16px;
+}
+
+.footer-link {
+  font-size: 10.5px; font-weight: 500;
+  color: var(--text-subtle); text-decoration: none;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--accent-gold);
+  transform: scaleX(0); transition: transform 0.2s;
+  transform-origin: left;
+}
+
+.footer-link:hover { color: var(--accent-gold); }
+.footer-link:hover::after { transform: scaleX(1); }
+
+.footer-divider {
+  width: 1px; height: 12px;
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 860px) {
+  .site-footer {
+    flex-direction: column; align-items: center;
+    padding: 18px 20px; gap: 10px; text-align: center;
+  }
+  .footer-left, .footer-right { justify-content: center; }
+}
+/* ══ END FOOTER CSS ══ */
+
+
+/* ═══ FOOTER FIX ═══ */
+.site-footer {
+  margin-left: var(--sidebar-w);
+  position: relative; z-index: 10;
+  background: #080b10;
+  border-top: 1px solid rgba(200,133,58,0.18);
+  padding: 16px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+@media (max-width: 860px) {
+  .site-footer {
+    margin-left: 0;
+    flex-direction: column; align-items: center;
+    padding: 16px 20px; gap: 8px; text-align: center;
+  }
+}
+/* ═══ END FOOTER FIX ═══ */
+
+
+/* ═══════════════════════════════════════════
+   LOGO FIXES – DESKTOP SIDEBAR + MOBILE TOPBAR
+═══════════════════════════════════════════ */
+
+/* ── Sidebar logo: show image + text stacked ── */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+.sidebar-logo-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(200,133,58,0.35));
+  transition: filter 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img {
+  filter: drop-shadow(0 0 14px rgba(200,133,58,0.6));
+}
+
+/* Hide the old SVG icon when image loads */
+.sidebar-logo .logo-icon { display: none; }
+
+.logo-text {
+  margin-top: 8px;
+  text-align: center;
+}
+.logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 2.5px; color: #fff;
+  display: block; text-align: center;
+}
+.logo-text .sub {
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: 3px; color: var(--text-muted);
+  display: block; text-align: center; margin-top: 1px;
+}
+
+/* ── Mobile topbar logo (left side) ── */
+.mob-topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(11,14,20,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,133,58,0.12);
+  z-index: 150;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.mob-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.mob-topbar-logo-img {
+  width: 36px; height: 36px;
+  border-radius: 5px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(200,133,58,0.3));
+}
+
+.mob-topbar-logo-text .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 2px; color: #fff; display: block;
+}
+.mob-topbar-logo-text .sub {
+  font-size: 7.5px; letter-spacing: 2.5px;
+  color: var(--text-muted); display: block;
+}
+
+.mob-topbar-right {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.mob-topbar-soc {
+  display: flex; align-items: center; gap: 5px;
+}
+
+.mob-topbar-soc .soc-btn {
+  width: 30px; height: 30px; border-radius: 6px;
+}
+
+.mob-topbar-ham {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border-light);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-light);
+  transition: all 0.2s;
+}
+.mob-topbar-ham:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(200,133,58,0.3);
+}
+
+/* ── Responsive: hide sidebar, show mob-topbar ── */
+@media (max-width: 860px) {
+  .sidebar { display: none !important; }
+  .main { margin-left: 0 !important; }
+  .mob-topbar { display: flex !important; }
+
+  /* Push content down below fixed topbar */
+  .hero,
+  .hero-section,
+  section.hero { padding-top: 56px; }
+
+  /* Hide desktop topbar social icons on mobile */
+  .topbar { display: none !important; }
+
+  .site-footer { margin-left: 0 !important; }
+}
+
+@media (min-width: 861px) {
+  .mob-topbar { display: none !important; }
+}
+/* ══ END LOGO FIXES ══ */
+
+
+
+
+
+/* ═══ SIDEBAR LOGO IMAGE FIX ═══ */
+.sidebar-logo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin-bottom: 32px !important;
+  text-decoration: none;
+  padding: 0 !important;
+  width: 100%;
+}
+.sidebar-logo-img {
+  width: 80%;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(200,133,58,0.18);
+  transition: opacity 0.3s;
+}
+.sidebar-logo:hover .sidebar-logo-img { opacity: 0.85; }
+/* ═══ END SIDEBAR LOGO IMAGE FIX ═══ */
+
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">
+    <img src="./assets/logo.jpeg"
+         class="sidebar-logo-img"
+         alt="Ameritore Homes"
+         onerror="this.style.display='none'">
+  </a>
+
+  <nav class="sidebar-nav">
+<a href="index.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      Home
+    </a>
+    <a href="about.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      About Us
+    </a>
+    <a href="projects.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      Projects
+    </a>
+    <a href="process.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
+      Process
+    </a>
+    <a href="career.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      Careers
+    </a>
+    <a href="contact.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>
+      Contact
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <p class="build-cta">Let's Build<br>The Future</p>
+    <div class="sidebar-arrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M2 6h8M7 3l3 3-3 3"/>
+      </svg>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- MOBILE TOPBAR (logo left, socials + hamburger right) -->
+<div class="mob-topbar">
+  <a href="index.html" class="mob-topbar-logo">
+    <img src="./assets/logo.jpeg" class="mob-topbar-logo-img" alt="Ameritore"
+         onerror="this.style.display='none'">
+    <div class="mob-topbar-logo-text">
+      <span class="name">Ameritore</span>
+      <span class="sub">Homes</span>
+    </div>
+  </a>
+  <div class="mob-topbar-right">
+    <div class="mob-topbar-soc">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="mob-topbar-ham" onclick="openMobNav()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+</div>
+
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="social-icons">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+    <div class="menu-btn" onclick="openMobNav()" style="cursor:pointer;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Welcome to Ameritore Homes</p>
+      <h1 class="hero-title">
+        <span class="line1">Building</span>
+        <span class="line2">Beyond</span>
+        <span class="line3">Tomorrow</span>
+      </h1>
+      <p class="hero-sub">Futuristic design. Intelligent living.<br>Timeless craftsmanship.</p>
+      <a href="projects.html" class="btn-primary">
+        Explore Our Homes
+        <span class="btn-arrow">›</span>
+      </a>
+    </div>
+
+    <!-- Side Info Card -->
+    <div class="hero-side-card">
+      <p class="side-card-title">The Ameritore Difference</p>
+      <ul class="side-card-list">
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          Futuristic Design
+        </li>
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+            <circle cx="12" cy="13" r="2"/>
+          </svg>
+          Smart Home Technology
+        </li>
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+          </svg>
+          Sustainable Building
+        </li>
+        <li class="side-card-item">
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2a9 9 0 110 18A9 9 0 0112 2z"/><path d="M8 12l3 3 5-5"/>
+          </svg>
+          Customized for You
+        </li>
+      </ul>
+      <div class="side-stat">
+        <span class="stat-number">20</span>
+        <span class="stat-plus">+</span>
+        <span class="stat-label">Years of<br>Excellence</span>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="hero-dots">
+      <span class="dot-label">01</span>
+      <div class="dot-track"><div class="dot-progress"></div></div>
+      <span class="dot-label">05</span>
+    </div>
+  </section>
+
+  <!-- HOMES COLLECTION -->
+  <section class="homes-section">
+    <div class="homes-intro">
+      <p class="homes-intro-label">Explore Our Collection</p>
+      <h2 class="homes-intro-title">Our Projects<br>Built for<br>Excellence</h2>
+      <p class="homes-intro-desc">Each Ameritore project is crafted with precision and purpose — from G+3 residences in LN Nagar to luxury villa clusters in Kalapatti.</p>
+      <a href="#" class="view-all-link">
+        View All Homes
+        <span class="arrow-circle">›</span>
+      </a>
+    </div>
+ 
+    <div class="homes-grid">
+      <div class="home-card">
+        <img src="assets/projects/ongoing/devraj.png" alt="Mr. Devaraj Residence">
+        <div class="home-card-label">
+          <span class="card-num">01</span>
+          <div>
+            <div class="card-info-title">Mr. Devaraj Residence</div>
+            <div class="card-info-sub">G+3 &nbsp;|&nbsp; Residential &nbsp;|&nbsp; 5,800 Sq Ft</div>
+          </div>
+        </div>
+      </div>
+      <div class="home-card">
+        <img src="assets/projects/completed/samridhi-unique-spaces.png" alt="Autograph Villas">
+        <div class="home-card-label">
+          <span class="card-num">02</span>
+          <div>
+            <div class="card-info-title">Autograph Villas</div>
+            <div class="card-info-sub">G+1 &nbsp;|&nbsp; Luxury Villas &nbsp;|&nbsp; 12,992 Sq Ft</div>
+          </div>
+        </div>
+      </div>
+      <div class="home-card" >
+        <img src="assets/projects/completed/shyam-controls.png" alt="Shyam Controls">
+        <div class="home-card-label">
+          <span class="card-num">03</span>
+          <div>
+            <div class="card-info-title">Shyam Controls</div>
+            <div class="card-info-sub">Renovation &nbsp;|&nbsp; Civil &nbsp;|&nbsp; 3,500 Sq Ft</div>
+          </div>
+        </div>
+      </div>
+      <button class="homes-nav-btn" onclick="window.location='projects.html'">›</button>
+    </div>
+  </section>
+
+  <!-- TECH / SMARTER BY DESIGN -->
+  <section class="tech-section">
+    <div class="tech-visual">
+      <img class="tech-visual-img"
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+        alt="Smart Home">
+    </div>
+
+    <div class="tech-body">
+      <p class="tech-label">Smart Technology</p>
+      <h3 class="tech-title">Smarter by Design</h3>
+      <p class="tech-desc">We integrate the latest in smart home technology to enhance comfort, security, and efficiency.</p>
+    </div>
+
+    <div class="tech-features">
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+          <path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>
+        </svg>
+        AI-Powered<br>Automation
+      </div>
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+        Energy<br>Efficiency
+      </div>
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Advanced<br>Security
+      </div>
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        Climate<br>Control
+      </div>
+    </div>
+
+    <div class="tech-cta">
+      <p class="tech-cta-title">Ready to Build<br>Your Future?</p>
+      <p class="tech-cta-sub">Let's bring your vision to life.</p>
+      <div class="cta-arrow-btn">›</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Slider dot animation
+  let progress = 0;
+  setInterval(() => {
+    progress = (progress + 20) % 120;
+    const p = document.querySelector('.dot-progress');
+    if (p) p.style.left = (progress % 80) + '%';
+  }, 2000);
+
+  // Subtle parallax on hero bg
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-bg');
+    if (hero) hero.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+  });
+</script>
+<script>
+
+/* ─── NEON CANVAS RENDERER ─── */
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'neon-canvas';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Each "streak" is a bezier light wave
+  const streaks = [];
+  const COLORS = [
+    'rgba(200,133,58,',
+    'rgba(220,155,70,',
+    'rgba(180,110,40,',
+    'rgba(240,170,80,',
+    'rgba(160,90,30,',
+  ];
+
+  function randBetween(a, b) { return a + Math.random() * (b - a); }
+
+  function createStreak() {
+    const W = canvas.width, H = canvas.height;
+    const side = Math.random() < 0.5; // true = horizontal, false = vertical
+    return {
+      // start
+      x0: side ? -80 : randBetween(W * 0.05, W * 0.95),
+      y0: side ? randBetween(H * 0.1, H * 0.9) : -60,
+      // control points
+      cx1: randBetween(W * 0.1, W * 0.5),
+      cy1: randBetween(H * 0.05, H * 0.5),
+      cx2: randBetween(W * 0.45, W * 0.9),
+      cy2: randBetween(H * 0.4,  H * 0.95),
+      // end
+      x1: side ? W + 80 : randBetween(W * 0.05, W * 0.95),
+      y1: side ? randBetween(H * 0.1, H * 0.9) : H + 60,
+      // visual
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      width: randBetween(0.6, 2.2),
+      alpha: 0,
+      maxAlpha: randBetween(0.22, 0.55),
+      speed: randBetween(0.003, 0.009),
+      progress: 0,        // 0 → 1 along the curve
+      headLen: randBetween(0.08, 0.22), // fraction of curve that's "lit"
+      phase: 'in',        // in | hold | out
+      holdTime: randBetween(40, 120),
+      holdCount: 0,
+      glowLayers: Math.random() < 0.5 ? 3 : 2,
+    };
+  }
+
+  // pre-seed
+  for (let i = 0; i < 6; i++) {
+    const s = createStreak();
+    s.progress = Math.random();
+    s.alpha = s.maxAlpha * Math.random();
+    streaks.push(s);
+  }
+
+  // Cubic bezier point
+  function bezierPoint(t, p0, p1, p2, p3) {
+    const u = 1 - t;
+    return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3;
+  }
+
+  function drawStreak(s) {
+    const t0 = Math.max(0, s.progress - s.headLen);
+    const t1 = Math.min(1, s.progress);
+    if (t0 >= t1) return;
+
+    const steps = 60;
+    ctx.save();
+
+    for (let layer = s.glowLayers; layer >= 1; layer--) {
+      ctx.beginPath();
+      for (let i = 0; i <= steps; i++) {
+        const t = t0 + (t1 - t0) * (i / steps);
+        const x = bezierPoint(t, s.x0, s.cx1, s.cx2, s.x1);
+        const y = bezierPoint(t, s.y0, s.cy1, s.cy2, s.y1);
+        // brightness fades toward tail
+        const frac = i / steps;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      const baseAlpha = s.alpha * (layer === 1 ? 1 : 0.3 / layer);
+      ctx.strokeStyle = s.color + baseAlpha + ')';
+      ctx.lineWidth   = s.width * (layer === 1 ? 1 : layer * 1.8);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (layer > 1) {
+        ctx.shadowColor = s.color + '0.6)';
+        ctx.shadowBlur  = 8 * layer;
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    // bright sparkle tip
+    const tipX = bezierPoint(t1, s.x0, s.cx1, s.cx2, s.x1);
+    const tipY = bezierPoint(t1, s.y0, s.cy1, s.cy2, s.y1);
+    const grad = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, 6);
+    grad.addColorStop(0, s.color + (s.alpha * 1.4) + ')');
+    grad.addColorStop(1, s.color + '0)');
+    ctx.beginPath();
+    ctx.arc(tipX, tipY, 6, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  let spawnTimer = 0;
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // spawn new streaks periodically
+    spawnTimer++;
+    if (spawnTimer > 55 && streaks.length < 12) {
+      streaks.push(createStreak());
+      spawnTimer = 0;
+    }
+
+    for (let i = streaks.length - 1; i >= 0; i--) {
+      const s = streaks[i];
+
+      // state machine
+      if (s.phase === 'in') {
+        s.alpha    += s.maxAlpha * 0.06;
+        s.progress += s.speed;
+        if (s.alpha  >= s.maxAlpha) { s.alpha = s.maxAlpha; }
+        if (s.progress >= 1) { s.progress = 1; s.phase = 'hold'; }
+      } else if (s.phase === 'hold') {
+        s.holdCount++;
+        if (s.holdCount >= s.holdTime) s.phase = 'out';
+      } else {
+        s.alpha -= s.maxAlpha * 0.04;
+        if (s.alpha <= 0) { streaks.splice(i, 1); continue; }
+      }
+
+      drawStreak(s);
+    }
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+</script>
+
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <img src="./assets/logo.jpeg" alt="Ameritore" class="footer-logo-img"
+         onerror="this.style.display='none'">
+    <span class="footer-copy">
+      &copy; <strong>Ameritore Homes</strong> 2026. All rights reserved.
+    </span>
+  </div>
+
+  <div class="footer-center">
+    Designed &amp; Developed by&nbsp;<a href="#" target="_blank">Creative Advs</a>
+  </div>
+
+  <div class="footer-right">
+    <a href="#" class="footer-link">Terms</a>
+    <div class="footer-divider"></div>
+    <a href="#" class="footer-link">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobile-nav">
+  <div class="mob-overlay" onclick="closeMobNav()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobNav()">✕</button>
+    <a href="index.html" class="mob-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <path d="M22 4L38 36H6L22 4Z" stroke="white" stroke-width="2.2" fill="none"/>
+        <path d="M22 4L38 36" stroke="white" stroke-width="2.2"/>
+        <path d="M14 24H30" stroke="white" stroke-width="2.2"/>
+      </svg>
+      <div class="mob-logo-text">
+        <span class="name">Ameritore</span>
+        <span class="sub">Homes</span>
+      </div>
+    </a>
+    <nav class="mob-nav">
+<a href="index.html" class="mob-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home</a>
+      <a href="about.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
+      <a href="projects.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Technology</a>
+      <a href="process.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sustainability</a>
+      <a href="contact.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact</a>
+    </nav>
+    <div class="mob-socials">
+      <a href="#" class="mob-soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* ─── SCROLL TO TOP ─── */
+(function(){
+  const btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 280);
+  }, { passive: true });
+})();
+
+/* ─── MOBILE NAV ─── */
+function openMobNav() {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeMobNav(); });
+
+/* Mark active mobile link */
+(function(){
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mob-nav-item').forEach(a => {
+    const href = a.getAttribute('href').split('/').pop();
+    if (href === path) a.classList.add('active');
+  });
+})();
+
+</script>
+</body>
+</html>
