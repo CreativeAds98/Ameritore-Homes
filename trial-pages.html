@@ -3,581 +3,1125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ameritore Homes – Projects</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Ameritore Homes – Building Beyond Tomorrow</title>
+<link rel="icon" type="image/png" href="./assets/favicon.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg-dark: #0d1117;
-  --bg-sidebar: #111519;
-  --bg-card: #161b22;
-  --bg-card2: #1a2030;
-  --accent-gold: #c8853a;
-  --accent-gold-light: #d9934a;
-  --text-white: #ffffff;
-  --text-light: #d0d5dd;
-  --text-muted: #8a9ab0;
-  --text-subtle: #5a6a7e;
-  --border: rgba(255,255,255,0.07);
-  --border-light: rgba(255,255,255,0.12);
-  --sidebar-w: 140px;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Barlow', sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-white);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ── SIDEBAR ── */
-.sidebar {
-  position: fixed; top: 0; left: 0;
-  width: var(--sidebar-w); height: 100vh;
-  background: var(--bg-sidebar);
-  border-right: 1px solid var(--border);
-  display: flex; flex-direction: column; align-items: center;
-  z-index: 100; padding: 28px 0 32px;
-}
-.sidebar-logo { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 40px; text-decoration: none; }
-.logo-icon { width: 44px; height: 44px; }
-.logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 2px; color: #fff; display: block; text-align: center; }
-.logo-text .sub { font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--text-muted); display: block; margin-top: 2px; text-align: center; }
-.sidebar-nav { flex: 1; width: 100%; display: flex; flex-direction: column; gap: 2px; padding: 0 10px; }
-.nav-item { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 8px; text-decoration: none; color: var(--text-muted); font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; transition: all 0.2s; }
-.nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
-.nav-item.active { background: rgba(200,133,58,0.15); color: var(--text-white); border: 1px solid rgba(200,133,58,0.2); }
-.nav-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.75; }
-.nav-item.active .nav-icon { opacity: 1; }
-.sidebar-bottom { text-align: center; padding: 0 10px; }
-.build-cta { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; line-height: 1.4; margin-bottom: 10px; }
-.sidebar-arrow { width: 32px; height: 32px; border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; margin: 0 auto; }
-.sidebar-arrow:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
-
-/* ── MAIN ── */
-.main { margin-left: var(--sidebar-w); }
-
-/* ── TOPBAR ── */
-.topbar { position: absolute; top: 0; right: 0; padding: 22px 32px; display: flex; align-items: center; gap: 12px; z-index: 50; }
-.client-portal-btn { display: flex; align-items: center; gap: 8px; background: rgba(13,17,23,0.6); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 24px; padding: 9px 20px; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
-.client-portal-btn:hover { border-color: var(--accent-gold); color: #fff; }
-.menu-btn { width: 40px; height: 40px; background: rgba(13,17,23,0.6); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
-.menu-btn:hover { border-color: var(--accent-gold); }
-
-/* ── HERO ── */
-.hero { position: relative; height: 560px; overflow: hidden; }
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(to right, rgba(13,17,23,0.88) 22%, rgba(13,17,23,0.4) 55%, rgba(13,17,23,0.1) 100%),
-    linear-gradient(to bottom, rgba(13,17,23,0) 50%, rgba(13,17,23,0.95) 100%),
-    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85') center/cover no-repeat;
-}
-.hero-content { position: relative; z-index: 2; padding: 100px 0 0 48px; }
-.hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; animation: fadeUp 0.5s ease both; }
-.hero-eyebrow::before { content: '›'; color: var(--accent-gold); font-size: 16px; }
-.hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: 96px; font-weight: 800; line-height: 0.9; letter-spacing: -2px; text-transform: uppercase; color: #fff; animation: fadeUp 0.5s ease 0.1s both; margin-bottom: 32px; }
-
-/* ── TAB SWITCHER ── */
-.tab-row { display: flex; align-items: center; gap: 0; animation: fadeUp 0.5s ease 0.2s both; }
-.tab-btn { padding: 13px 36px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border: 1px solid transparent; border-radius: 30px; }
-.tab-btn.active { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
-.tab-btn.inactive { color: var(--text-muted); }
-.tab-btn.inactive:hover { color: var(--text-light); }
-
-/* ── HERO SIDE CARD ── */
-.hero-side-card { position: absolute; right: 32px; top: 50%; transform: translateY(-60%); background: rgba(13,17,23,0.75); backdrop-filter: blur(16px); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 26px; min-width: 230px; z-index: 10; animation: fadeUp 0.6s ease 0.25s both; }
-.side-card-title { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-.side-card-list { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
-.side-card-item { display: flex; align-items: center; gap: 10px; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
-.side-icon { width: 17px; height: 17px; color: var(--accent-gold); flex-shrink: 0; }
-.side-stat { display: flex; align-items: flex-end; gap: 6px; margin-top: 14px; }
-.stat-number { font-family: 'Barlow Condensed', sans-serif; font-size: 50px; font-weight: 700; color: var(--accent-gold); line-height: 1; }
-.stat-plus { font-size: 26px; font-weight: 700; color: var(--accent-gold); line-height: 1.3; }
-.stat-label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; line-height: 1.3; margin-bottom: 4px; }
-
-/* ── PROJECT CARDS SECTION ── */
-.projects-section { background: var(--bg-dark); padding: 0 20px 0; position: relative; margin-top: -120px; z-index: 10; }
-
-.slider-wrapper { position: relative; display: flex; align-items: stretch; gap: 0; }
-
-.slider-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 34px; height: 34px; background: rgba(22,27,34,0.9); border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-light); font-size: 16px; transition: all 0.2s; flex-shrink: 0; }
-.slider-nav:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
-.slider-nav.prev { left: -4px; }
-.slider-nav.next { right: 220px; }
-
-.cards-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex: 1; padding: 0 44px; }
-
-/* ── PROJECT CARD ── */
-.project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; cursor: pointer; display: flex; flex-direction: column; }
-.project-card:hover { transform: translateY(-3px); border-color: var(--border-light); }
-
-.card-img-wrap { position: relative; height: 200px; overflow: hidden; }
-.card-img-wrap img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: filter 0.3s, transform 0.3s; }
-.project-card:hover .card-img-wrap img { filter: brightness(1); transform: scale(1.03); }
-
-.card-num-badge { position: absolute; top: 12px; right: 12px; background: rgba(13,17,23,0.7); border: 1px solid var(--border-light); border-radius: 5px; padding: 3px 9px; font-size: 12px; font-weight: 700; color: var(--text-light); backdrop-filter: blur(4px); }
-
-.card-body { padding: 16px 16px 14px; flex: 1; display: flex; flex-direction: column; }
-
-.card-name { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; letter-spacing: 0.3px; }
-
-.card-status { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
-.card-status .pct { font-size: 13px; font-weight: 500; color: var(--text-muted); }
-
-.card-milestones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-.milestone { display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center; }
-.milestone svg { width: 22px; height: 22px; color: var(--accent-gold); opacity: 0.8; }
-.milestone-label { font-size: 9px; font-weight: 600; letter-spacing: 0.8px; color: var(--text-muted); text-transform: none; line-height: 1.3; }
-
-.card-specs { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
-.card-specs strong { color: var(--text-light); font-weight: 600; }
-.card-specs span { margin: 0 6px; color: var(--border-light); }
-
-.explore-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-light); border-radius: 5px; padding: 10px 18px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); cursor: pointer; transition: all 0.2s; width: 100%; margin-top: auto; }
-.explore-btn:hover { background: rgba(200,133,58,0.15); border-color: var(--accent-gold); color: var(--accent-gold); }
-.explore-btn .arr { width: 20px; height: 20px; border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: border-color 0.2s; }
-.explore-btn:hover .arr { border-color: var(--accent-gold); }
-.completed-status { color: #4caf7d !important; }
-.slide-counter { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--text-muted); text-align: center; margin-top: 12px; }
-#ongoing-cards { transition: opacity 0.35s ease, transform 0.35s ease; }
-
-/* ── COMPLETED SIDEBAR MINI CARDS ── */
-.completed-col { width: 200px; flex-shrink: 0; display: flex; flex-direction: column; gap: 10px; padding-bottom: 0; }
-
-.completed-card { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.2s; }
-.completed-card:hover { transform: translateY(-2px); }
-.completed-card img { width: 100%; height: 85px; object-fit: cover; display: block; filter: brightness(0.7); transition: filter 0.3s; }
-.completed-card:hover img { filter: brightness(0.9); }
-.completed-tag { position: absolute; top: 8px; left: 8px; background: var(--accent-gold); color: #fff; font-size: 8px; font-weight: 800; letter-spacing: 1.5px; padding: 3px 7px; border-radius: 3px; text-transform: uppercase; }
-
-.completed-info { background: var(--bg-card); border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 10px 12px 12px; }
-.completed-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: #fff; }
-.completed-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-
-.book-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-light); border-radius: 4px; padding: 7px 12px; font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); cursor: pointer; transition: all 0.2s; margin-top: 8px; width: 100%; justify-content: center; }
-.book-btn:hover { background: rgba(200,133,58,0.15); border-color: var(--accent-gold); color: var(--accent-gold); }
-
-/* ── BOTTOM STRIP ── */
-.bottom-strip {
-  display: grid; grid-template-columns: 260px 1fr auto; align-items: center;
-  border-top: 1px solid var(--border); margin-top: 32px;
-}
-.strip-visual { padding: 0 28px; display: flex; align-items: center; justify-content: center; }
-.strip-visual-img { width: 200px; height: 130px; object-fit: cover; border-radius: 6px; filter: hue-rotate(200deg) brightness(0.85) saturate(1.5); opacity: 0.85; }
-.strip-body { padding: 28px 28px 28px 0; }
-.strip-label { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
-.strip-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; max-width: 280px; }
-.strip-features { display: flex; border-left: 1px solid var(--border); }
-.strip-feat { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 26px; border-right: 1px solid var(--border); text-align: center; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; transition: background 0.2s; cursor: pointer; }
-.strip-feat:hover { background: rgba(255,255,255,0.03); color: var(--text-light); }
-.strip-feat svg { width: 28px; height: 28px; color: var(--accent-gold); opacity: 0.8; }
-.strip-cta { padding: 0 40px 0 28px; text-align: right; }
-.strip-cta-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; color: #fff; line-height: 1.1; margin-bottom: 6px; }
-.strip-cta-sub { font-size: 11px; color: var(--text-muted); margin-bottom: 14px; }
-.diamond-btn { width: 40px; height: 40px; border: 1px solid var(--border-light); transform: rotate(45deg); display: flex; align-items: center; justify-content: center; cursor: pointer; margin-left: auto; transition: all 0.2s; }
-.diamond-btn:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); }
-.diamond-btn svg { transform: rotate(-45deg); color: var(--text-light); width: 14px; height: 14px; }
-
-/* ════════════════════════════════════════════════════
-   PROJECT POPUP MODAL
-════════════════════════════════════════════════════ */
-#project-popup, #tour-modal {
-  position: fixed; inset: 0;
-  z-index: 1000;
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
-  opacity: 0; transition: opacity 0.32s ease;
-}
-#project-popup.visible, #tour-modal.visible { opacity: 1; }
-
-.pop-overlay {
-  position: absolute; inset: 0;
-  background: rgba(5,8,14,0.88);
-  backdrop-filter: blur(6px);
-}
-
-/* ── Main popup modal ── */
-.pop-modal {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  width: min(1100px, 96vw);
-  max-height: 90vh;
-  background: linear-gradient(135deg, #0f1520 0%, #131925 60%, #0d1117 100%);
-  border: 1px solid rgba(200,133,58,0.25);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 0 60px rgba(200,133,58,0.12), 0 32px 80px rgba(0,0,0,0.7);
-  animation: popSlideUp 0.35s cubic-bezier(0.34,1.36,0.64,1) both;
-}
-
-@keyframes popSlideUp {
-  from { transform: translateY(40px) scale(0.97); opacity: 0; }
-  to   { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-.pop-close {
-  position: absolute; top: 16px; right: 16px; z-index: 10;
-  width: 32px; height: 32px;
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%; color: var(--text-light);
-  font-size: 14px; cursor: pointer; transition: all 0.2s;
-  display: flex; align-items: center; justify-content: center;
-}
-.pop-close:hover { background: rgba(200,133,58,0.2); border-color: var(--accent-gold); color: #fff; box-shadow: 0 0 12px rgba(200,133,58,0.4); }
-
-/* ── Left panel ── */
-.pop-left {
-  display: flex; flex-direction: column;
-  border-right: 1px solid rgba(255,255,255,0.07);
-}
-
-.pop-hero-img-wrap {
-  position: relative; flex: 1; min-height: 0;
-  overflow: hidden; background: #080c12;
-}
-.pop-hero-img-wrap img#pop-main-img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: opacity 0.28s ease;
-  display: block;
-}
-.pop-img-label {
-  position: absolute; bottom: 10px; left: 14px;
-  background: rgba(5,8,14,0.75); backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.12); border-radius: 4px;
-  padding: 4px 10px; font-size: 10.5px; font-weight: 600;
-  letter-spacing: 1px; color: var(--text-light);
-}
-.pop-img-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 32px; height: 32px;
-  background: rgba(5,8,14,0.65); border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%; color: #fff; font-size: 18px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-}
-.pop-img-nav:hover { background: rgba(200,133,58,0.3); border-color: var(--accent-gold); box-shadow: 0 0 14px rgba(200,133,58,0.4); }
-.pop-img-nav.prev { left: 10px; }
-.pop-img-nav.next { right: 10px; }
-
-.pop-thumbs {
-  display: flex; gap: 6px; padding: 10px 12px;
-  background: rgba(8,12,20,0.8);
-  overflow-x: auto; flex-shrink: 0;
-}
-.pop-thumbs::-webkit-scrollbar { height: 3px; }
-.pop-thumbs::-webkit-scrollbar-thumb { background: rgba(200,133,58,0.4); border-radius: 2px; }
-
-.pop-thumb {
-  flex-shrink: 0; width: 72px; cursor: pointer;
-  border-radius: 5px; overflow: hidden;
-  border: 1.5px solid transparent;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.pop-thumb.active { border-color: var(--accent-gold); box-shadow: 0 0 10px rgba(200,133,58,0.45); }
-.pop-thumb:hover:not(.active) { border-color: rgba(255,255,255,0.25); }
-.pop-thumb img { width: 100%; height: 48px; object-fit: cover; display: block; }
-.pop-thumb span { display: block; font-size: 7.5px; font-weight: 600; letter-spacing: 0.5px; color: var(--text-muted); padding: 3px 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(8,12,20,0.9); }
-
-/* ── Right panel ── */
-.pop-right {
-  padding: 28px 28px 24px;
-  overflow-y: auto;
-  display: flex; flex-direction: column; gap: 14px;
-}
-.pop-right::-webkit-scrollbar { width: 3px; }
-.pop-right::-webkit-scrollbar-thumb { background: rgba(200,133,58,0.35); border-radius: 2px; }
-
-.pop-eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; color: var(--accent-gold); text-transform: uppercase; }
-.pop-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -0.5px;
-  text-transform: uppercase; color: #fff;
-  text-shadow: 0 0 24px rgba(200,133,58,0.3);
-}
-.pop-status { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-.pop-status-ongoing { color: var(--accent-gold); text-shadow: 0 0 14px rgba(200,133,58,0.5); }
-.pop-status-done    { color: #4caf7d; text-shadow: 0 0 14px rgba(76,175,80,0.4); }
-
-.pop-desc { font-size: 12.5px; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
-
-/* Progress bar */
-.pop-progress-wrap { display: flex; align-items: center; gap: 10px; }
-.pop-progress-label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-subtle); text-transform: uppercase; flex-shrink: 0; }
-.pop-progress-track { flex: 1; height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
-.pop-progress-fill  { height: 100%; background: linear-gradient(to right, var(--accent-gold2,#b8732a), var(--accent-gold)); border-radius: 3px; box-shadow: 0 0 8px rgba(200,133,58,0.6); transition: width 1s ease; }
-.pop-progress-pct   { font-size: 11px; font-weight: 700; color: var(--accent-gold); flex-shrink: 0; }
-
-/* Meta grid */
-.pop-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.pop-meta-item { display: flex; flex-direction: column; gap: 2px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; }
-.pop-meta-key { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-subtle); text-transform: uppercase; }
-.pop-meta-val { font-size: 12px; font-weight: 500; color: var(--text-light); line-height: 1.3; }
-.pop-price { color: var(--accent-gold) !important; font-weight: 700 !important; text-shadow: 0 0 10px rgba(200,133,58,0.4); }
-
-/* Features */
-.pop-features-label { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; color: var(--text-subtle); text-transform: uppercase; }
-.pop-features { display: flex; flex-wrap: wrap; gap: 6px; }
-.pop-feat {
-  background: rgba(200,133,58,0.1); border: 1px solid rgba(200,133,58,0.25);
-  border-radius: 4px; padding: 4px 10px;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.8px; color: var(--text-light);
-  transition: all 0.2s;
-}
-.pop-feat:hover { background: rgba(200,133,58,0.2); color: #fff; box-shadow: 0 0 10px rgba(200,133,58,0.25); }
-
-/* Actions */
-.pop-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 4px; }
-.pop-action-btn {
-  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 18px; border-radius: 6px;
-  font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
-  transition: all 0.25s; border: 1px solid;
-}
-.pop-action-btn.tour   { background: rgba(200,133,58,0.18); border-color: var(--accent-gold); color: var(--accent-gold); }
-.pop-action-btn.tour:hover { background: rgba(200,133,58,0.35); box-shadow: 0 0 20px rgba(200,133,58,0.4); color: #fff; }
-.pop-action-btn.status { background: rgba(255,255,255,0.06); border-color: var(--border-light); color: var(--text-light); }
-.pop-action-btn.status:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
-.pop-action-btn.ghost  { background: transparent; border-color: var(--border); color: var(--text-muted); }
-.pop-action-btn.ghost:hover { border-color: var(--border-light); color: var(--text-light); }
-
-/* ════════════════════════════════════════════════════
-   BOOK A TOUR MODAL
-════════════════════════════════════════════════════ */
-.tour-modal-inner {
-  position: relative; z-index: 2;
-  width: min(700px, 96vw);
-  max-height: 90vh; overflow-y: auto;
-  background: linear-gradient(135deg, #0f1520 0%, #131925 100%);
-  border: 1px solid rgba(200,133,58,0.3);
-  border-radius: 14px; padding: 32px 32px 28px;
-  box-shadow: 0 0 60px rgba(200,133,58,0.15), 0 32px 80px rgba(0,0,0,0.75);
-  animation: popSlideUp 0.32s cubic-bezier(0.34,1.36,0.64,1) both;
-}
-.tour-modal-inner::-webkit-scrollbar { width: 3px; }
-.tour-modal-inner::-webkit-scrollbar-thumb { background: rgba(200,133,58,0.35); border-radius:2px; }
-
-.tour-header { margin-bottom: 22px; }
-.tour-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px; }
-.tour-title { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 800; text-transform: uppercase; color: #fff; text-shadow: 0 0 20px rgba(200,133,58,0.3); margin-bottom: 4px; }
-.tour-subtitle { font-size: 12px; color: var(--text-muted); }
-
-.tour-form { display: flex; flex-direction: column; gap: 14px; }
-.tour-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.tour-field { display: flex; flex-direction: column; gap: 5px; }
-.tour-field.full { grid-column: 1/-1; }
-.tour-field label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; }
-.tour-field input, .tour-field textarea {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--input-border, rgba(255,255,255,0.12));
-  border-radius: 6px; padding: 11px 14px;
-  color: #fff; font-family: 'Barlow', sans-serif; font-size: 13px;
-  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
-}
-.tour-field input:focus, .tour-field textarea:focus {
-  border-color: rgba(200,133,58,0.5);
-  box-shadow: 0 0 12px rgba(200,133,58,0.2);
-}
-.tour-field textarea { resize: none; height: 80px; }
-.tour-field input::placeholder, .tour-field textarea::placeholder { color: var(--text-subtle, #5a6a7e); }
-.tour-field input[type=date]::-webkit-calendar-picker-indicator { filter: invert(0.6); }
-
-.tour-slots { display: flex; gap: 10px; flex-wrap: wrap; }
-.slot-opt {
-  display: flex; align-items: center; gap: 7px;
-  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-  border-radius: 5px; padding: 9px 14px; font-size: 12px; color: var(--text-muted);
-  cursor: pointer; transition: all 0.2s;
-}
-.slot-opt:hover { border-color: var(--border-light); color: var(--text-light); }
-.slot-opt input[type=radio] { accent-color: var(--accent-gold); }
-
-/* Tour preview thumbnails */
-.tour-views-preview { margin-top: 4px; }
-.tour-views-label { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-subtle); text-transform: uppercase; margin-bottom: 8px; }
-.tour-views-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.tour-view-thumb { border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
-.tour-view-thumb img { width: 100%; height: 60px; object-fit: cover; display: block; filter: brightness(0.75); }
-.tour-view-thumb span { display: block; font-size: 8px; font-weight: 600; color: var(--text-muted); padding: 3px 5px; background: rgba(8,12,20,0.9); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-.tour-form-footer { display: flex; gap: 10px; padding-top: 4px; }
-
-/* Responsive popup */
-@media (max-width: 860px) {
-  .pop-modal { grid-template-columns: 1fr; max-height: 95vh; }
-  .pop-left { max-height: 40vh; }
-  .tour-form-row { grid-template-columns: 1fr; }
-  .tour-views-row { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 540px) {
-  .pop-modal { border-radius: 10px; }
-  .pop-title { font-size: 30px; }
-  .tour-modal-inner { padding: 22px 18px; }
-}
-/* ══ END POPUP CSS ══ */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-.project-card { animation: fadeUp 0.5s ease both; }
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1150px) {
-  .completed-col { display: none; }
-  .slider-nav.next { right: -4px; }
-}
-@media (max-width: 960px) {
-  :root { --sidebar-w: 0px; }
-  .sidebar { display: none; }
-  .main { margin-left: 0; }
-  .hero-title { font-size: 68px; }
-  .hero-side-card { display: none; }
-  .cards-track { grid-template-columns: 1fr 1fr; padding: 0 20px; }
-  .bottom-strip { grid-template-columns: 1fr; }
-  .strip-visual { display: none; }
-  .strip-features { flex-wrap: wrap; border-left: none; border-top: 1px solid var(--border); padding-top: 20px; }
-  .strip-cta { text-align: left; padding: 24px; }
-  .diamond-btn { margin-left: 0; }
-}
-@media (max-width: 600px) {
-  .hero-title { font-size: 52px; }
-  .hero-content { padding: 80px 0 0 24px; }
-  .cards-track { grid-template-columns: 1fr; padding: 0 10px; }
-  .projects-section { padding: 0 10px; }
-  .tab-btn { padding: 11px 20px; font-size: 10px; }
-}
-
-/* ═══════════════════════════════════════════════════
-   NEON LIGHT SYSTEM  –  Ameritore Homes
-   Flowing amber/copper energy streaks across all pages
-═══════════════════════════════════════════════════ */
-
-/* Canvas sits behind everything, above the bg image */
-#neon-canvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.72;
-}
-
-/* Neon glow on active nav item */
-.nav-item.active {
-  box-shadow: 0 0 12px rgba(200,133,58,0.25), inset 0 0 10px rgba(200,133,58,0.06);
-}
-
-/* Neon glow on cards hover */
-.proc-card:hover,
-.project-card:hover,
-.value-card:hover,
-.home-card:hover,
-.team-card:hover,
-.completed-card:hover {
-  box-shadow: 0 0 18px rgba(200,133,58,0.18), 0 0 40px rgba(200,133,58,0.07);
-}
-
-/* Neon glow on buttons */
-.btn-primary:hover,
-.submit-btn:hover,
-.explore-btn:hover,
-.book-btn:hover,
-.tab-btn.active {
-  box-shadow: 0 0 16px rgba(200,133,58,0.35), 0 0 40px rgba(200,133,58,0.12);
-}
-
-/* Neon on timeline fill */
-.timeline-fill {
-  box-shadow: 0 0 10px rgba(200,133,58,0.6), 0 0 24px rgba(200,133,58,0.3);
-}
-
-/* Neon on gold accent text */
-.hero-title .line2,
-.hero-title .line3,
-.card-status,
-.stat-number,
-.stat-plus,
-.section-label,
-.homes-intro-label,
-.strip-cta-title,
-.hero-eyebrow,
-.card-heading,
-.inquiry-title-main {
-  text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
-}
-
-/* Neon on hero side card border */
-.hero-side-card {
-  box-shadow: 0 0 30px rgba(200,133,58,0.1), inset 0 0 20px rgba(200,133,58,0.03);
-}
-
-/* Neon on icon glows */
-.side-icon,
-.nav-icon,
-.proc-icon svg,
-.strip-feat svg,
-.tech-feat svg,
-.value-icon,
-.loc-icon,
-.inq-icon {
-  filter: drop-shadow(0 0 6px rgba(200,133,58,0.55));
-}
-
-/* Neon border on form focus */
-.inp:focus {
-  box-shadow: 0 0 14px rgba(200,133,58,0.22), 0 0 2px rgba(200,133,58,0.5) inset;
-}
-
-/* Neon progress dots / map pins */
-.map-pin-dot {
-  box-shadow: 0 0 12px rgba(200,133,58,0.9), 0 0 24px rgba(200,133,58,0.5);
-}
-
-/* Diamond button neon */
-.diamond-btn:hover,
-.sidebar-arrow:hover,
-.cta-arrow-btn:hover {
-  box-shadow: 0 0 16px rgba(200,133,58,0.4);
-}
-
-/* Award badge neon glow */
-.award-badge {
-  box-shadow: 0 0 12px rgba(200,133,58,0.2);
-}
-
-/* ── Ambient corner glows on main sections ── */
-.hero::before {
-  content: '';
-  position: absolute;
-  bottom: -60px; left: -60px;
-  width: 420px; height: 420px;
-  background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 68%);
-  pointer-events: none;
-  z-index: 1;
-  animation: ambientPulse 5s ease-in-out infinite alternate;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 30px; right: 80px;
-  width: 320px; height: 240px;
-  background: radial-gradient(ellipse, rgba(200,133,58,0.05) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes ambientPulse {
-  from { opacity: 0.6; transform: scale(1); }
-  to   { opacity: 1;   transform: scale(1.08); }
-}
-/* ═══════════════════════════════════════════════════ */
-
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-dark: #0d1117;
+    --bg-sidebar: #111519;
+    --bg-card: #161b22;
+    --bg-card2: #1a2030;
+    --accent-gold: #c8853a;
+    --accent-gold-light: #d9934a;
+    --text-white: #ffffff;
+    --text-light: #d0d5dd;
+    --text-muted: #8a9ab0;
+    --text-subtle: #5a6a7e;
+    --border: rgba(255,255,255,0.07);
+    --border-light: rgba(255,255,255,0.12);
+    --sidebar-w: 140px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  /* ══ LIGHT MODE ══ */
+  body.light-mode {
+    --bg-dark:    #f4f1ec;
+    --bg-sidebar: #ffffff;
+    --bg-card:    #ffffff;
+    --bg-card2:   #f0ede6;
+    --text-white: #1a1a1a;
+    --text-light: #2c2c2c;
+    --text-muted: #6b6b6b;
+    --text-subtle: #9a9a9a;
+    --border:      rgba(0,0,0,0.08);
+    --border-light: rgba(0,0,0,0.14);
+  }
+
+  body.light-mode .hero-bg {
+    background:
+      linear-gradient(to right, rgba(244,241,236,0.88) 28%, rgba(244,241,236,0.45) 55%, rgba(244,241,236,0.2) 100%),
+      url('./assets/background-1.png') center/cover no-repeat;
+  }
+
+  body.light-mode .sidebar {
+    box-shadow: 2px 0 16px rgba(0,0,0,0.08);
+    border-right: 1px solid rgba(0,0,0,0.1);
+  }
+
+  body.light-mode .hero-side-card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0,0,0,0.12);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  body.light-mode .tech-section {
+    background: linear-gradient(135deg, #ede9e0 0%, #f2efe8 50%, #ede9e0 100%);
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  body.light-mode .homes-section { background: #f4f1ec; }
+
+  body.light-mode #neon-canvas { opacity: 0.28; }
+
+  body.light-mode .site-footer {
+    background: #e8e4da;
+    border-top: 1px solid rgba(200,133,58,0.25);
+  }
+
+  body.light-mode .mob-topbar {
+    background: rgba(244,241,236,0.97);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  body.light-mode .mob-panel {
+    background: linear-gradient(160deg, #f5f2ec 0%, #ece9e0 100%);
+    border-left: 1px solid rgba(200,133,58,0.2);
+  }
+
+  body.light-mode .nav-item:hover  { background: rgba(0,0,0,0.05); }
+  body.light-mode .nav-item.active { background: rgba(200,133,58,0.14); border-color: rgba(200,133,58,0.3); }
+
+  body.light-mode .btn-primary {
+    background: rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.18);
+    color: #1a1a1a;
+  }
+  body.light-mode .btn-primary:hover {
+    background: rgba(200,133,58,0.15);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+  }
+
+  body.light-mode .soc-btn,
+  body.light-mode .mob-soc-btn {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.12);
+    color: #555;
+  }
+
+  body.light-mode .hero-eyebrow { color: #555; }
+  body.light-mode .hero-title .line1,
+  body.light-mode .hero-title .line2 { color: #1a1a1a; }
+
+  body.light-mode .hero::before {
+    background: radial-gradient(ellipse, rgba(200,133,58,0.1) 0%, transparent 68%);
+  }
+  body.light-mode .hero::after {
+    background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 70%);
+  }
+
+  body.light-mode .tech-body .tech-label,
+  body.light-mode .tech-body .tech-desc { color: #555; }
+  body.light-mode .tech-body .tech-title { color: #1a1a1a; }
+  body.light-mode .tech-feat { color: #555; }
+  body.light-mode .tech-feat:hover { color: #1a1a1a; background: rgba(0,0,0,0.04); }
+  body.light-mode .tech-cta-sub { color: #777; }
+  body.light-mode .tech-cta-title { color: #1a1a1a; }
+  body.light-mode .cta-arrow-btn { border-color: rgba(0,0,0,0.2); color: #555; }
+  body.light-mode .cta-arrow-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+  body.light-mode .homes-intro-desc { color: #666; }
+  body.light-mode .card-info-sub { color: #777; }
+  body.light-mode .homes-nav-btn { background: #fff; border-color: rgba(0,0,0,0.15); color: #555; }
+
+  body.light-mode .sidebar-bottom .build-cta { color: #888; }
+  body.light-mode .sidebar-arrow { border-color: rgba(0,0,0,0.18); color: #555; }
+  body.light-mode .sidebar-arrow:hover { border-color: var(--accent-gold); }
+
+  body.light-mode .mob-close { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #666; }
+  body.light-mode .mob-nav-item { color: #666; }
+  body.light-mode .mob-nav-item:hover { background: rgba(0,0,0,0.05); color: #1a1a1a; }
+  body.light-mode .mob-nav-item.active { background: rgba(200,133,58,0.12); color: #1a1a1a; border-color: rgba(200,133,58,0.25); }
+  body.light-mode .mob-socials { border-top-color: rgba(0,0,0,0.08); }
+  body.light-mode .mob-soc-btn { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); }
+
+  body.light-mode #scroll-top {
+    background: rgba(244,241,236,0.9);
+    border-color: rgba(200,133,58,0.4);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    padding: 28px 0 32px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .sidebar-logo {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    margin-bottom: 32px !important;
+    text-decoration: none;
+    padding: 0 !important;
+    width: 100%;
+  }
+
+  .sidebar-logo-img {
+    width: 80%;
+    height: auto;
+    max-height: 72px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(200,133,58,0.18);
+    transition: opacity 0.3s;
+  }
+  .sidebar-logo:hover .sidebar-logo-img { opacity: 0.85; }
+
+  .logo-icon { display: none; }
+
+  .logo-text { margin-top: 8px; text-align: center; }
+  .logo-text .name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700;
+    letter-spacing: 2.5px; color: var(--text-white);
+    display: block; text-align: center;
+    transition: color 0.3s;
+  }
+  .logo-text .sub {
+    font-size: 8.5px; font-weight: 500;
+    letter-spacing: 3px; color: var(--text-muted);
+    display: block; text-align: center; margin-top: 1px;
+    transition: color 0.3s;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 10px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+
+  .nav-item.active {
+    background: rgba(200,133,58,0.15);
+    color: var(--text-white);
+    border: 1px solid rgba(200,133,58,0.2);
+    box-shadow: 0 0 12px rgba(200,133,58,0.25), inset 0 0 10px rgba(200,133,58,0.06);
+  }
+
+  .nav-icon {
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+    opacity: 0.75;
+  }
+
+  .nav-item.active .nav-icon { opacity: 1; }
+
+  .sidebar-bottom {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .build-cta {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+  }
+
+  .sidebar-arrow {
+    width: 32px; height: 32px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 auto;
+    color: var(--text-muted);
+  }
+
+  .sidebar-arrow:hover { border-color: var(--accent-gold); background: rgba(200,133,58,0.1); box-shadow: 0 0 16px rgba(200,133,58,0.4); }
+
+  /* ── MAIN CONTENT ── */
+  .main { margin-left: var(--sidebar-w); }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    position: absolute;
+    top: 0; right: 0;
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 50;
+  }
+
+  /* ── THEME TOGGLE BUTTON ── */
+  .theme-toggle {
+    width: 36px; height: 36px;
+    background: rgba(13,17,23,0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text-muted);
+    transition: all 0.22s;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    box-shadow: 0 0 14px rgba(200,133,58,0.35);
+    background: rgba(200,133,58,0.12);
+  }
+  body.light-mode .theme-toggle {
+    background: rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.14);
+    color: #555;
+  }
+  body.light-mode .theme-toggle:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+  }
+  .theme-toggle svg { width: 16px; height: 16px; pointer-events: none; display: block; }
+
+  .social-icons { display: flex; align-items: center; gap: 6px; }
+
+  .soc-btn {
+    width: 36px; height: 36px;
+    background: rgba(13,17,23,0.65);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; text-decoration: none;
+    color: var(--text-muted);
+    transition: all 0.22s;
+  }
+  .soc-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    box-shadow: 0 0 14px rgba(200,133,58,0.35);
+    background: rgba(200,133,58,0.12);
+  }
+  .soc-btn svg { width: 15px; height: 15px; }
+
+  .menu-btn {
+    width: 36px; height: 36px;
+    background: rgba(13,17,23,0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-muted);
+  }
+  .menu-btn:hover { border-color: var(--accent-gold); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 560px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(13,17,23,0.85) 28%, rgba(13,17,23,0.3) 55%, rgba(13,17,23,0.15) 100%),
+      url('./assets/background-1.png') center/cover no-repeat;
+    transition: background 0.4s;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 0 0 60px;
+    max-width: 520px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+  }
+
+  .hero-eyebrow::before {
+    content: '›';
+    color: var(--accent-gold);
+    font-size: 16px;
+    text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 88px;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-title .line1,
+  .hero-title .line2 { display: block; color: var(--text-white); transition: color 0.3s; }
+
+  .hero-title .line3 {
+    display: block;
+    color: var(--accent-gold);
+    text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    letter-spacing: 0.3px;
+    transition: color 0.3s;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 14px 28px;
+    color: var(--text-white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-primary:hover {
+    background: rgba(200,133,58,0.2);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    transform: translateY(-1px);
+    box-shadow: 0 0 16px rgba(200,133,58,0.35), 0 0 40px rgba(200,133,58,0.12);
+  }
+
+  .btn-arrow {
+    width: 28px; height: 28px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    transition: all 0.25s;
+  }
+
+  .btn-primary:hover .btn-arrow {
+    border-color: var(--accent-gold);
+    background: rgba(200,133,58,0.2);
+  }
+
+  /* ── HERO SIDE CARD ── */
+  .hero-side-card {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(13,17,23,0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px 28px;
+    min-width: 240px;
+    z-index: 10;
+    box-shadow: 0 0 30px rgba(200,133,58,0.1), inset 0 0 20px rgba(200,133,58,0.03);
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .side-card-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.3s;
+  }
+
+  .side-card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .side-card-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    transition: color 0.3s;
+  }
+
+  .side-icon {
+    width: 18px; height: 18px;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 6px rgba(200,133,58,0.55));
+  }
+
+  .side-stat {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .stat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1;
+    text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+  }
+
+  .stat-plus {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1.3;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    transition: color 0.3s;
+  }
+
+  /* ── HOMES SECTION ── */
+  .homes-section {
+    background: var(--bg-dark);
+    padding: 56px 60px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: start;
+    transition: background 0.3s;
+  }
+
+  .homes-intro-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-shadow: 0 0 18px rgba(200,133,58,0.45), 0 0 40px rgba(200,133,58,0.18);
+  }
+
+  .homes-intro-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--text-white);
+    transition: color 0.3s;
+  }
+
+  .homes-intro-desc {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .view-all-link:hover { gap: 14px; }
+
+  .view-all-link .arrow-circle {
+    width: 24px; height: 24px;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+
+  /* ── HOME CARDS ── */
+  .homes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    position: relative;
+  }
+
+  .homes-nav-btn {
+    position: absolute;
+    right: -52px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px; height: 36px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    background: var(--bg-card);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+
+  .homes-nav-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+  .home-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .home-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(200,133,58,0.18), 0 0 40px rgba(200,133,58,0.07);
+  }
+
+  .home-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+    transition: filter 0.3s;
+  }
+
+  .home-card:hover img { filter: brightness(1); }
+
+  .home-card-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0) 100%);
+    padding: 24px 14px 14px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .card-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    line-height: 1.5;
+    background: rgba(200,133,58,0.15);
+    border: 1px solid rgba(200,133,58,0.3);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  .card-info-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  .card-info-sub {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+  }
+
+  /* ── TECH SECTION ── */
+  .tech-section {
+    background: linear-gradient(135deg, #0d1117 0%, #101520 50%, #0d1117 100%);
+    padding: 48px 0;
+    display: grid;
+    grid-template-columns: 340px 1fr auto;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .tech-visual {
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tech-visual-img {
+    width: 240px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    filter: hue-rotate(200deg) brightness(0.9) saturate(1.5);
+    opacity: 0.85;
+  }
+
+  .tech-body { padding-right: 40px; }
+
+  .tech-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+  }
+
+  .tech-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-white);
+    margin-bottom: 12px;
+    transition: color 0.3s;
+  }
+
+  .tech-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 320px;
+    transition: color 0.3s;
+  }
+
+  .tech-features {
+    display: flex;
+    gap: 0;
+    border-left: 1px solid var(--border);
+    padding-left: 0;
+  }
+
+  .tech-feat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 32px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+
+  .tech-feat:hover { background: rgba(255,255,255,0.03); color: var(--text-light); }
+
+  .tech-feat svg {
+    width: 30px; height: 30px;
+    color: var(--accent-gold);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 6px rgba(200,133,58,0.55));
+  }
+
+  .tech-cta { padding: 0 48px 0 32px; text-align: right; }
+
+  .tech-cta-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+
+  .tech-cta-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+    transition: color 0.3s;
+  }
+
+  .cta-arrow-btn {
+    width: 38px; height: 38px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    margin-left: auto;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+
+  .cta-arrow-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    box-shadow: 0 0 16px rgba(200,133,58,0.4);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title   { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-sub     { animation: fadeUp 0.6s ease 0.2s both; }
+  .btn-primary  { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-side-card { animation: fadeUp 0.7s ease 0.25s both; }
+
+  /* ── NEON CANVAS ── */
+  #neon-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.72;
+    transition: opacity 0.5s;
+  }
+
+  /* ── AMBIENT GLOW ── */
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 420px; height: 420px;
+    background: radial-gradient(ellipse, rgba(200,133,58,0.07) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: 1;
+    animation: ambientPulse 5s ease-in-out infinite alternate;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 30px; right: 80px;
+    width: 320px; height: 240px;
+    background: radial-gradient(ellipse, rgba(200,133,58,0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @keyframes ambientPulse {
+    from { opacity: 0.6; transform: scale(1); }
+    to   { opacity: 1;   transform: scale(1.08); }
+  }
+
+  /* ── SCROLL TO TOP ── */
+  #scroll-top {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    width: 44px; height: 44px;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(200,133,58,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 500;
+    color: var(--accent-gold);
+    font-size: 18px;
+    opacity: 0; pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 14px rgba(200,133,58,0.15);
+  }
+  #scroll-top.visible {
+    opacity: 1; pointer-events: auto; transform: translateY(0);
+  }
+  #scroll-top:hover {
+    box-shadow: 0 0 22px rgba(200,133,58,0.5), 0 0 50px rgba(200,133,58,0.15);
+    background: rgba(200,133,58,0.18);
+  }
+  #scroll-top svg { display: block; }
+
+  /* ── MOBILE NAV ── */
+  #mobile-nav {
+    display: none;
+    position: fixed; inset: 0;
+    z-index: 999;
+  }
+  #mobile-nav.open { display: flex; }
+
+  .mob-overlay {
+    position: absolute; inset: 0;
+    background: rgba(5,8,14,0.85);
+    backdrop-filter: blur(8px);
+  }
+
+  .mob-panel {
+    position: absolute;
+    top: 0; right: 0;
+    width: min(300px, 85vw);
+    height: 100vh;
+    background: linear-gradient(160deg, #0f1520 0%, #111827 100%);
+    border-left: 1px solid rgba(200,133,58,0.2);
+    box-shadow: -8px 0 40px rgba(0,0,0,0.6);
+    display: flex; flex-direction: column;
+    padding: 28px 24px 32px;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.34,1.12,0.64,1), background 0.3s;
+  }
+  #mobile-nav.open .mob-panel { transform: translateX(0); }
+
+  .mob-close {
+    align-self: flex-end;
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text-muted); font-size: 15px;
+    transition: all 0.2s; margin-bottom: 32px;
+  }
+  .mob-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.35); }
+
+  .mob-logo {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 36px; text-decoration: none;
+  }
+  .mob-logo svg { width: 36px; height: 36px; }
+  .mob-logo-text .name { font-family: 'Barlow Condensed',sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; color: var(--text-white); display: block; }
+  .mob-logo-text .sub  { font-size: 8.5px; letter-spacing: 3px; color: var(--text-muted); }
+
+  .mob-nav { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+  .mob-nav-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-radius: 8px;
+    text-decoration: none; color: var(--text-muted);
+    font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .mob-nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-light); }
+  .mob-nav-item.active { background: rgba(200,133,58,0.14); color: var(--text-white); border-color: rgba(200,133,58,0.2); }
+  .mob-nav-item svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
+  .mob-nav-item.active svg { opacity: 1; }
+
+  .mob-socials {
+    display: flex; gap: 8px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 16px;
+  }
+  .mob-soc-btn {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; text-decoration: none; color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .mob-soc-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 12px rgba(200,133,58,0.3); }
+  .mob-soc-btn svg { width: 16px; height: 16px; }
+
+  /* ── MOBILE TOPBAR ── */
+  .mob-topbar {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    background: rgba(11,14,20,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,133,58,0.12);
+    z-index: 150;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    transition: background 0.3s;
+  }
+  .mob-topbar-logo {
+    display: flex; align-items: center; gap: 8px;
+    text-decoration: none;
+  }
+  .mob-topbar-logo-img {
+    width: 36px; height: 36px;
+    border-radius: 5px; object-fit: cover;
+    filter: drop-shadow(0 0 6px rgba(200,133,58,0.3));
+  }
+  .mob-topbar-logo-text .name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 2px;
+    color: var(--text-white); display: block;
+  }
+  .mob-topbar-logo-text .sub {
+    font-size: 7.5px; letter-spacing: 2.5px;
+    color: var(--text-muted); display: block;
+  }
+  .mob-topbar-right { display: flex; align-items: center; gap: 6px; }
+  .mob-topbar-soc { display: flex; align-items: center; gap: 5px; }
+  .mob-topbar-soc .soc-btn { width: 30px; height: 30px; border-radius: 6px; }
+  .mob-topbar-ham {
+    width: 34px; height: 34px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--border-light);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text-light);
+    transition: all 0.2s;
+  }
+  .mob-topbar-ham:hover { border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 10px rgba(200,133,58,0.3); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-left: var(--sidebar-w);
+    position: relative; z-index: 10;
+    background: #080b10;
+    border-top: 1px solid rgba(200,133,58,0.18);
+    padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+    transition: background 0.3s;
+  }
+  .footer-left { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-img {
+    width: 28px; height: 28px;
+    border-radius: 4px; object-fit: cover; opacity: 0.85;
+    filter: drop-shadow(0 0 6px rgba(200,133,58,0.35));
+  }
+  .footer-copy { font-size: 11px; font-weight: 500; color: var(--text-subtle); letter-spacing: 0.4px; }
+  .footer-copy strong { color: var(--text-muted); font-weight: 600; }
+  .footer-center { font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.3px; text-align: center; }
+  .footer-center a { color: var(--accent-gold); text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+  .footer-center a:hover { opacity: 0.75; }
+  .footer-right { display: flex; align-items: center; gap: 16px; }
+  .footer-link {
+    font-size: 10.5px; font-weight: 500;
+    color: var(--text-subtle); text-decoration: none;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    transition: color 0.2s; position: relative;
+  }
+  .footer-link::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 1px; background: var(--accent-gold);
+    transform: scaleX(0); transition: transform 0.2s; transform-origin: left;
+  }
+  .footer-link:hover { color: var(--accent-gold); }
+  .footer-link:hover::after { transform: scaleX(1); }
+  .footer-divider { width: 1px; height: 12px; background: rgba(255,255,255,0.1); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .hero-title { font-size: 66px; }
+    .homes-section { grid-template-columns: 260px 1fr; gap: 32px; padding: 40px; }
+    .tech-section { grid-template-columns: 1fr; padding: 40px; }
+    .tech-visual { display: none; }
+    .tech-features { border-left: none; border-top: 1px solid var(--border); padding-top: 24px; flex-wrap: wrap; }
+    .tech-cta { text-align: left; padding: 24px 0 0; }
+    .cta-arrow-btn { margin-left: 0; }
+  }
+
+  @media (max-width: 860px) {
+    :root { --sidebar-w: 0px; }
+    .sidebar { display: none !important; }
+    .main { margin-left: 0 !important; }
+    .mob-topbar { display: flex !important; }
+    .topbar { display: none !important; }
+    .site-footer { margin-left: 0 !important; flex-direction: column; align-items: center; padding: 16px 20px; gap: 8px; text-align: center; }
+    .footer-left, .footer-right { justify-content: center; }
+    .hero-title { font-size: 52px; }
+    .hero-side-card { display: none; }
+    .homes-section { grid-template-columns: 1fr; padding: 32px 24px; }
+    .homes-grid { grid-template-columns: 1fr 1fr; }
+    .homes-nav-btn { display: none; }
+    .hero, .hero-section, section.hero { padding-top: 56px; }
+  }
+
+  @media (max-width: 580px) {
+    .hero { height: auto; min-height: 500px; }
+    .hero-content { padding: 70px 20px 40px; }
+    .hero-title { font-size: 44px; }
+    .homes-grid { grid-template-columns: 1fr; }
+    .tech-features { flex-direction: column; }
+    .tech-feat { flex-direction: row; text-align: left; justify-content: flex-start; padding: 16px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -585,18 +1129,14 @@ body {
 <!-- SIDEBAR -->
 <aside class="sidebar">
   <a href="index.html" class="sidebar-logo">
-    <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
-      <path d="M22 4L38 36H6L22 4Z" fill="none" stroke="white" stroke-width="2.2"/>
-      <path d="M22 4L38 36" stroke="white" stroke-width="2.2"/>
-      <path d="M14 24H30" stroke="white" stroke-width="2.2"/>
-    </svg>
-    <div class="logo-text">
-      <span class="name">Ameritore</span>
-      <span class="sub">Homes</span>
-    </div>
+    <img src="./assets/logo.jpeg"
+         class="sidebar-logo-img"
+         alt="Ameritore Homes"
+         onerror="this.style.display='none'">
   </a>
+
   <nav class="sidebar-nav">
-    <a href="index.html" class="nav-item">
+    <a href="index.html" class="nav-item active">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
       Home
     </a>
@@ -604,31 +1144,30 @@ body {
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       About Us
     </a>
-    <a href="#" class="nav-item active">
+    <a href="projects.html" class="nav-item">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
       Projects
     </a>
-    <a href="#" class="nav-item">
-      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
-      Technology
-    </a>
-    <a href="#" class="nav-item">
+    <a href="process.html" class="nav-item">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
       Process
     </a>
-    <a href="#" class="nav-item">
+    <a href="career.html" class="nav-item">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-      Sustainability
+      Careers
     </a>
-    <a href="#" class="nav-item">
+    <a href="contact.html" class="nav-item">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>
       Contact
     </a>
   </nav>
+
   <div class="sidebar-bottom">
     <p class="build-cta">Let's Build<br>The Future</p>
     <div class="sidebar-arrow">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M2 6h8M7 3l3 3-3 3"/>
+      </svg>
     </div>
   </div>
 </aside>
@@ -636,13 +1175,61 @@ body {
 <!-- MAIN -->
 <main class="main">
 
-  <!-- TOPBAR -->
+  <!-- MOBILE TOPBAR -->
+  <div class="mob-topbar">
+    <a href="index.html" class="mob-topbar-logo">
+      <img src="./assets/logo.jpeg" class="mob-topbar-logo-img" alt="Ameritore"
+           onerror="this.style.display='none'">
+      <div class="mob-topbar-logo-text">
+        <span class="name">Ameritore</span>
+        <span class="sub">Homes</span>
+      </div>
+    </a>
+    <div class="mob-topbar-right">
+      <div class="mob-topbar-soc">
+        <a href="#" class="soc-btn" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="soc-btn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+        </a>
+      </div>
+      <!-- Mobile Theme Toggle -->
+      <button class="theme-toggle" title="Toggle theme" onclick="toggleTheme()" style="width:30px;height:30px;border-radius:6px;">
+        <svg id="theme-icon-mob" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+          <circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+      </button>
+      <div class="mob-topbar-ham" onclick="openMobNav()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESKTOP TOPBAR -->
   <div class="topbar">
-    <button class="client-portal-btn">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      Client Portal
+    <div class="social-icons">
+      <a href="#" class="soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle-btn" title="Toggle light / dark mode" onclick="toggleTheme()">
+      <svg id="theme-icon-desk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="12" cy="12" r="5"/>
+        <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
     </button>
-    <div class="menu-btn">
+    <div class="menu-btn" onclick="openMobNav()">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
     </div>
   </div>
@@ -650,33 +1237,48 @@ body {
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
+
     <div class="hero-content">
       <p class="hero-eyebrow">Welcome to Ameritore Homes</p>
-      <h1 class="hero-title">Projects</h1>
-      <div class="tab-row">
-        <button class="tab-btn active" onclick="switchTab(this,'ongoing')">Ongoing Innovations</button>
-        <button class="tab-btn inactive" onclick="switchTab(this,'completed')">Completed Masterpieces</button>
-      </div>
+      <h1 class="hero-title">
+        <span class="line1">Building</span>
+        <span class="line2">Beyond</span>
+        <span class="line3">Tomorrow</span>
+      </h1>
+      <p class="hero-sub">Futuristic design. Intelligent living.<br>Timeless craftsmanship.</p>
+      <a href="projects.html" class="btn-primary">
+        Explore Our Homes
+        <span class="btn-arrow">›</span>
+      </a>
     </div>
 
-    <!-- Side Card -->
+    <!-- Side Info Card -->
     <div class="hero-side-card">
       <p class="side-card-title">The Ameritore Difference</p>
       <ul class="side-card-list">
         <li class="side-card-item">
-          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
           Futuristic Design
         </li>
         <li class="side-card-item">
-          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><circle cx="12" cy="13" r="2"/></svg>
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+            <circle cx="12" cy="13" r="2"/>
+          </svg>
           Smart Home Technology
         </li>
         <li class="side-card-item">
-          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+          </svg>
           Sustainable Building
         </li>
         <li class="side-card-item">
-          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a9 9 0 110 18A9 9 0 0112 2z"/><path d="M8 12l3 3 5-5"/></svg>
+          <svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2a9 9 0 110 18A9 9 0 0112 2z"/><path d="M8 12l3 3 5-5"/>
+          </svg>
           Customized for You
         </li>
       </ul>
@@ -688,714 +1290,258 @@ body {
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
-  <section class="projects-section">
-    <div class="slider-wrapper">
-      <button class="slider-nav prev" onclick="slide(-1)">‹</button>
+  <!-- HOMES COLLECTION -->
+  <section class="homes-section">
+    <div class="homes-intro">
+      <p class="homes-intro-label">Explore Our Collection</p>
+      <h2 class="homes-intro-title">Our Projects<br>Built for<br>Excellence</h2>
+      <p class="homes-intro-desc">Each Ameritore project is crafted with precision and purpose — from G+3 residences in LN Nagar to luxury villa clusters in Kalapatti.</p>
+      <a href="#" class="view-all-link">
+        View All Homes
+        <span class="arrow-circle">›</span>
+      </a>
+    </div>
 
-      <!-- Cards rendered dynamically by JS -->
-      <div class="cards-track" id="ongoing-cards"></div>
-
-      <button class="slider-nav next" onclick="slide(1)">›</button>
-
-      <!-- COMPLETED MINI CARDS -->
-      <div class="completed-col">
-        <div class="completed-card" onclick="openPopup('The Horizon')">
-          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&q=80" alt="The Horizon">
-          <span class="completed-tag">Completed</span>
-          <div class="completed-info">
-            <div class="completed-title">The Horizon</div>
-            <div class="completed-sub">The Elevate</div>
-          </div>
-        </div>
-        <div class="completed-card" onclick="openPopup('The Infinity')">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80" alt="The Infinity">
-          <span class="completed-tag">Completed</span>
-          <div class="completed-info">
-            <div class="completed-title">The Infinity</div>
-            <button class="book-btn" onclick="event.stopPropagation();openTourModal('The Infinity')">Book a Tour <span style="font-size:12px">›</span></button>
+    <div class="homes-grid">
+      <div class="home-card">
+        <img src="assets/projects/ongoing/devraj.png" alt="Mr. Devaraj Residence">
+        <div class="home-card-label">
+          <span class="card-num">01</span>
+          <div>
+            <div class="card-info-title">Mr. Devaraj Residence</div>
+            <div class="card-info-sub">G+3 &nbsp;|&nbsp; Residential &nbsp;|&nbsp; 5,800 Sq Ft</div>
           </div>
         </div>
       </div>
-
-    </div><!-- /slider-wrapper -->
+      <div class="home-card">
+        <img src="assets/projects/completed/samridhi-unique-spaces.png" alt="Autograph Villas">
+        <div class="home-card-label">
+          <span class="card-num">02</span>
+          <div>
+            <div class="card-info-title">Autograph Villas</div>
+            <div class="card-info-sub">G+1 &nbsp;|&nbsp; Luxury Villas &nbsp;|&nbsp; 12,992 Sq Ft</div>
+          </div>
+        </div>
+      </div>
+      <div class="home-card">
+        <img src="assets/projects/completed/shyam-controls.png" alt="Shyam Controls">
+        <div class="home-card-label">
+          <span class="card-num">03</span>
+          <div>
+            <div class="card-info-title">Shyam Controls</div>
+            <div class="card-info-sub">Renovation &nbsp;|&nbsp; Civil &nbsp;|&nbsp; 3,500 Sq Ft</div>
+          </div>
+        </div>
+      </div>
+      <button class="homes-nav-btn" onclick="window.location='projects.html'">›</button>
+    </div>
   </section>
 
-  <!-- BOTTOM STRIP -->
-  <div class="bottom-strip">
-    <div class="strip-visual">
-      <img class="strip-visual-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Smart Home">
+  <!-- TECH / SMARTER BY DESIGN -->
+  <section class="tech-section">
+    <div class="tech-visual">
+      <img class="tech-visual-img"
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+        alt="Smart Home">
     </div>
-    <div class="strip-body">
-      <div class="strip-label">Smarter by Design</div>
-      <p class="strip-desc">We integrate the latest in smart home technology to enhance comfort, security, and efficiency.</p>
+
+    <div class="tech-body">
+      <p class="tech-label">Smart Technology</p>
+      <h3 class="tech-title">Smarter by Design</h3>
+      <p class="tech-desc">We integrate the latest in smart home technology to enhance comfort, security, and efficiency.</p>
     </div>
-    <div class="strip-features">
-      <div class="strip-feat">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+
+    <div class="tech-features">
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+          <path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>
+        </svg>
         AI-Powered<br>Automation
       </div>
-      <div class="strip-feat">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
         Energy<br>Efficiency
       </div>
-      <div class="strip-feat">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
         Advanced<br>Security
       </div>
-      <div class="strip-feat">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+      <div class="tech-feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
         Climate<br>Control
       </div>
     </div>
-    <div class="strip-cta">
-      <p class="strip-cta-title">View Full<br>Portfolio?</p>
-      <p class="strip-cta-sub">Let's bring your vision to life, project.</p>
-      <div class="diamond-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
+
+    <div class="tech-cta">
+      <p class="tech-cta-title">Ready to Build<br>Your Future?</p>
+      <p class="tech-cta-sub">Let's bring your vision to life.</p>
+      <div class="cta-arrow-btn">›</div>
     </div>
-  </div>
+  </section>
 
 </main>
 
-<!-- ══════════════════════════
-     PROJECT POPUP MODAL
-══════════════════════════ -->
-<div id="project-popup" style="display:none;"></div>
-<div id="tour-modal"    style="display:none;"></div>
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <img src="./assets/logo.jpeg" alt="Ameritore" class="footer-logo-img"
+         onerror="this.style.display='none'">
+    <span class="footer-copy">
+      &copy; <strong>Ameritore Homes</strong> 2026. All rights reserved.
+    </span>
+  </div>
+  <div class="footer-center">
+    Designed &amp; Developed by&nbsp;<a href="#" target="_blank">Creative Advs</a>
+  </div>
+  <div class="footer-right">
+    <a href="#" class="footer-link">Terms</a>
+    <div class="footer-divider"></div>
+    <a href="#" class="footer-link">Privacy Policy</a>
+  </div>
+</footer>
 
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobile-nav">
+  <div class="mob-overlay" onclick="closeMobNav()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobNav()">✕</button>
+    <a href="index.html" class="mob-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <path d="M22 4L38 36H6L22 4Z" stroke="white" stroke-width="2.2" fill="none"/>
+        <path d="M22 4L38 36" stroke="white" stroke-width="2.2"/>
+        <path d="M14 24H30" stroke="white" stroke-width="2.2"/>
+      </svg>
+      <div class="mob-logo-text">
+        <span class="name">Ameritore</span>
+        <span class="sub">Homes</span>
+      </div>
+    </a>
+    <nav class="mob-nav">
+      <a href="index.html" class="mob-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home</a>
+      <a href="about.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
+      <a href="projects.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Technology</a>
+      <a href="process.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process</a>
+      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sustainability</a>
+      <a href="contact.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact</a>
+    </nav>
+    <div class="mob-socials">
+      <a href="#" class="mob-soc-btn" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="mob-soc-btn" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15" stroke="none" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ALL SCRIPTS
+═══════════════════════════════════════════ -->
 <script>
-  // ══════════════════════════════════════════════════════════════
-  //  FULL PROJECT DATA  (card + popup)
-  // ══════════════════════════════════════════════════════════════
-  const PROJECT_DETAILS = {
-    // ── ONGOING ──────────────────────────────────────────────
-    'The Nebula': {
-      description: 'The Nebula is an avant-garde residential masterpiece inspired by the fluid contours of celestial formations. Perched on a hillside with panoramic views, this home blends organic architecture with intelligent living systems. Every curve was deliberately designed to channel natural light and wind, reducing energy consumption while delivering an ethereal living experience.',
-      location: 'Hilltop Estates, Coimbatore',
-      architect: 'Rahul Varma & Studio Nebula',
-      style: 'Futuristic Organic',
-      completion: 'Q3 2025',
-      price: '₹ 4.8 Cr',
-      award: 'Architizer A+ Nominee 2024',
-      views: [
-        { label: 'Exterior Front',    img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=85' },
-        { label: 'Living Room',       img: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=900&q=85' },
-        { label: 'Master Bedroom',    img: 'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=900&q=85' },
-        { label: 'Kitchen',           img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85' },
-        { label: 'Pool & Garden',     img: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=85' },
-        { label: 'Smart Hub Room',    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85' },
-      ],
-      features: ['AI Climate Control','Infinity Pool','Solar Roof Array','Home Theatre','4-Car Garage','Smart Security Grid'],
-      progress: 75,
-    },
-    'The Zenith': {
-      description: 'Rising like a crystalline tower above the treeline, The Zenith redefines vertical luxury living. Designed with biophilic principles at its core, each floor features a different ecosystem — from a sky garden on level 4 to a rainforest atrium at ground level. The structure uses recycled steel and self-healing concrete for unparalleled longevity.',
-      location: 'Greenway Heights, Coimbatore',
-      architect: 'Priya Menon Architecture Lab',
-      style: 'Bio-Technic Tower',
-      completion: 'Q1 2026',
-      price: '₹ 6.2 Cr',
-      award: 'Green Build Excellence 2024',
-      views: [
-        { label: 'Tower Exterior',    img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=85' },
-        { label: 'Sky Garden',        img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=85' },
-        { label: 'Main Atrium',       img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=85' },
-        { label: 'Upper Lounge',      img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85' },
-        { label: 'Wellness Spa',      img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=85' },
-        { label: 'Rooftop Terrace',   img: 'https://images.unsplash.com/photo-1519302959554-a75be0afc082?w=900&q=85' },
-      ],
-      features: ['Rainforest Atrium','Sky Garden','Vertical Farm','Biometric Entry','Wireless EV Charging','AI Ventilation'],
-      progress: 40,
-    },
-    'The Pulsar': {
-      description: 'The Pulsar is a near-complete marvel of minimalist precision — a home that breathes, adapts and responds. Its exterior shell pulses with embedded LED micro-pixels that shift with the time of day. Inside, open-plan volumes flow seamlessly between indoor and outdoor spaces. 95% complete, The Pulsar is weeks away from its handover ceremony.',
-      location: 'Lakeside Enclave, Coimbatore',
-      architect: 'Arjun Das + FORM Studio',
-      style: 'Dynamic Minimalism',
-      completion: 'Q2 2025',
-      price: '₹ 3.9 Cr',
-      award: 'Smart Home Innovation Award',
-      views: [
-        { label: 'Front Elevation',   img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=85' },
-        { label: 'Courtyard',         img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=85' },
-        { label: 'Open-Plan Living',  img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=85' },
-        { label: 'Primary Suite',     img: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&q=85' },
-        { label: 'Dining Area',       img: 'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=900&q=85' },
-        { label: 'Night Facade',      img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=85' },
-      ],
-      features: ['LED Pixel Facade','Smart Glass Walls','Heated Flooring','Cinema Room','Chef Kitchen','Wellness Deck'],
-      progress: 95,
-    },
-    'The Aurora': {
-      description: 'Named for the breathtaking phenomenon of light, The Aurora is a family estate designed around spectacular indoor light play. Curved skylights trace the sun across every room throughout the day. The home features six en-suite bedrooms, a private library, and a dedicated AI wellness studio that monitors and optimises occupant wellbeing around the clock.',
-      location: 'Sunrise Valley, Coimbatore',
-      architect: 'Kavya Nair Design Collective',
-      style: 'Light-Centric Contemporary',
-      completion: 'Q4 2025',
-      price: '₹ 4.1 Cr',
-      award: 'Residential Design Forward 2024',
-      views: [
-        { label: 'Aerial View',       img: 'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=900&q=85' },
-        { label: 'Skylight Hall',     img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85' },
-        { label: 'Library',           img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=85' },
-        { label: 'Wellness Studio',   img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=85' },
-        { label: 'Kids Playzone',     img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=900&q=85' },
-        { label: 'Garden Terrace',    img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=85' },
-      ],
-      features: ['Curved Skylights','AI Wellness Studio','Private Library','6 En-Suite Bedrooms','Rainwater Harvest','Zero-Emission HVAC'],
-      progress: 60,
-    },
-    'The Solaris': {
-      description: 'The Solaris is Ameritore\'s most ambitious energy-positive residence. Its south-facing shell is entirely clad in third-generation perovskite solar panels that generate three times the home\'s consumption, feeding surplus back to the grid. The structural design uses mass timber frames with carbon-sequestering concrete foundations, making The Solaris a net-positive ecological asset.',
-      location: 'Solar Hills, Coimbatore',
-      architect: 'Vikram Pillai Eco-Architecture',
-      style: 'Solar Brutalism',
-      completion: 'Q2 2026',
-      price: '₹ 5.2 Cr',
-      award: 'Net-Zero Design Pioneer 2024',
-      views: [
-        { label: 'South Facade',      img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&q=85' },
-        { label: 'Solar Array Close', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=85' },
-        { label: 'Mass Timber Frame', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=85' },
-        { label: 'Interior Concept',  img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85' },
-        { label: 'Green Roof',        img: 'https://images.unsplash.com/photo-1519302959554-a75be0afc082?w=900&q=85' },
-        { label: 'Site Preparation',  img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=85' },
-      ],
-      features: ['Perovskite Solar Panels','Mass Timber Structure','Energy Export Grid','Carbon-Sequester Foundation','Passive Cooling','Rainforest Roof'],
-      progress: 20,
-    },
-    // ── COMPLETED ────────────────────────────────────────────
-    'The Horizon': {
-      description: 'The Horizon stands as Ameritore\'s signature completed project — a sweeping coastal-inspired estate that seamlessly merges indoor and outdoor living. With its infinity edge that appears to touch the sky, The Horizon was the first home to receive a full 5-star smart home certification in the region. Residents experience effortless, invisible automation from the moment they arrive.',
-      location: 'Horizon Ridge, Coimbatore',
-      architect: 'Studio Horizon x Ameritore',
-      style: 'Coastal Contemporary',
-      completion: 'Delivered 2023',
-      price: '₹ 4.8 Cr',
-      award: 'Best Luxury Home 2023 — Architecture Digest India',
-      views: [
-        { label: 'Hero Exterior',     img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=85' },
-        { label: 'Infinity Pool',     img: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=85' },
-        { label: 'Grand Living Room', img: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=900&q=85' },
-        { label: 'Master Bedroom',    img: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&q=85' },
-        { label: 'Open Kitchen',      img: 'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=900&q=85' },
-        { label: 'Night Exterior',    img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=85' },
-      ],
-      features: ['5-Star Smart Certification','Infinity Pool','Full Automation','Home Cinema','Wine Cellar','Landscape Garden'],
-      progress: 100,
-    },
-    'The Elevate': {
-      description: 'The Elevate is a study in refined restraint. Where other projects dazzle with scale, The Elevate seduces with precision — every surface, joint and light fitting the result of months of iterative design. A compact 3,900 sq ft footprint belies an interior that feels boundless, thanks to triple-height voids and glass-walled corridors that frame the surrounding greenery like living paintings.',
-      location: 'Garden District, Coimbatore',
-      architect: 'Leela Krishnan Atelier',
-      style: 'Precision Minimalism',
-      completion: 'Delivered 2023',
-      price: '₹ 3.9 Cr',
-      award: 'LEED Platinum Certified',
-      views: [
-        { label: 'Entrance Gate',     img: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=900&q=85' },
-        { label: 'Triple-Height Void',img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=85' },
-        { label: 'Glass Corridor',    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85' },
-        { label: 'Dining Space',      img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85' },
-        { label: 'Garden View',       img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=85' },
-        { label: 'Rooftop Lounge',    img: 'https://images.unsplash.com/photo-1519302959554-a75be0afc082?w=900&q=85' },
-      ],
-      features: ['Triple-Height Voids','Glass-Walled Corridors','LEED Platinum','Geothermal Heating','Biophilic Interiors','EV Charging Hub'],
-      progress: 100,
-    },
-    'The Infinity': {
-      description: 'The Infinity is Ameritore\'s largest and most celebrated completed residence — a 5,600 sq ft monument to the limitless possibilities of architecture. Six bedrooms, seven bathrooms, a 20-metre lap pool, private gym, and an AI-managed energy grid that has achieved net-zero status for two consecutive years. Book a private tour to experience the future of luxury living in person.',
-      location: 'Infinity Park, Coimbatore',
-      architect: 'Aran & Mehta Design Bureau',
-      style: 'Grand Futurism',
-      completion: 'Delivered 2022',
-      price: '₹ 6.8 Cr',
-      award: 'National Architecture Excellence Award 2022',
-      views: [
-        { label: 'Grand Facade',      img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85' },
-        { label: '20m Lap Pool',      img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=85' },
-        { label: 'Private Gym',       img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=85' },
-        { label: 'Penthouse Lounge',  img: 'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=900&q=85' },
-        { label: 'Chef\'s Kitchen',   img: 'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=900&q=85' },
-        { label: 'Aerial Night View', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&q=85' },
-      ],
-      features: ['20m Lap Pool','Private Gym','Net-Zero Energy','AI Energy Grid','Home Theatre','Concierge AI System'],
-      progress: 100,
-    },
-    'The Meridian': {
-      description: 'The Meridian occupies the golden intersection of classical proportion and digital innovation. Its facade features hand-selected limestone panels arranged by algorithm, while the interior transitions fluidly between warm timber and polished concrete. An award-winning project beloved by its owners for its extraordinary sense of calm and spatial harmony.',
-      location: 'Meridian Quarter, Coimbatore',
-      architect: 'Nair & Pillai Architecture',
-      style: 'Algorithmic Classical',
-      completion: 'Delivered 2022',
-      price: '₹ 4.5 Cr',
-      award: 'Energy A+ Rated — BEE India',
-      views: [
-        { label: 'Limestone Facade',  img: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=85' },
-        { label: 'Entrance Hall',     img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=85' },
-        { label: 'Timber Living',     img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85' },
-        { label: 'Concrete Study',    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=85' },
-        { label: 'Courtyard Garden',  img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=85' },
-        { label: 'Evening Ambience',  img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=85' },
-      ],
-      features: ['Limestone Panel Algorithm','Timber-Concrete Interiors','Full Automation','Private Garden','Energy A+','Underground Storage'],
-      progress: 100,
-    },
-    'The Apex': {
-      description: 'The Apex is the pinnacle of sustainable luxury — a 6,400 sq ft zero-carbon estate delivered in 2023 that set new industry benchmarks. Every material was sourced within 200 km. The AI core manages heating, cooling, security and entertainment through a single neural hub. Awarded for zero-carbon certification and its regenerative landscaping that has created a micro-ecosystem on site.',
-      location: 'Apex Hills, Coimbatore',
-      architect: 'Studio Zero x Ameritore',
-      style: 'Regenerative Luxury',
-      completion: 'Delivered 2023',
-      price: '₹ 6.4 Cr',
-      award: 'Zero Carbon Certified — IGBC 2023',
-      views: [
-        { label: 'Estate Aerial',     img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=85' },
-        { label: 'Regenerative Garden',img:'https://images.unsplash.com/photo-1519302959554-a75be0afc082?w=900&q=85' },
-        { label: 'AI Hub Room',       img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85' },
-        { label: 'Grand Staircase',   img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85' },
-        { label: 'Sunset Terrace',    img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=85' },
-        { label: 'Zero-Carbon Roof',  img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=85' },
-      ],
-      features: ['Zero-Carbon Certified','AI Neural Hub','Regenerative Landscape','Local-Sourced Materials','Micro-Ecosystem','7 Bed / 8 Bath'],
-      progress: 100,
-    },
-  };
 
-  // ── CARD DATA ──────────────────────────────────────────────────────────────
-  const ONGOING = [
-    {
-      num:'01', name:'The Nebula', pct:'75',
-      img:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80',
-      milestones:[
-        {icon:'screen',  label:'Structural<br>Complete'},
-        {icon:'gear',    label:'AI Systems<br>Pending'},
-        {icon:'house',   label:'Woistease<br>Complete'}
-      ],
-      specs:'5 Bed | 5 Bath | 4,900 Sq Ft'
-    },
-    {
-      num:'02', name:'The Zenith', pct:'40',
-      img:'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80',
-      milestones:[
-        {icon:'file',    label:'Excavation<br>Finished'},
-        {icon:'gear',    label:'AI Core<br>Finished'},
-        {icon:'shield',  label:'Under<br>Construction'}
-      ],
-      specs:'5 Bed | 5 Bath | 4,900 Sq Ft'
-    },
-    {
-      num:'05', name:'The Pulsar', pct:'95',
-      img:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
-      milestones:[
-        {icon:'screen',  label:'Structural<br>Complete'},
-        {icon:'chart',   label:'Under<br>Complete'},
-        {icon:'check',   label:'Progress<br>Complete'}
-      ],
-      specs:'5 Bed | 5 Bath | 3,900 Sq Ft'
-    },
-    {
-      num:'03', name:'The Aurora', pct:'60',
-      img:'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=600&q=80',
-      milestones:[
-        {icon:'screen',  label:'Foundation<br>Complete'},
-        {icon:'gear',    label:'AI Systems<br>Active'},
-        {icon:'shield',  label:'Framing<br>Ongoing'}
-      ],
-      specs:'4 Bed | 4 Bath | 4,100 Sq Ft'
-    },
-    {
-      num:'04', name:'The Solaris', pct:'20',
-      img:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80',
-      milestones:[
-        {icon:'file',    label:'Design<br>Approved'},
-        {icon:'chart',   label:'Site<br>Cleared'},
-        {icon:'house',   label:'Permits<br>Pending'}
-      ],
-      specs:'6 Bed | 6 Bath | 5,200 Sq Ft'
+/* ─── LIGHT / DARK THEME TOGGLE ─── */
+const SUN_SVG  = '<circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+const MOON_SVG = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+
+function applyTheme(mode) {
+  const isLight = (mode === 'light');
+  document.body.classList.toggle('light-mode', isLight);
+
+  /* Update ALL toggle icons on the page */
+  document.querySelectorAll('.theme-toggle svg').forEach(function(svg) {
+    if (isLight) {
+      svg.innerHTML = MOON_SVG;
+      svg.setAttribute('fill', 'currentColor');
+      svg.setAttribute('stroke', 'none');
+      svg.removeAttribute('stroke-width');
+    } else {
+      svg.innerHTML = SUN_SVG;
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '1.8');
     }
-  ];
-
-  const COMPLETED = [
-    {
-      num:'C1', name:'The Horizon',
-      img:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80',
-      milestones:[
-        {icon:'check',   label:'Handover<br>Complete'},
-        {icon:'gear',    label:'Smart Home<br>Installed'},
-        {icon:'shield',  label:'Quality<br>Certified'}
-      ],
-      specs:'5 Bed | 6 Bath | 4,800 Sq Ft'
-    },
-    {
-      num:'C2', name:'The Elevate',
-      img:'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600&q=80',
-      milestones:[
-        {icon:'check',   label:'Fully<br>Delivered'},
-        {icon:'gear',    label:'Automation<br>Live'},
-        {icon:'shield',  label:'LEED<br>Platinum'}
-      ],
-      specs:'4 Bed | 5 Bath | 3,900 Sq Ft'
-    },
-    {
-      num:'C3', name:'The Infinity',
-      img:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80',
-      milestones:[
-        {icon:'check',   label:'Keys<br>Delivered'},
-        {icon:'gear',    label:'Systems<br>Active'},
-        {icon:'house',   label:'Client<br>Satisfied'}
-      ],
-      specs:'6 Bed | 7 Bath | 5,600 Sq Ft'
-    },
-    {
-      num:'C4', name:'The Meridian',
-      img:'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80',
-      milestones:[
-        {icon:'check',   label:'Award<br>Winning'},
-        {icon:'gear',    label:'Full<br>Automation'},
-        {icon:'shield',  label:'Energy<br>A+ Rated'}
-      ],
-      specs:'5 Bed | 5 Bath | 4,500 Sq Ft'
-    },
-    {
-      num:'C5', name:'The Apex',
-      img:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80',
-      milestones:[
-        {icon:'check',   label:'Completed<br>2023'},
-        {icon:'gear',    label:'AI Core<br>Running'},
-        {icon:'shield',  label:'Zero<br>Carbon'}
-      ],
-      specs:'7 Bed | 8 Bath | 6,400 Sq Ft'
-    }
-  ];
-
-  // ── SVG ICONS MAP ─────────────────────────────────────────────────────────
-  const ICONS = {
-    screen: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
-    gear:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>`,
-    house:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-    file:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
-    shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-    chart:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l4-8 4 4 4-6 4 10"/></svg>`,
-    check:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`
-  };
-
-  // ── STATE ─────────────────────────────────────────────────────────────────
-  let currentTab = 'ongoing';
-  let currentIndex = 0;   // first visible card index
-  const VISIBLE = 3;
-
-  // ── RENDER ────────────────────────────────────────────────────────────────
-  function buildCard(p, isCompleted) {
-    const statusHtml = isCompleted
-      ? `<div class="card-status completed-status">COMPLETED</div>`
-      : `<div class="card-status">ONGOING <span class="pct">(${p.pct}% Complete)</span></div>`;
-
-    const milestones = p.milestones.map(m => `
-      <div class="milestone">
-        ${ICONS[m.icon]}
-        <span class="milestone-label">${m.label}</span>
-      </div>`).join('');
-
-    const specParts = p.specs.split('|').map(s => s.trim());
-    const specsHtml = specParts.map((s,i) => i < specParts.length-1 ? `${s} <span>|</span> ` : s).join('');
-    const btnLabel = isCompleted ? 'Book a Tour' : 'Explore Status';
-    const safeName = p.name.replace(/'/g,"&#39;");
-
-    return `
-      <div class="project-card" onclick="openPopup('${safeName}')">
-        <div class="card-img-wrap">
-          <img src="${p.img}" alt="${p.name}" loading="lazy">
-          <span class="card-num-badge">${p.num}</span>
-        </div>
-        <div class="card-body">
-          <div class="card-name">${p.name}</div>
-          ${statusHtml}
-          <div class="card-milestones">${milestones}</div>
-          <div class="card-specs"><strong>Specs:</strong> ${specsHtml}</div>
-          <button class="explore-btn" onclick="event.stopPropagation();openPopup('${safeName}')">${btnLabel} <span class="arr">›</span></button>
-        </div>
-      </div>`;
-  }
-
-  // ── POPUP ─────────────────────────────────────────────────────────────────
-  let popupViewIndex = 0;
-
-  function openPopup(name) {
-    const d = PROJECT_DETAILS[name];
-    if (!d) return;
-    popupViewIndex = 0;
-
-    // Determine if completed
-    const isCompleted = d.progress === 100;
-    const statusClass = isCompleted ? 'pop-status-done' : 'pop-status-ongoing';
-    const statusText  = isCompleted ? 'COMPLETED' : `ONGOING — ${d.progress}% Complete`;
-
-    // Build view thumbnails
-    const thumbs = d.views.map((v,i) => `
-      <div class="pop-thumb ${i===0?'active':''}" onclick="setView(${i})" data-idx="${i}">
-        <img src="${v.img}" alt="${v.label}" loading="lazy">
-        <span>${v.label}</span>
-      </div>`).join('');
-
-    // Build features
-    const feats = d.features.map(f => `<span class="pop-feat">${f}</span>`).join('');
-
-    // Progress bar
-    const progressBar = isCompleted ? '' : `
-      <div class="pop-progress-wrap">
-        <div class="pop-progress-label">Construction Progress</div>
-        <div class="pop-progress-track"><div class="pop-progress-fill" style="width:${d.progress}%"></div></div>
-        <span class="pop-progress-pct">${d.progress}%</span>
-      </div>`;
-
-    const actionBtn = isCompleted
-      ? `<button class="pop-action-btn tour" onclick="openTourModal('${name.replace(/'/g,"&#39;")}')">
-           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-           Book a Tour
-         </button>`
-      : `<button class="pop-action-btn status">
-           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-           Track Progress
-         </button>`;
-
-    document.getElementById('project-popup').innerHTML = `
-      <div class="pop-overlay" onclick="closePopup()"></div>
-      <div class="pop-modal">
-        <button class="pop-close" onclick="closePopup()">✕</button>
-
-        <!-- LEFT: Image viewer -->
-        <div class="pop-left">
-          <div class="pop-hero-img-wrap">
-            <img id="pop-main-img" src="${d.views[0].img}" alt="${d.views[0].label}">
-            <div class="pop-img-label" id="pop-img-label">${d.views[0].label}</div>
-            <button class="pop-img-nav prev" onclick="changeView(-1)">‹</button>
-            <button class="pop-img-nav next" onclick="changeView(1)">›</button>
-          </div>
-          <div class="pop-thumbs" id="pop-thumbs">${thumbs}</div>
-        </div>
-
-        <!-- RIGHT: Details -->
-        <div class="pop-right">
-          <div class="pop-eyebrow">Ameritore Homes</div>
-          <h2 class="pop-title">${name}</h2>
-          <div class="pop-status ${statusClass}">${statusText}</div>
-
-          <p class="pop-desc">${d.description}</p>
-
-          ${progressBar}
-
-          <div class="pop-meta-grid">
-            <div class="pop-meta-item"><span class="pop-meta-key">Location</span><span class="pop-meta-val">${d.location}</span></div>
-            <div class="pop-meta-item"><span class="pop-meta-key">Architect</span><span class="pop-meta-val">${d.architect}</span></div>
-            <div class="pop-meta-item"><span class="pop-meta-key">Style</span><span class="pop-meta-val">${d.style}</span></div>
-            <div class="pop-meta-item"><span class="pop-meta-key">Completion</span><span class="pop-meta-val">${d.completion}</span></div>
-            <div class="pop-meta-item"><span class="pop-meta-key">Price</span><span class="pop-meta-val pop-price">${d.price}</span></div>
-            <div class="pop-meta-item"><span class="pop-meta-key">Award</span><span class="pop-meta-val">${d.award}</span></div>
-          </div>
-
-          <div class="pop-features-label">Key Features</div>
-          <div class="pop-features">${feats}</div>
-
-          <div class="pop-actions">
-            ${actionBtn}
-            <button class="pop-action-btn ghost" onclick="closePopup()">Close</button>
-          </div>
-        </div>
-      </div>`;
-
-    const popup = document.getElementById('project-popup');
-    popup.style.display = 'flex';
-    requestAnimationFrame(() => { popup.classList.add('visible'); });
-    document.body.style.overflow = 'hidden';
-
-    // Store views for nav
-    popup._views = d.views;
-    popup._name  = name;
-  }
-
-  function closePopup() {
-    const popup = document.getElementById('project-popup');
-    popup.classList.remove('visible');
-    setTimeout(() => { popup.style.display = 'none'; }, 320);
-    document.body.style.overflow = '';
-  }
-
-  function setView(idx) {
-    const popup = document.getElementById('project-popup');
-    popupViewIndex = idx;
-    const v = popup._views[idx];
-    document.getElementById('pop-main-img').src   = v.img;
-    document.getElementById('pop-img-label').textContent = v.label;
-    document.querySelectorAll('.pop-thumb').forEach((t,i) => t.classList.toggle('active', i===idx));
-  }
-
-  function changeView(dir) {
-    const popup = document.getElementById('project-popup');
-    const len   = popup._views.length;
-    popupViewIndex = (popupViewIndex + dir + len) % len;
-    setView(popupViewIndex);
-  }
-
-  // ── TOUR MODAL ────────────────────────────────────────────────────────────
-  function openTourModal(name) {
-    const d = PROJECT_DETAILS[name];
-    document.getElementById('tour-modal').innerHTML = `
-      <div class="pop-overlay" onclick="closeTourModal()"></div>
-      <div class="tour-modal-inner">
-        <button class="pop-close" onclick="closeTourModal()">✕</button>
-        <div class="tour-header">
-          <div class="tour-eyebrow">Book a Private Tour</div>
-          <h3 class="tour-title">${name}</h3>
-          <p class="tour-subtitle">${d.location} · ${d.completion}</p>
-        </div>
-        <form class="tour-form" onsubmit="submitTour(event)">
-          <div class="tour-form-row">
-            <div class="tour-field">
-              <label>Full Name</label>
-              <input type="text" placeholder="Your name" required>
-            </div>
-            <div class="tour-field">
-              <label>Email Address</label>
-              <input type="email" placeholder="your@email.com" required>
-            </div>
-          </div>
-          <div class="tour-form-row">
-            <div class="tour-field">
-              <label>Phone Number</label>
-              <input type="tel" placeholder="+91 XXXXX XXXXX">
-            </div>
-            <div class="tour-field">
-              <label>Preferred Date</label>
-              <input type="date">
-            </div>
-          </div>
-          <div class="tour-field full">
-            <label>Preferred Time Slot</label>
-            <div class="tour-slots">
-              <label class="slot-opt"><input type="radio" name="slot" value="morning"> Morning (9am–12pm)</label>
-              <label class="slot-opt"><input type="radio" name="slot" value="afternoon"> Afternoon (1pm–4pm)</label>
-              <label class="slot-opt"><input type="radio" name="slot" value="evening"> Evening (5pm–7pm)</label>
-            </div>
-          </div>
-          <div class="tour-field full">
-            <label>Message (optional)</label>
-            <textarea placeholder="Any specific requirements or questions..."></textarea>
-          </div>
-          <div class="tour-views-preview">
-            <p class="tour-views-label">Views Included in Tour</p>
-            <div class="tour-views-row">
-              ${d.views.slice(0,4).map(v=>`<div class="tour-view-thumb"><img src="${v.img}" alt="${v.label}"><span>${v.label}</span></div>`).join('')}
-            </div>
-          </div>
-          <div class="tour-form-footer">
-            <button type="submit" class="pop-action-btn tour">Confirm Booking</button>
-            <button type="button" class="pop-action-btn ghost" onclick="closeTourModal()">Cancel</button>
-          </div>
-        </form>
-      </div>`;
-    const tm = document.getElementById('tour-modal');
-    tm.style.display = 'flex';
-    requestAnimationFrame(() => tm.classList.add('visible'));
-  }
-
-  function closeTourModal() {
-    const tm = document.getElementById('tour-modal');
-    tm.classList.remove('visible');
-    setTimeout(() => { tm.style.display = 'none'; }, 320);
-  }
-
-  function submitTour(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.textContent = 'Booking Confirmed ✓';
-    btn.style.background = 'rgba(76,175,80,0.2)';
-    btn.style.borderColor = '#4caf7d';
-    btn.style.color = '#4caf7d';
-    setTimeout(() => { closeTourModal(); closePopup(); }, 1800);
-  }
-
-  // Keyboard support
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closePopup(); closeTourModal(); }
-    if (e.key === 'ArrowLeft')  changeView(-1);
-    if (e.key === 'ArrowRight') changeView(1);
   });
+}
 
-  // ── RENDER CARDS ──────────────────────────────────────────────────────────
-  function renderCards() {
-    const data = currentTab === 'ongoing' ? ONGOING : COMPLETED;
-    const isCompleted = currentTab === 'completed';
-    const track = document.getElementById('ongoing-cards');
-    const prevBtn = document.querySelector('.slider-nav.prev');
-    const nextBtn = document.querySelector('.slider-nav.next');
+function toggleTheme() {
+  var next = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+  localStorage.setItem('ameritore-theme', next);
+  applyTheme(next);
+}
 
-    const slice = data.slice(currentIndex, currentIndex + VISIBLE);
+/* Apply saved preference immediately on load (before paint) */
+(function() {
+  var saved = localStorage.getItem('ameritore-theme') || 'dark';
+  applyTheme(saved);
+})();
 
-    // Fade out
-    track.style.opacity = '0';
-    track.style.transform = 'translateY(10px)';
+/* ─── SCROLL TO TOP ─── */
+(function() {
+  var btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  window.addEventListener('scroll', function() {
+    btn.classList.toggle('visible', window.scrollY > 280);
+  }, { passive: true });
+})();
 
-    setTimeout(() => {
-      track.innerHTML = slice.map(p => buildCard(p, isCompleted)).join('');
-      track.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-      track.style.opacity = '1';
-      track.style.transform = 'translateY(0)';
+/* ─── MOBILE NAV ─── */
+function openMobNav() {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMobNav(); });
 
-      // Update nav buttons
-      prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
-      prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-      nextBtn.style.opacity = currentIndex + VISIBLE >= data.length ? '0.3' : '1';
-      nextBtn.style.pointerEvents = currentIndex + VISIBLE >= data.length ? 'none' : 'auto';
-
-      // Update counter
-      const counter = document.getElementById('slide-counter');
-      if (counter) counter.textContent = `${currentIndex+1}–${Math.min(currentIndex+VISIBLE, data.length)} / ${data.length}`;
-    }, 180);
-  }
-
-  // ── TAB SWITCH ────────────────────────────────────────────────────────────
-  function switchTab(btn, tab) {
-    if (currentTab === tab) return;
-    currentTab = tab;
-    currentIndex = 0;
-    document.querySelectorAll('.tab-btn').forEach(b => {
-      b.classList.toggle('active', b === btn);
-      b.classList.toggle('inactive', b !== btn);
-    });
-    renderCards();
-  }
-
-  // ── SLIDER ────────────────────────────────────────────────────────────────
-  function slide(dir) {
-    const data = currentTab === 'ongoing' ? ONGOING : COMPLETED;
-    currentIndex = Math.max(0, Math.min(data.length - VISIBLE, currentIndex + dir * VISIBLE));
-    renderCards();
-  }
-
-  // ── INIT ──────────────────────────────────────────────────────────────────
-  document.addEventListener('DOMContentLoaded', () => { renderCards(); });
-  // Fallback: if DOM already ready when script runs
-  if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    renderCards();
-  }
-
-  // ── PARALLAX ──────────────────────────────────────────────────────────────
-  window.addEventListener('scroll', () => {
-    const bg = document.querySelector('.hero-bg');
-    if (bg) bg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+/* Mark active mobile nav link */
+(function() {
+  var path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mob-nav-item').forEach(function(a) {
+    var href = (a.getAttribute('href') || '').split('/').pop();
+    if (href === path) a.classList.add('active');
   });
+})();
+
+/* ─── SUBTLE PARALLAX ON HERO BG ─── */
+window.addEventListener('scroll', function() {
+  var hero = document.querySelector('.hero-bg');
+  if (hero) hero.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+}, { passive: true });
+
 </script>
-<script>
 
+<script>
 /* ─── NEON CANVAS RENDERER ─── */
 (function() {
-  const canvas = document.createElement('canvas');
+  var canvas = document.createElement('canvas');
   canvas.id = 'neon-canvas';
   document.body.appendChild(canvas);
-  const ctx = canvas.getContext('2d');
+  var ctx = canvas.getContext('2d');
 
   function resize() {
     canvas.width  = window.innerWidth;
@@ -1404,9 +1550,7 @@ body {
   resize();
   window.addEventListener('resize', resize);
 
-  // Each "streak" is a bezier light wave
-  const streaks = [];
-  const COLORS = [
+  var COLORS = [
     'rgba(200,133,58,',
     'rgba(220,155,70,',
     'rgba(180,110,40,',
@@ -1417,115 +1561,95 @@ body {
   function randBetween(a, b) { return a + Math.random() * (b - a); }
 
   function createStreak() {
-    const W = canvas.width, H = canvas.height;
-    const side = Math.random() < 0.5; // true = horizontal, false = vertical
+    var W = canvas.width, H = canvas.height;
+    var side = Math.random() < 0.5;
     return {
-      // start
       x0: side ? -80 : randBetween(W * 0.05, W * 0.95),
       y0: side ? randBetween(H * 0.1, H * 0.9) : -60,
-      // control points
       cx1: randBetween(W * 0.1, W * 0.5),
       cy1: randBetween(H * 0.05, H * 0.5),
       cx2: randBetween(W * 0.45, W * 0.9),
       cy2: randBetween(H * 0.4,  H * 0.95),
-      // end
       x1: side ? W + 80 : randBetween(W * 0.05, W * 0.95),
       y1: side ? randBetween(H * 0.1, H * 0.9) : H + 60,
-      // visual
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
       width: randBetween(0.6, 2.2),
       alpha: 0,
       maxAlpha: randBetween(0.22, 0.55),
       speed: randBetween(0.003, 0.009),
-      progress: 0,        // 0 → 1 along the curve
-      headLen: randBetween(0.08, 0.22), // fraction of curve that's "lit"
-      phase: 'in',        // in | hold | out
+      progress: 0,
+      headLen: randBetween(0.08, 0.22),
+      phase: 'in',
       holdTime: randBetween(40, 120),
       holdCount: 0,
       glowLayers: Math.random() < 0.5 ? 3 : 2,
     };
   }
 
-  // pre-seed
-  for (let i = 0; i < 6; i++) {
-    const s = createStreak();
+  var streaks = [];
+  for (var i = 0; i < 6; i++) {
+    var s = createStreak();
     s.progress = Math.random();
     s.alpha = s.maxAlpha * Math.random();
     streaks.push(s);
   }
 
-  // Cubic bezier point
   function bezierPoint(t, p0, p1, p2, p3) {
-    const u = 1 - t;
+    var u = 1 - t;
     return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3;
   }
 
   function drawStreak(s) {
-    const t0 = Math.max(0, s.progress - s.headLen);
-    const t1 = Math.min(1, s.progress);
+    var t0 = Math.max(0, s.progress - s.headLen);
+    var t1 = Math.min(1, s.progress);
     if (t0 >= t1) return;
-
-    const steps = 60;
+    var steps = 60;
     ctx.save();
-
-    for (let layer = s.glowLayers; layer >= 1; layer--) {
+    for (var layer = s.glowLayers; layer >= 1; layer--) {
       ctx.beginPath();
-      for (let i = 0; i <= steps; i++) {
-        const t = t0 + (t1 - t0) * (i / steps);
-        const x = bezierPoint(t, s.x0, s.cx1, s.cx2, s.x1);
-        const y = bezierPoint(t, s.y0, s.cy1, s.cy2, s.y1);
-        // brightness fades toward tail
-        const frac = i / steps;
+      for (var i = 0; i <= steps; i++) {
+        var t = t0 + (t1 - t0) * (i / steps);
+        var x = bezierPoint(t, s.x0, s.cx1, s.cx2, s.x1);
+        var y = bezierPoint(t, s.y0, s.cy1, s.cy2, s.y1);
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       }
-      const baseAlpha = s.alpha * (layer === 1 ? 1 : 0.3 / layer);
+      var baseAlpha = s.alpha * (layer === 1 ? 1 : 0.3 / layer);
       ctx.strokeStyle = s.color + baseAlpha + ')';
       ctx.lineWidth   = s.width * (layer === 1 ? 1 : layer * 1.8);
-      ctx.lineCap = 'round';
+      ctx.lineCap  = 'round';
       ctx.lineJoin = 'round';
-      if (layer > 1) {
-        ctx.shadowColor = s.color + '0.6)';
-        ctx.shadowBlur  = 8 * layer;
-      }
+      if (layer > 1) { ctx.shadowColor = s.color + '0.6)'; ctx.shadowBlur = 8 * layer; }
       ctx.stroke();
       ctx.shadowBlur = 0;
     }
-
-    // bright sparkle tip
-    const tipX = bezierPoint(t1, s.x0, s.cx1, s.cx2, s.x1);
-    const tipY = bezierPoint(t1, s.y0, s.cy1, s.cy2, s.y1);
-    const grad = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, 6);
+    var tipX = bezierPoint(t1, s.x0, s.cx1, s.cx2, s.x1);
+    var tipY = bezierPoint(t1, s.y0, s.cy1, s.cy2, s.y1);
+    var grad = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, 6);
     grad.addColorStop(0, s.color + (s.alpha * 1.4) + ')');
     grad.addColorStop(1, s.color + '0)');
     ctx.beginPath();
     ctx.arc(tipX, tipY, 6, 0, Math.PI * 2);
     ctx.fillStyle = grad;
     ctx.fill();
-
     ctx.restore();
   }
 
-  let spawnTimer = 0;
+  var spawnTimer = 0;
   function tick() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // spawn new streaks periodically
     spawnTimer++;
     if (spawnTimer > 55 && streaks.length < 12) {
       streaks.push(createStreak());
       spawnTimer = 0;
     }
-
-    for (let i = streaks.length - 1; i >= 0; i--) {
-      const s = streaks[i];
-
-      // state machine
+    for (var i = streaks.length - 1; i >= 0; i--) {
+      var s = streaks[i];
       if (s.phase === 'in') {
         s.alpha    += s.maxAlpha * 0.06;
         s.progress += s.speed;
-        if (s.alpha  >= s.maxAlpha) { s.alpha = s.maxAlpha; }
-        if (s.progress >= 1) { s.progress = 1; s.phase = 'hold'; }
+        if (s.alpha    >= s.maxAlpha) s.alpha = s.maxAlpha;
+        if (s.progress >= 1)          { s.progress = 1; s.phase = 'hold'; }
       } else if (s.phase === 'hold') {
         s.holdCount++;
         if (s.holdCount >= s.holdTime) s.phase = 'out';
@@ -1533,15 +1657,13 @@ body {
         s.alpha -= s.maxAlpha * 0.04;
         if (s.alpha <= 0) { streaks.splice(i, 1); continue; }
       }
-
       drawStreak(s);
     }
-
     requestAnimationFrame(tick);
   }
   tick();
 })();
-
 </script>
+
 </body>
 </html>
