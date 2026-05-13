@@ -784,7 +784,7 @@ body {
   .cards-row1, .cards-row2 { grid-template-columns: 1fr 1fr; }
   .proc-card.wide { grid-column: span 2; }
   .hero-imgs { display: none; }
-}
+
 @media (max-width: 860px) {
   :root { --sidebar-w: 0px; }
   .sidebar { display: none; }
@@ -1658,7 +1658,7 @@ body {
     <div class="rates-toggle">
       <button class="rate-toggle-btn active" onclick="switchRateCategory(this,'residential')">Residential</button>
       <button class="rate-toggle-btn" onclick="switchRateCategory(this,'villa')">Villa / Duplex</button>
-      <button class="rate-toggle-btn" onclick="switchRateCategory(this,'commercial')">Commercial / Renovation</button>
+      <button class="rate-toggle-btn" onclick="switchRateCategory(this,'renovation')">Renovation</button>
     </div>
 
     <!-- Summary Cards -->
@@ -1799,7 +1799,7 @@ body {
         { spec:'Timeline',                 sub:'Approx.',           basic:'12–15 Months',    std:'15–18 Months',     prem:'18–24 Months',    lux:'24–30 Months' },
       ]
     },
-    commercial: {
+    renovation: {
       summary: [
         { tier:'Renovation',  price:'₹ 800',  range:'₹700–1,000',  unit:'per sq.ft', tag:'' },
         { tier:'Civil Work',  price:'₹ 1,500', range:'₹1,200–1,800', unit:'per sq.ft', tag:'Popular', featured:true },
@@ -1812,7 +1812,7 @@ body {
         { spec:'False Ceiling',            sub:'',                  basic:'Grid Ceiling',    std:'Gypsum Board',     prem:'Designer Coffered',lux:'Bespoke Metal' },
         { spec:'Wall Treatment',           sub:'',                  basic:'Paint',           std:'Texture / Panel',  prem:'Wallpaper + Panel',lux:'Stone / Cladding' },
         { spec:'Electrical Upgrades',      sub:'',                  basic:'Partial Rewire',  std:'Full Rewire',      prem:'Concealed Premium',lux:'Smart Switchgear' },
-        { section: 'New Commercial Build' },
+        { section: 'Newly Build' },
         { spec:'Structure Type',           sub:'',                  basic:'RCC',             std:'RCC + PEB',        prem:'PEB / Steel Frame',lux:'Full Steel' },
         { spec:'Facade',                   sub:'',                  basic:'Paint Finish',    std:'ACP Cladding',     prem:'Glass Curtain Wall',lux:'Designer Facade' },
         { spec:'HVAC / AC System',         sub:'',                  basic:'Split AC',        std:'VRF System',       prem:'Central AHU',     lux:'BMS Integrated' },
@@ -2094,7 +2094,6 @@ body {
       <a href="projects.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Projects</a>
       <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Technology</a>
       <a href="process.html" class="mob-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>Process</a>
-      <a href="#" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sustainability</a>
       <a href="contact.html" class="mob-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M9 5v14"/></svg>Contact</a>
     </nav>
     <div class="mob-socials">
