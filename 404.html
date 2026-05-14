@@ -1657,9 +1657,8 @@ body {
     <!-- Category Toggle -->
     <div class="rates-toggle">
       <button class="rate-toggle-btn active" onclick="switchRateCategory(this,'residential')">Residential</button>
-     <!-- <button class="rate-toggle-btn" onclick="switchRateCategory(this,'villa')">Villa / Duplex</button>
+      <button class="rate-toggle-btn" onclick="switchRateCategory(this,'villa')">Villa / Duplex</button>
       <button class="rate-toggle-btn" onclick="switchRateCategory(this,'renovation')">Renovation</button>
-    -->
     </div>
 
     <!-- Summary Cards -->
@@ -1671,6 +1670,7 @@ body {
         <thead>
           <tr>
             <th class="col-spec">Specification</th>
+            <th>Basic</th>
             <th class="featured-col">Standard <span class="th-badge">Popular</span></th>
             <th>Premium</th>
             <th>Luxury</th>
@@ -1735,90 +1735,93 @@ body {
   const RATE_DATA = {
     residential: {
       summary: [
-        { tier:'Standard',     price:'₹ 2,399',  unit:'per sq.ft', tag:'Popular', featured:true },
-        { tier:'Premium',      price:'₹ 2,599',  unit:'per sq.ft', tag:'' },
+        { tier:'Basic',        price:'₹ 1,600',  range:'₹1,400–1,800',  unit:'per sq.ft', tag:'' },
+        { tier:'Standard',     price:'₹ 2,399',  range:'₹2,200–2,599',  unit:'per sq.ft', tag:'Popular', featured:true },
+        { tier:'Premium',      price:'₹ 2,599',  range:'₹2,400–2,800',  unit:'per sq.ft', tag:'' },
         { tier:'Ultra Luxury', price:'₹ 3,199',  range:'₹3,000–3,500',  unit:'per sq.ft', tag:'' },
       ],
       rows: [
         { section: 'Structure & Civil' },
-        { spec:'Foundation Type',          sub:'',                   std:'Conventional+',    prem:'Raft / Pile',     lux:'Deep Pile' },
-        { spec:'RCC Frame',                sub:'Columns & Beams',    std:'Reinforced',       prem:'High-Grade',      lux:'Steel + RCC' },
-        { spec:'Brick / Block Work',       sub:'External & Internal',std:'AAC Block',        prem:'Hollow Block',    lux:'Designer Brick' },
-        { spec:'Plastering',               sub:'Internal & External',std:'Double Coat',      prem:'Gypsum Finish',   lux:'Imported Plaster' },
+        { spec:'Foundation Type',          sub:'',                  basic:'Conventional',   std:'Conventional+',    prem:'Raft / Pile',     lux:'Deep Pile' },
+        { spec:'RCC Frame',                sub:'Columns & Beams',   basic:'Standard',        std:'Reinforced',       prem:'High-Grade',      lux:'Steel + RCC' },
+        { spec:'Brick / Block Work',       sub:'External & Internal',basic:'AAC Block',      std:'AAC Block',        prem:'Hollow Block',    lux:'Designer Brick' },
+        { spec:'Plastering',               sub:'Internal & External',basic:'Single Coat',    std:'Double Coat',      prem:'Gypsum Finish',   lux:'Imported Plaster' },
         { section: 'Flooring' },
-        { spec:'Living & Dining',          sub:'',                   std:'Premium Vitrified',prem:'Marble / Granite',lux:'Italian Marble' },
-        { spec:'Bedrooms',                 sub:'',                   std:'Wooden Laminate',  prem:'Engineered Wood', lux:'Hardwood / Marble' },
-        { spec:'Kitchen',                  sub:'',                   std:'Vitrified',        prem:'Granite Slab',    lux:'Imported Stone' },
-        { spec:'Bathrooms',                sub:'',                   std:'Premium Tiles',    prem:'Designer Tiles',  lux:'Imported Marble' },
+        { spec:'Living & Dining',          sub:'',                  basic:'Vitrified 600×600',std:'Premium Vitrified',prem:'Marble / Granite',lux:'Italian Marble' },
+        { spec:'Bedrooms',                 sub:'',                  basic:'Vitrified Tiles', std:'Wooden Laminate',  prem:'Engineered Wood', lux:'Hardwood / Marble' },
+        { spec:'Kitchen',                  sub:'',                  basic:'Ceramic Tiles',   std:'Vitrified',        prem:'Granite Slab',    lux:'Imported Stone' },
+        { spec:'Bathrooms',                sub:'',                  basic:'Ceramic 300×600', std:'Premium Tiles',    prem:'Designer Tiles',  lux:'Imported Marble' },
         { section: 'Doors & Windows' },
-        { spec:'Main Door',                sub:'',                   std:'Solid Wood',       prem:'Teak Wood',       lux:'Imported Hardwood' },
-        { spec:'Internal Doors',           sub:'',                   std:'Flush / HDF',      prem:'Solid Core',      lux:'Designer Solid Wood' },
-        { spec:'Windows',                  sub:'',                   std:'UPVC',             prem:'UPVC Double-Glaze',lux:'Thermally Broken' },
+        { spec:'Main Door',                sub:'',                  basic:'Flush Door',      std:'Solid Wood',       prem:'Teak Wood',       lux:'Imported Hardwood' },
+        { spec:'Internal Doors',           sub:'',                  basic:'Hollow Core',     std:'Flush / HDF',      prem:'Solid Core',      lux:'Designer Solid Wood' },
+        { spec:'Windows',                  sub:'',                  basic:'Aluminium',       std:'UPVC',             prem:'UPVC Double-Glaze',lux:'Thermally Broken' },
         { section: 'Electrical & Plumbing' },
-        { spec:'Wiring',                   sub:'',                   std:'FR Cable',         prem:'FRLS Grade',      lux:'Concealed Premium' },
-        { spec:'Switches & Sockets',       sub:'',                   std:'Anchor / GM',      prem:'Legrand / Anchor',lux:'Schneider / ABB' },
-        { spec:'Sanitary Ware',            sub:'',                   std:'Hindware / Parry', prem:'Kohler / Grohe',  lux:'Duravit / TOTO' },
-        { spec:'Water Supply',             sub:'',                   std:'CPVC Premium',     prem:'SS / Copper',     lux:'SS with Filter' },
+        { spec:'Wiring',                   sub:'',                  basic:'Standard PVC',    std:'FR Cable',         prem:'FRLS Grade',      lux:'Concealed Premium' },
+        { spec:'Switches & Sockets',       sub:'',                  basic:'Local Brand',     std:'Anchor / GM',      prem:'Legrand / Anchor',lux:'Schneider / ABB' },
+        { spec:'Sanitary Ware',            sub:'',                  basic:'Local / Hindware', std:'Hindware / Parry', prem:'Kohler / Grohe',  lux:'Duravit / TOTO' },
+        { spec:'Water Supply',             sub:'',                  basic:'CPVC Pipes',      std:'CPVC Premium',     prem:'SS / Copper',     lux:'SS with Filter' },
         { section: 'Finishes & Features' },
-        { spec:'Interior Paint',           sub:'',                   std:'Asian Paints',     prem:'Royale / Nerolac',lux:'Designer / Texture' },
-        { spec:'Exterior Paint',           sub:'',                   std:'Apex / Textura',   prem:'Apex Duracast',   lux:'Stone Texture' },
-        { spec:'Kitchen Platform',         sub:'',                   std:'Granite Premium',  prem:'Quartz Slab',     lux:'Imported Quartz' },
-        { spec:'Lift / Elevator',          sub:'Optional',           std:'Optional (extra)', prem:'✓ Included',      lux:'✓ Premium Brand' },
-        { spec:'Home Automation',          sub:'Smart Controls',     std:'—',                prem:'Partial',         lux:'✓ Full System' },
-        { spec:'Solar Panels',             sub:'Energy Saving',      std:'—',                prem:'Optional',        lux:'✓ Included' },
+        { spec:'Interior Paint',           sub:'',                  basic:'Emulsion (Local)', std:'Asian Paints',    prem:'Royale / Nerolac',lux:'Designer / Texture' },
+        { spec:'Exterior Paint',           sub:'',                  basic:'Weathershield',   std:'Apex / Textura',   prem:'Apex Duracast',   lux:'Stone Texture' },
+        { spec:'Kitchen Platform',         sub:'',                  basic:'Granite Slab',    std:'Granite Premium',  prem:'Quartz Slab',     lux:'Imported Quartz' },
+        { spec:'Lift / Elevator',          sub:'Optional',          basic:'—',               std:'Optional (extra)', prem:'✓ Included',      lux:'✓ Premium Brand' },
+        { spec:'Home Automation',          sub:'Smart Controls',    basic:'—',               std:'—',                prem:'Partial',         lux:'✓ Full System' },
+        { spec:'Solar Panels',             sub:'Energy Saving',     basic:'—',               std:'—',                prem:'Optional',        lux:'✓ Included' },
         { section: 'Approx. Cost (1,000 sq.ft)' },
-        { spec:'Estimated Total',          sub:'Excluding land',     std:'₹20–24 Lakhs',     prem:'₹28–32 Lakhs',    lux:'₹40–60 Lakhs' },
-        { spec:'Timeline',                 sub:'Approx.',            std:'12–14 Months',     prem:'14–18 Months',    lux:'18–24 Months' },
+        { spec:'Estimated Total',          sub:'Excluding land',    basic:'₹16–18 Lakhs',    std:'₹20–24 Lakhs',     prem:'₹28–32 Lakhs',    lux:'₹40–60 Lakhs' },
+        { spec:'Timeline',                 sub:'Approx.',           basic:'10–12 Months',    std:'12–14 Months',     prem:'14–18 Months',    lux:'18–24 Months' },
       ]
     },
     villa: {
       summary: [
+        { tier:'Basic',    price:'₹ 2,000', range:'₹1,800–2,200', unit:'per sq.ft', tag:'' },
         { tier:'Standard', price:'₹ 2,800', range:'₹2,600–3,000', unit:'per sq.ft', tag:'Popular', featured:true },
         { tier:'Premium',  price:'₹ 3,800', range:'₹3,500–4,200', unit:'per sq.ft', tag:'' },
         { tier:'Luxury',   price:'₹ 6,000+', range:'₹5,500–8,000', unit:'per sq.ft', tag:'' },
       ],
       rows: [
         { section: 'Structure' },
-        { spec:'Basement / Stilt',         sub:'',                   std:'Stilt Parking',    prem:'Full Basement',   lux:'Double Basement' },
-        { spec:'G+1 / G+2 Structure',      sub:'',                   std:'RCC Reinforced',   prem:'RCC Premium',     lux:'Steel + RCC' },
-        { spec:'External Cladding',        sub:'',                   std:'Texture Paint',    prem:'Stone / ACP',     lux:'Natural Stone' },
+        { spec:'Basement / Stilt',         sub:'',                  basic:'Optional',        std:'Stilt Parking',    prem:'Full Basement',   lux:'Double Basement' },
+        { spec:'G+1 / G+2 Structure',      sub:'',                  basic:'RCC Standard',    std:'RCC Reinforced',   prem:'RCC Premium',     lux:'Steel + RCC' },
+        { spec:'External Cladding',        sub:'',                  basic:'Paint Finish',    std:'Texture Paint',    prem:'Stone / ACP',     lux:'Natural Stone' },
         { section: 'Interior Finishes' },
-        { spec:'Living Area Flooring',     sub:'',                   std:'Marble / Granite', prem:'Italian Marble',  lux:'Bespoke Stone' },
-        { spec:'Master Bedroom',           sub:'',                   std:'Engineered Wood',  prem:'Solid Hardwood',  lux:'Designer Wood' },
-        { spec:'Staircase',                sub:'',                   std:'Marble + SS Rail', prem:'Marble + Glass',  lux:'Floating + Glass' },
+        { spec:'Living Area Flooring',     sub:'',                  basic:'Vitrified',       std:'Marble / Granite', prem:'Italian Marble',  lux:'Bespoke Stone' },
+        { spec:'Master Bedroom',           sub:'',                  basic:'Wooden Laminate', std:'Engineered Wood',  prem:'Solid Hardwood',  lux:'Designer Wood' },
+        { spec:'Staircase',                sub:'',                  basic:'Granite Steps',   std:'Marble + SS Rail', prem:'Marble + Glass',  lux:'Floating + Glass' },
         { section: 'Luxury Features' },
-        { spec:'Swimming Pool',            sub:'',                   std:'Optional (extra)', prem:'✓ Lap Pool',      lux:'✓ Infinity Pool' },
-        { spec:'Home Theatre',             sub:'',                   std:'—',                prem:'Optional',        lux:'✓ Included' },
-        { spec:'Gym / Wellness Room',      sub:'',                   std:'—',                prem:'Optional',        lux:'✓ Included' },
-        { spec:'Smart Home System',        sub:'',                   std:'Basic',            prem:'Advanced',        lux:'✓ Full AI System' },
-        { spec:'Landscaping',              sub:'',                   std:'Designed Garden',  prem:'Themed Landscape',lux:'Designer Landscape' },
+        { spec:'Swimming Pool',            sub:'',                  basic:'—',               std:'Optional (extra)', prem:'✓ Lap Pool',      lux:'✓ Infinity Pool' },
+        { spec:'Home Theatre',             sub:'',                  basic:'—',               std:'—',                prem:'Optional',        lux:'✓ Included' },
+        { spec:'Gym / Wellness Room',      sub:'',                  basic:'—',               std:'—',                prem:'Optional',        lux:'✓ Included' },
+        { spec:'Smart Home System',        sub:'',                  basic:'—',               std:'Basic',            prem:'Advanced',        lux:'✓ Full AI System' },
+        { spec:'Landscaping',              sub:'',                  basic:'Basic Plants',    std:'Designed Garden',  prem:'Themed Landscape',lux:'Designer Landscape' },
         { section: 'Approx. Cost (2,000 sq.ft Villa)' },
-        { spec:'Estimated Total',          sub:'Excluding land',     std:'₹52–60 Lakhs',     prem:'₹70–84 Lakhs',    lux:'₹1.1 Cr+' },
-        { spec:'Timeline',                 sub:'Approx.',            std:'15–18 Months',     prem:'18–24 Months',    lux:'24–30 Months' },
+        { spec:'Estimated Total',          sub:'Excluding land',    basic:'₹40–44 Lakhs',    std:'₹52–60 Lakhs',     prem:'₹70–84 Lakhs',    lux:'₹1.1 Cr+' },
+        { spec:'Timeline',                 sub:'Approx.',           basic:'12–15 Months',    std:'15–18 Months',     prem:'18–24 Months',    lux:'24–30 Months' },
       ]
     },
     renovation: {
       summary: [
+        { tier:'Renovation',  price:'₹ 800',  range:'₹700–1,000',  unit:'per sq.ft', tag:'' },
         { tier:'Civil Work',  price:'₹ 1,500', range:'₹1,200–1,800', unit:'per sq.ft', tag:'Popular', featured:true },
         { tier:'PEB / Steel', price:'₹ 1,800', range:'₹1,600–2,200', unit:'per sq.ft', tag:'' },
         { tier:'Full Fitout', price:'₹ 2,500+', range:'₹2,200–3,500', unit:'per sq.ft', tag:'' },
       ],
       rows: [
         { section: 'Renovation Works' },
-        { spec:'Flooring Replacement',     sub:'',                   std:'₹100–160 /sqft',  prem:'₹180–300 /sqft',  lux:'₹350+ /sqft' },
-        { spec:'False Ceiling',            sub:'',                   std:'Gypsum Board',     prem:'Designer Coffered',lux:'Bespoke Metal' },
-        { spec:'Wall Treatment',           sub:'',                   std:'Texture / Panel',  prem:'Wallpaper + Panel',lux:'Stone / Cladding' },
-        { spec:'Electrical Upgrades',      sub:'',                   std:'Full Rewire',      prem:'Concealed Premium',lux:'Smart Switchgear' },
+        { spec:'Flooring Replacement',     sub:'',                  basic:'₹60–100 /sqft',   std:'₹100–160 /sqft',  prem:'₹180–300 /sqft',  lux:'₹350+ /sqft' },
+        { spec:'False Ceiling',            sub:'',                  basic:'Grid Ceiling',    std:'Gypsum Board',     prem:'Designer Coffered',lux:'Bespoke Metal' },
+        { spec:'Wall Treatment',           sub:'',                  basic:'Paint',           std:'Texture / Panel',  prem:'Wallpaper + Panel',lux:'Stone / Cladding' },
+        { spec:'Electrical Upgrades',      sub:'',                  basic:'Partial Rewire',  std:'Full Rewire',      prem:'Concealed Premium',lux:'Smart Switchgear' },
         { section: 'Newly Build' },
-        { spec:'Structure Type',           sub:'',                   std:'RCC + PEB',        prem:'PEB / Steel Frame',lux:'Full Steel' },
-        { spec:'Facade',                   sub:'',                   std:'ACP Cladding',     prem:'Glass Curtain Wall',lux:'Designer Facade' },
-        { spec:'HVAC / AC System',         sub:'',                   std:'VRF System',       prem:'Central AHU',     lux:'BMS Integrated' },
-        { spec:'Fire Safety',              sub:'',                   std:'Full Sprinkler',   prem:'Full FM System',  lux:'Smart Fire BMS' },
-        { spec:'Lift / Escalator',         sub:'',                   std:'✓ Standard Lift',  prem:'✓ Speed Lift',    lux:'✓ Panoramic' },
+        { spec:'Structure Type',           sub:'',                  basic:'RCC',             std:'RCC + PEB',        prem:'PEB / Steel Frame',lux:'Full Steel' },
+        { spec:'Facade',                   sub:'',                  basic:'Paint Finish',    std:'ACP Cladding',     prem:'Glass Curtain Wall',lux:'Designer Facade' },
+        { spec:'HVAC / AC System',         sub:'',                  basic:'Split AC',        std:'VRF System',       prem:'Central AHU',     lux:'BMS Integrated' },
+        { spec:'Fire Safety',              sub:'',                  basic:'Basic NBC',       std:'Full Sprinkler',   prem:'Full FM System',  lux:'Smart Fire BMS' },
+        { spec:'Lift / Escalator',         sub:'',                  basic:'Optional',        std:'✓ Standard Lift',  prem:'✓ Speed Lift',    lux:'✓ Panoramic' },
         { section: 'Approx. Cost (1,000 sq.ft)' },
-        { spec:'Renovation Budget',        sub:'Basic to mid-range', std:'₹12–18 Lakhs',     prem:'₹20–28 Lakhs',    lux:'₹30 Lakhs+' },
-        { spec:'New Build Budget',         sub:'Per sq.ft × area',   std:'₹15–18 Lakhs',     prem:'₹18–22 Lakhs',    lux:'₹25 Lakhs+' },
-        { spec:'Timeline',                 sub:'Approx.',            std:'6–10 Months',      prem:'10–14 Months',    lux:'14–20 Months' },
+        { spec:'Renovation Budget',        sub:'Basic to mid-range',basic:'₹7–10 Lakhs',     std:'₹12–18 Lakhs',     prem:'₹20–28 Lakhs',    lux:'₹30 Lakhs+' },
+        { spec:'New Build Budget',         sub:'Per sq.ft × area',  basic:'₹12–15 Lakhs',    std:'₹15–18 Lakhs',     prem:'₹18–22 Lakhs',    lux:'₹25 Lakhs+' },
+        { spec:'Timeline',                 sub:'Approx.',           basic:'2–4 Months',      std:'6–10 Months',      prem:'10–14 Months',    lux:'14–20 Months' },
       ]
     }
   };
@@ -1853,13 +1856,14 @@ body {
     if (tbody) {
       tbody.innerHTML = data.rows.map(r => {
         if (r.section) {
-          return `<tr class="section-row"><td colspan="4">${r.section}</td></tr>`;
+          return `<tr class="section-row"><td colspan="5">${r.section}</td></tr>`;
         }
         return `<tr>
           <td class="spec-cell">
             ${r.spec}
             ${r.sub ? `<div class="rate-range">${r.sub}</div>` : ''}
           </td>
+          <td>${formatCell(r.basic)}</td>
           <td class="featured-cell">${formatCell(r.std)}</td>
           <td>${formatCell(r.prem)}</td>
           <td>${formatCell(r.lux)}</td>
@@ -1883,161 +1887,7 @@ body {
   if (document.readyState !== 'loading') renderRates('residential');
 </script>
 
-<script>
 
-/* ─── NEON CANVAS RENDERER ─── */
-(function() {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'neon-canvas';
-  document.body.appendChild(canvas);
-  const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Each "streak" is a bezier light wave
-  const streaks = [];
-  const COLORS = [
-    'rgba(200,133,58,',
-    'rgba(220,155,70,',
-    'rgba(180,110,40,',
-    'rgba(240,170,80,',
-    'rgba(160,90,30,',
-  ];
-
-  function randBetween(a, b) { return a + Math.random() * (b - a); }
-
-  function createStreak() {
-    const W = canvas.width, H = canvas.height;
-    const side = Math.random() < 0.5; // true = horizontal, false = vertical
-    return {
-      // start
-      x0: side ? -80 : randBetween(W * 0.05, W * 0.95),
-      y0: side ? randBetween(H * 0.1, H * 0.9) : -60,
-      // control points
-      cx1: randBetween(W * 0.1, W * 0.5),
-      cy1: randBetween(H * 0.05, H * 0.5),
-      cx2: randBetween(W * 0.45, W * 0.9),
-      cy2: randBetween(H * 0.4,  H * 0.95),
-      // end
-      x1: side ? W + 80 : randBetween(W * 0.05, W * 0.95),
-      y1: side ? randBetween(H * 0.1, H * 0.9) : H + 60,
-      // visual
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      width: randBetween(0.6, 2.2),
-      alpha: 0,
-      maxAlpha: randBetween(0.22, 0.55),
-      speed: randBetween(0.003, 0.009),
-      progress: 0,        // 0 → 1 along the curve
-      headLen: randBetween(0.08, 0.22), // fraction of curve that's "lit"
-      phase: 'in',        // in | hold | out
-      holdTime: randBetween(40, 120),
-      holdCount: 0,
-      glowLayers: Math.random() < 0.5 ? 3 : 2,
-    };
-  }
-
-  // pre-seed
-  for (let i = 0; i < 6; i++) {
-    const s = createStreak();
-    s.progress = Math.random();
-    s.alpha = s.maxAlpha * Math.random();
-    streaks.push(s);
-  }
-
-  // Cubic bezier point
-  function bezierPoint(t, p0, p1, p2, p3) {
-    const u = 1 - t;
-    return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3;
-  }
-
-  function drawStreak(s) {
-    const t0 = Math.max(0, s.progress - s.headLen);
-    const t1 = Math.min(1, s.progress);
-    if (t0 >= t1) return;
-
-    const steps = 60;
-    ctx.save();
-
-    for (let layer = s.glowLayers; layer >= 1; layer--) {
-      ctx.beginPath();
-      for (let i = 0; i <= steps; i++) {
-        const t = t0 + (t1 - t0) * (i / steps);
-        const x = bezierPoint(t, s.x0, s.cx1, s.cx2, s.x1);
-        const y = bezierPoint(t, s.y0, s.cy1, s.cy2, s.y1);
-        // brightness fades toward tail
-        const frac = i / steps;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      const baseAlpha = s.alpha * (layer === 1 ? 1 : 0.3 / layer);
-      ctx.strokeStyle = s.color + baseAlpha + ')';
-      ctx.lineWidth   = s.width * (layer === 1 ? 1 : layer * 1.8);
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      if (layer > 1) {
-        ctx.shadowColor = s.color + '0.6)';
-        ctx.shadowBlur  = 8 * layer;
-      }
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-    }
-
-    // bright sparkle tip
-    const tipX = bezierPoint(t1, s.x0, s.cx1, s.cx2, s.x1);
-    const tipY = bezierPoint(t1, s.y0, s.cy1, s.cy2, s.y1);
-    const grad = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, 6);
-    grad.addColorStop(0, s.color + (s.alpha * 1.4) + ')');
-    grad.addColorStop(1, s.color + '0)');
-    ctx.beginPath();
-    ctx.arc(tipX, tipY, 6, 0, Math.PI * 2);
-    ctx.fillStyle = grad;
-    ctx.fill();
-
-    ctx.restore();
-  }
-
-  let spawnTimer = 0;
-  function tick() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // spawn new streaks periodically
-    spawnTimer++;
-    if (spawnTimer > 55 && streaks.length < 12) {
-      streaks.push(createStreak());
-      spawnTimer = 0;
-    }
-
-    for (let i = streaks.length - 1; i >= 0; i--) {
-      const s = streaks[i];
-
-      // state machine
-      if (s.phase === 'in') {
-        s.alpha    += s.maxAlpha * 0.06;
-        s.progress += s.speed;
-        if (s.alpha  >= s.maxAlpha) { s.alpha = s.maxAlpha; }
-        if (s.progress >= 1) { s.progress = 1; s.phase = 'hold'; }
-      } else if (s.phase === 'hold') {
-        s.holdCount++;
-        if (s.holdCount >= s.holdTime) s.phase = 'out';
-      } else {
-        s.alpha -= s.maxAlpha * 0.04;
-        if (s.alpha <= 0) { streaks.splice(i, 1); continue; }
-      }
-
-      drawStreak(s);
-    }
-
-    requestAnimationFrame(tick);
-  }
-  tick();
-})();
-
-</script>
 <!-- SITE FOOTER -->
 <footer class="site-footer">
   <div class="footer-left">
